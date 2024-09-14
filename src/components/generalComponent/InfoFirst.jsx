@@ -34,4 +34,4 @@ function InfoFirst({ title, text, image }) {
   );
 }
 
-export default InfoFirst;
+export default InfoFirst;                            
