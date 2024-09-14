@@ -1,12 +1,15 @@
 import React from "react";
+import image from '../../../assets/achievement-1.png';
 import ItemsLayout from "../../generalComponent/ItemsLayout";
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
 function Acheievement() {
   return (
     <ItemsLayout>
-          <Box>
-            
+      <Box>
+
+        <Image src={image} w="600px" h="100%" alt="Image of 3 young students" />
+        <Image src={image} w="600px" h="100%" alt="Image of 3 young students" />
       </Box>
       <Box>
         <Heading
