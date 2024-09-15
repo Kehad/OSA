@@ -11,6 +11,7 @@ import about1 from "../../../assets/about-1.png";
 import about2 from "../../../assets/about-2.png";
 import about3 from "../../../assets/about-3.png";
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const sliderContent = [
   {
@@ -131,6 +132,11 @@ function MainSlider() {
                   w={{ base: "250px", md: "350px", lg: "300px" }}
                   h={{ base: "200px", md: "300px", lg: "250px" }}
                   key={index}
+                  as={motion.div}
+                  initial={{ opacity: 0, y: 50 }} // Initial state (hidden and shifted down)
+                  animate={{ opacity: 1, y: 0 }} // Final state (visible and in place)
+                  exit={{ opacity: 0, y: 50 }} // Exit animation (hide and shift down)
+                  transition={{ duration: 0.5 }} // Animation timing
                 >
                   <Flex
                     direction="column"
