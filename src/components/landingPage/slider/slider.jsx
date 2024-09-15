@@ -82,8 +82,8 @@ const ImageSlider = () => {
             bg={
               index < 3
                 ? index === currentIndex % 3
-                  ? "white"
-                  : "gray.300"
+                  ? "#1C3519"
+                  : "#8E9A8C"
                 : "transparent"
             }
             mx="2px"
