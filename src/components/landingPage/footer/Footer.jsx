@@ -35,38 +35,38 @@ function Footer() {
       </Flex>
       <Box>
         <Box overflowX="auto">
-          <Table variant="simple" size="lg" color="#fff" border="none">
+          <Table variant="simple" size={{ base: "sm", md: "md", lg: "lg" }} color="#fff" border="none">
             <Thead>
               <Tr>
-                <Th color="#fff" border='none'>Accounts</Th>
-                <Th color="#fff" border='none'>Information</Th>
-                <Th color="#fff" border='none'>Quick Links</Th>
-                <Th color="#fff" border='none'>Schedules</Th>
+                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }}>Accounts</Th>
+                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }}>Information</Th>
+                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Quick Links</Th>
+                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Schedules</Th>
               </Tr>
             </Thead>
             <Tbody border="none">
               <Tr border="none">
-                <Td border="none">Parent Log In</Td>
-                <Td border="none">About Us</Td>
-                <Td border="none">Parent Help</Td>
-                <Td border="none">School Schedule</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Parent Log In</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>About Us</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Parent Help</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>School Schedule</Td>
               </Tr>
               <Tr>
-                <Td border="none">Teacher Log In</Td>
-                <Td border="none">Contact Us</Td>
-                <Td border="none">Teacher Help</Td>
-                <Td border="none">Class Timetable</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Teacher Log In</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Contact Us</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Teacher Help</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Class Timetable</Td>
               </Tr>
               <Tr>
-                <Td border="none">Admin Log In</Td>
-                <Td border="none">Blog</Td>
-                <Td border="none">Feedback</Td>
-                <Td border="none">Exam Timetable</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Admin Log In</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Blog</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Feedback</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Exam Timetable</Td>
               </Tr>
               <Tr>
                 <Td border="none"></Td>
-                <Td border="none">Terms and Conditions</Td>
-                <Td border="none">FAQs</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Terms and Conditions</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>FAQs</Td>
               </Tr>
             </Tbody>
           </Table>
