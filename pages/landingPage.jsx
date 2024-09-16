@@ -6,6 +6,7 @@ import News from "../src/components/landingPage/News/News";
 import Acheievement from "../src/components/landingPage/achievement/acheievement";
 import ImageSlider from "../src/components/landingPage/slider/slider";
 import MainSlider from "../src/components/landingPage/slider/mainSlider";
+import Footer from "../src/components/landingPage/footer/Footer";
 
 function LandingPage() {
   return (
@@ -25,6 +26,9 @@ function LandingPage() {
       <Layout padding="px-[3rem]" color="bg-[#E2FFDE66]">
         <MainSlider />
         {/* <ImageSlider /> */}
+      </Layout>
+      <Layout padding="px-[3rem] py-[4rem]" color="bg-[#1C3519]">
+        <Footer />
       </Layout>
     </>
   );
