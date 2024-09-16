@@ -1,4 +1,4 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Input, Text, Textarea, VStack } from "@chakra-ui/react";
 import React from "react";
 
 function Message() {
@@ -20,38 +20,92 @@ function Message() {
       >
         <Heading fontSize="1.5rem">Leave Us Your Message</Heading>
         <Text>And We’ll Get Back To You</Text>
-        <form className="flex flex-col flex-wrap justify-center gap-[1.4rem] text-start items-start bg-red mt-8 w-[22rem]">
-          <div className="flex flex-col gap-[0.5rem] w-[100%]">
-            <input
+        <Box
+          as="form"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          gap="1.4rem"
+          textAlign="left"
+          alignItems="flex-start"
+          mt="8"
+          w="22rem"
+        >
+          <VStack spacing="0.5rem" w="100%">
+            <Input
               type="text"
-              className="w-full h-[2.3rem] text-black rounded px-[1rem] border-2 border-[#C8C8C8] outline-none"
               placeholder="Full Name*"
+              w="100%"
+              h="2.3rem"
+              color="black"
+              borderRadius="md"
+              px="1rem"
+              border="2px solid"
+              borderColor="#C8C8C8"
+              _focus={{ outline: "none" }}
             />
-          </div>
-          <div className="flex flex-col gap-[0.5rem] w-full">
-            <input
+          </VStack>
+
+          <VStack spacing="0.5rem" w="100%">
+            <Input
               type="email"
               placeholder="Email*"
-              className="w-full h-[2.3rem] text-black bg-[#F9F9F9] rounded px-[1rem]  border-2 border-[#C8C8C8] outline-none"
+              w="100%"
+              h="2.3rem"
+              color="black"
+              bg="#F9F9F9"
+              borderRadius="md"
+              px="1rem"
+              border="2px solid"
+              borderColor="#C8C8C8"
+              _focus={{ outline: "none" }}
             />
-          </div>
-          <div className="flex flex-col gap-[0.5rem] w-full">
-            <input
+          </VStack>
+
+          <VStack spacing="0.5rem" w="100%">
+            <Input
               type="text"
               placeholder="Subject*"
-              className="w-full h-[2.3rem] text-black rounded px-[1rem]  border-2 border-[#C8C8C8] outline-none"
+              w="100%"
+              h="2.3rem"
+              color="black"
+              borderRadius="md"
+              px="1rem"
+              border="2px solid"
+              borderColor="#C8C8C8"
+              _focus={{ outline: "none" }}
             />
-          </div>
-          <div className="flex flex-col gap-[0.5rem] w-full">
-            <textarea
-              className="w-full h-[7.3rem] text-black bg-[#F9F9F9] rounded px-[1rem]  border-2 border-[#C8C8C8] outline-none pt-2"
+          </VStack>
+
+          <VStack spacing="0.5rem" w="100%">
+            <Textarea
               placeholder="Message*"
-            ></textarea>
-          </div>
-          <button className="h-[2.3rem] bg-[#1C3519] rounded-md text-white px-[1rem]  outline-none w-full">
+              w="100%"
+              h="7.3rem"
+              color="black"
+              bg="#F9F9F9"
+              borderRadius="md"
+              px="1rem"
+              border="2px solid"
+              borderColor="#C8C8C8"
+              _focus={{ outline: "none" }}
+              pt="2"
+            />
+          </VStack>
+
+          <Button
+            h="2.3rem"
+            bg="#1C3519"
+            color="white"
+            borderRadius="md"
+            px="1rem"
+            w="100%"
+            _hover={{ bg: "#163017" }}
+            _focus={{ outline: "none" }}
+          >
             SUBMIT NOW
-          </button>
-        </form>
+          </Button>
+        </Box>
       </Flex>
     </Flex>
   );
