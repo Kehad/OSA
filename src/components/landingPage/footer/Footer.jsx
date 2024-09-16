@@ -16,9 +16,9 @@ import OSA_LOGO from "../../../assets/OSA-LOGO.png";
 
 function Footer() {
   return (
-    <Flex>
+    <Flex justifyContent='space-evenly'>
       <Flex direction="column" gap={5}>
-        <Box width="100px" height="100px">
+        <Box width="200px" height="200px">
           <Image src={OSA_LOGO} alt="OSA logo" width="w-max" height="h-max" />
         </Box>
         <Box color="#fff">
