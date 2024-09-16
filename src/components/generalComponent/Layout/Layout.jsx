@@ -1,9 +1,12 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
+import { Box } from "@chakra-ui/react";
 
-function Layout({ children, padding, color }) {
+function Layout({ children, ...rest }) {
   return (
-      <div className={`${padding} ${color}`}>{children}</div>
-  )
+    <Box {...rest}>
+      {children}
+    </Box>
+  );
 }
 
-export default Layout
+export default Layout;

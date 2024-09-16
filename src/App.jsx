@@ -13,7 +13,7 @@ function App() {
         <Route index element={<LandingPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
-      <Layout padding="px-[3rem] py-[4rem]" color="bg-[#1C3519]">
+      <Layout padding="3rem 4rem" bg='#1C3519'>
         <Footer />
       </Layout>
     </>

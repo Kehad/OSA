@@ -11,19 +11,19 @@ import Footer from "../src/components/landingPage/footer/Footer";
 function LandingPage() {
   return (
     <>
-      <Layout padding="pl-[3rem]" color="bg-[#1C3519]">
+      <Layout paddingLeft="3rem" bg='#1C3519'>
         <Header />
       </Layout>
-      <Layout padding="px-[3rem]" color="bg-[#FEF9E6]">
+      <Layout paddingX="3rem" bg='#FEF9E6'>
         <News />
       </Layout>
-      <Layout padding="px-[3rem]" color="bg-[#ffffff]">
+      <Layout paddingX="3rem" bg='#ffffff'>
         <Information />
       </Layout>
-      <Layout padding="px-[3rem]" color="bg-[#fef9e6]">
+      <Layout paddingX="3rem" bg='#fef9e6'>
         <Acheievement />
       </Layout>
-      <Layout padding="px-[3rem]" color="bg-[#E2FFDE66]">
+      <Layout paddingX="3rem" bg='#E2FFDE'>
         <MainSlider />
         {/* <ImageSlider /> */}
       </Layout>
