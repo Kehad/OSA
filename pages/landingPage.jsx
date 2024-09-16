@@ -27,9 +27,7 @@ function LandingPage() {
         <MainSlider />
         {/* <ImageSlider /> */}
       </Layout>
-      <Layout padding="px-[3rem] py-[4rem]" color="bg-[#1C3519]">
-        <Footer />
-      </Layout>
+     
     </>
   );
 }

@@ -1,20 +1,36 @@
 import { Box, Flex, Image, UnorderedList, ListItem, Button } from "@chakra-ui/react";
 import OSA_LOGO from "../src/assets/OSA-LOGO.png";
+import { NavLink } from "react-router-dom";
 // import { AnimatePresence, motion } from "framer-motion";
-// import { NavLink } from "react-router-dom";
 
 function Nav() {
   return (
-    <Box px={{ base: "2rem", sm: "3rem", lg: "5rem" }} py="4" bg="transparent" color="white">
+    <Box
+      px={{ base: "2rem", sm: "3rem", lg: "5rem" }}
+      py="4"
+      bg="transparent"
+      color="white"
+    >
       <Flex wrap="wrap" justify="space-between" align="center">
         {/* Logo */}
         <Image src={OSA_LOGO} alt="OSA logo" h="8" />
 
         {/* Navigation */}
-        <UnorderedList display="flex" gap="4" color="#1C3519" listStyleType="none">
-          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">Home</ListItem>
-          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">About Us</ListItem>
-          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">Contact Us</ListItem>
+        <UnorderedList
+          display="flex"
+          gap="4"
+          color="#1C3519"
+          listStyleType="none"
+        >
+          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">
+            <NavLink to='/'>Home</NavLink>
+          </ListItem>
+          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">
+            <NavLink to='/aboutus'>About Us</NavLink>
+          </ListItem>
+          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">
+            <NavLink to='/contact'>Contact Us</NavLink>
+          </ListItem>
         </UnorderedList>
 
         {/* Button */}
