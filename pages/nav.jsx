@@ -26,8 +26,8 @@ function Nav() {
             <NavLink to='/'>Home</NavLink>
           </ListItem>
           <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">
-            <NavLink to='/aboutus'>About Us</NavLink>
-          </ListItem>
+            <NavLink to='/about'>About Us</NavLink>
+          </ListItem> 
           <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">
             <NavLink to='/contact'>Contact Us</NavLink>
           </ListItem>
