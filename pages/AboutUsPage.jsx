@@ -1,6 +1,10 @@
 import React from "react";
 import Header from "../src/components/aboutUsPage/header/Header";
 import Layout from "../src/components/generalComponent/Layout/Layout";
+import Card from "../src/components/aboutUsPage/header/Card";
+import { Flex } from "@chakra-ui/react";
+import Story from "../src/components/aboutUsPage/story/Story";
+import Purpose from "../src/components/aboutUsPage/purpose/Purpose";
 
 function AboutUsPage() {
   return (
@@ -10,7 +14,15 @@ function AboutUsPage() {
         bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
       >
         <Header />
+        <Flex alignItems="center" justifyContent="center" paddingTop="4rem">
+          <Card />
+        </Flex>
       </Layout>
+
+      <Story />
+      <Flex alignItems="center" justifyContent="center" paddingBottom="4rem">
+        <Purpose />
+      </Flex>
     </>
   );
 }
