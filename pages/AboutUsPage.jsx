@@ -5,6 +5,7 @@ import Card from "../src/components/aboutUsPage/header/Card";
 import { Flex } from "@chakra-ui/react";
 import Story from "../src/components/aboutUsPage/story/Story";
 import Purpose from "../src/components/aboutUsPage/purpose/Purpose";
+import Value from "../src/components/aboutUsPage/value/Value";
 
 function AboutUsPage() {
   return (
@@ -22,7 +23,8 @@ function AboutUsPage() {
       <Story />
       <Flex alignItems="center" justifyContent="center" paddingBottom="4rem">
         <Purpose />
-      </Flex>
+          </Flex>
+          <Value />
     </>
   );
 }
