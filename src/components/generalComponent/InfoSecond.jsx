@@ -3,11 +3,11 @@ import { Box, Heading, Text, Image, Flex } from "@chakra-ui/react";
 
 function InfoSecond({ title, text, image }) {
   return (
-    <Flex justify="space-between" align="flex-start">
-      <Box w="45%">
+    <Flex justify="space-between" align="center">
+      <Box w="48%">
         <Image src={image} w="full" h="auto" alt="Image of 3 young students" />
       </Box>
-      <Box w="45%" color="black">
+      <Box w="48%" color="black">
         <Heading as="h3" fontSize="2xl" fontWeight="bold" mb={4}>
           {title}
         </Heading>

@@ -7,6 +7,8 @@ import Story from "../src/components/aboutUsPage/story/Story";
 import Purpose from "../src/components/aboutUsPage/purpose/Purpose";
 import Value from "../src/components/aboutUsPage/value/Value";
 import SchoolSection from "../src/components/aboutUsPage/schoolSection/SchoolSection";
+import Team from "../src/components/aboutUsPage/team/Team";
+import MainSlider from "../src/components/aboutUsPage/slider/mainSlider";
 
 function AboutUsPage() {
   return (
@@ -33,6 +35,15 @@ function AboutUsPage() {
         bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
       >
         <SchoolSection />
+      </Layout>
+
+      <Team />
+
+      <Layout
+        paddingX="3rem"
+        bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
+      >
+        <MainSlider />
       </Layout>
     </>
   );

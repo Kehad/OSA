@@ -1,11 +1,8 @@
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+
 import nursery from "../../../assets/contact-nursery.png";
 import junior from "../../../assets/contact-junior.png";
 import primary from "../../../assets/contact-primary.png";
 import secondary from "../../../assets/contact-secondary.png";
-import about1 from "../../../assets/about-1.png";
-import about2 from "../../../assets/about-2.png";
-import about3 from "../../../assets/about-3.png";
 import InfoFirst from "../../generalComponent/InfoFirst";
 import InfoSecond from "../../generalComponent/InfoSecond";
 
