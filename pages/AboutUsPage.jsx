@@ -9,6 +9,7 @@ import Value from "../src/components/aboutUsPage/value/Value";
 import SchoolSection from "../src/components/aboutUsPage/schoolSection/SchoolSection";
 import Team from "../src/components/aboutUsPage/team/Team";
 import MainSlider from "../src/components/aboutUsPage/slider/mainSlider";
+import FAQ from "../src/components/aboutUsPage/faq/FAQ";
 
 function AboutUsPage() {
   return (
@@ -38,6 +39,8 @@ function AboutUsPage() {
       </Layout>
 
       <Team />
+
+      <FAQ />
 
       <Layout
         paddingX="3rem"
