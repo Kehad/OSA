@@ -7,7 +7,32 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 
-
+const AccordionBox = [
+  {
+    title: "Frequently asked questions",
+    text: "Frequently asked questions",
+  },
+  {
+    title: "Frequently asked questions",
+    text: "Frequently asked questions",
+  },
+  {
+    title: "Frequently asked questions",
+    text: "Frequently asked questions",
+  },
+  {
+    title: "Frequently asked questions",
+    text: "Frequently asked questions",
+  },
+  {
+    title: "Frequently asked questions",
+    text: "Frequently asked questions",
+  },
+  {
+    title: "Frequently asked questions",
+    text: "Frequently asked questions",
+  },
+];
 
 function FAQ() {
   return (
@@ -22,37 +47,26 @@ function FAQ() {
         Frequently Asked Questions (FAQs)
       </h4>
 
-      <Accordion allowToggle width='500px'>
-        <AccordionItem>
-          <h2>
-            <AccordionButton _expanded={{ bg: "#1C3519", color: "white" }}>
-              <Box as="span" flex="1" textAlign="left">
-                Frequently asked questions
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4} fontSize="11px">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </AccordionPanel>
-        </AccordionItem>
-
-        <AccordionItem>
-          <h2>
-            <AccordionButton _expanded={{ bg: "#1C3519", color: "white" }}>
-              <Box as="span" flex="1" textAlign="left">
-                Section 2 title
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </h2>
-          <AccordionPanel pb={4} fontSize="11px">
-            Frequently asked questions
-          </AccordionPanel>
-        </AccordionItem>
+      <Accordion allowToggle width="700px">
+        {AccordionBox.map((accordion, index) => (
+          <AccordionItem key={index}>
+            <h2>
+              <AccordionButton
+                _expanded={{ bg: "#1C3519", color: "white" }}
+                border="1px"
+                borderColor="#A0A0A0"
+              >
+                <Box as="span" flex="1" textAlign="left">
+                  {accordion.title}
+                </Box>
+                <AccordionIcon />
+              </AccordionButton>
+            </h2>
+            <AccordionPanel pb={4} fontSize="11px" border="10px !important">
+             {accordion.text}
+            </AccordionPanel>
+          </AccordionItem>
+        ))}
       </Accordion>
     </Flex>
   );
