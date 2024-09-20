@@ -4,14 +4,14 @@ import { Box, Heading, Text, Image, Flex } from "@chakra-ui/react";
 function InfoFirst({ title, text, image }) {
   return (
     <Flex align="center" justify="space-between">
-      <Box color="black">
+      <Box color="black" width='45%'>
         <Heading
           as="h3"
           fontSize="2xl"
           fontWeight="bold"
           lineHeight="56px"
           textAlign="left"
-          w="70%"
+          w="100%"
         >
           {title}
         </Heading>
@@ -22,12 +22,12 @@ function InfoFirst({ title, text, image }) {
           letterSpacing="0.03em"
           mt={4}
           textAlign="left"
-          w="70%"
+          w="100%"
         >
           {text}
         </Text>
       </Box>
-      <Box w="1700px">
+      <Box w="1700px" width={'45%'}>
         <Image src={image} w="600px" h="100%" alt="Image of 3 young students" />
       </Box>
     </Flex>
