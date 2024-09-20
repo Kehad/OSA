@@ -50,38 +50,7 @@ function Value() {
     >
       <Heading>Core Values</Heading>
       <Flex flexWrap="wrap" alignItems="center" justifyContent="center" gap={5} paddingTop={12}>
-        {/* <Flex
-          bg="#fff"
-          borderRadius="10px"
-          borderWidth="3px"
-          borderColor="#8E9A8C"
-          alignItems="center"
-          width="max-content"
-          gap={5}
-          padding={5}
-        >
-          <Flex
-            bg="#FBECB5"
-            alignItems="center"
-            direction="column"
-            justifyContent="center"
-            width=""
-            height="max-content"
-            padding="1rem"
-          >
-            <Image width="3rem" src={ContactDiscplineIcon} alt="Discipline" />
-            <Heading fontSize="20px">Discipline</Heading>
-          </Flex>
-          <Box>
-            <Text fontSize="16px" width="16rem">
-              Discipline is more than a guideline—it's a cornerstone of our
-              success. We believe that cultivating self-control, responsibility,
-              and respect creates an environment where every student can thrive
-              and develop the habits and attitudes necessary for personal and
-              academic achievement.
-            </Text>
-          </Box>
-              </Flex> */}
+       
         {valueData.map((value, index) => {
           return (
             <Flex

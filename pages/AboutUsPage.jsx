@@ -6,6 +6,7 @@ import { Flex } from "@chakra-ui/react";
 import Story from "../src/components/aboutUsPage/story/Story";
 import Purpose from "../src/components/aboutUsPage/purpose/Purpose";
 import Value from "../src/components/aboutUsPage/value/Value";
+import SchoolSection from "../src/components/aboutUsPage/schoolSection/SchoolSection";
 
 function AboutUsPage() {
   return (
@@ -21,10 +22,18 @@ function AboutUsPage() {
       </Layout>
 
       <Story />
+
       <Flex alignItems="center" justifyContent="center" paddingBottom="4rem">
         <Purpose />
-          </Flex>
-          <Value />
+      </Flex>
+
+      <Value />
+      <Layout
+        padding="3rem"
+        bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
+      >
+        <SchoolSection />
+      </Layout>
     </>
   );
 }
