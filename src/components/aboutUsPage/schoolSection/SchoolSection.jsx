@@ -38,7 +38,6 @@ function SchoolSection() {
 Our dedicated faculty members are committed to providing individualized guidance and support, helping each student navigate the path to tertiary institutions and beyond. We emphasize academic excellence, leadership, and personal growth, ensuring that our graduates are well-prepared to meet the demands of the future. We strive to cultivate responsible, innovative, and confident individuals ready to make a positive impact in the world."
           image={secondary}
         />
-       
       </div>
     </div>
   );
