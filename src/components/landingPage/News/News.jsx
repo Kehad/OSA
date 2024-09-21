@@ -11,6 +11,7 @@ function News() {
         fontWeight="bold"
         lineHeight="40px"
         mb={8}
+        fontFamily='heading.h1'
       >
         Latest News and Updates
       </Heading>

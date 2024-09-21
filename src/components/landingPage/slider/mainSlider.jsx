@@ -95,6 +95,7 @@ function MainSlider() {
         textAlign="center"
         lineHeight="40px"
         mb={8}
+        fontFamily='heading.h1'
       >
         What We Offer You and Your Children
       </Heading>

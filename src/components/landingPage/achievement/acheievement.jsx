@@ -6,7 +6,7 @@ import { Box, Flex, Heading, Image, Text, Spacer } from "@chakra-ui/react";
 
 function Acheievement() {
   return (
-    <Box paddingTop='3rem' paddingBottom='6rem'>
+    <Box paddingTop="3rem" paddingBottom="6rem">
       <ItemsLayout>
         <Box position={"relative"} width="45%">
           <Image
@@ -33,6 +33,7 @@ function Acheievement() {
             fontWeight="bold"
             lineHeight="56px"
             textAlign="left"
+            fontFamily="heading.h1"
           >
             Some of Our Acheivements
           </Heading>
@@ -44,6 +45,7 @@ function Acheievement() {
                 fontWeight="bold"
                 //   lineHeight="56px"
                 textAlign="left"
+                fontFamily="heading.h1"
               >
                 2,000+
               </Heading>
@@ -54,6 +56,7 @@ function Acheievement() {
                   fontWeight="bold"
                   // lineHeight="56px"
                   textAlign="left"
+                  fontFamily="heading.h1"
                 >
                   Graduated Students
                 </Heading>
@@ -64,6 +67,7 @@ function Acheievement() {
                   letterSpacing="0.03em"
                   textAlign="left"
                   w="70%"
+                  fontFamily='body.b1'
                 >
                   We have successfully graduated over 2,000 students. 90% of
                   these studenst gained admission into the institution of their
@@ -78,6 +82,7 @@ function Acheievement() {
                 fontWeight="bold"
                 //   lineHeight="56px"
                 textAlign="left"
+                fontFamily='heading.h1'
               >
                 100%&nbsp;&nbsp;
               </Heading>
@@ -89,6 +94,7 @@ function Acheievement() {
                   fontWeight="bold"
                   // lineHeight="56px"
                   textAlign="left"
+                  fontFamily='heading.h1'
                 >
                   External Success Rates
                 </Heading>
@@ -98,6 +104,7 @@ function Acheievement() {
                   // lineHeight="30px"
                   letterSpacing="0.03em"
                   textAlign="left"
+                  fontFamily='body.b1'
                 >
                   We have recorded ground-breaking success in external
                   examinations ranging from JAMB, to WASSCE, to NECO, to BECE.
@@ -111,6 +118,7 @@ function Acheievement() {
                 fontWeight="bold"
                 //   lineHeight="56px"
                 textAlign="left"
+                fontFamily='heading.h1'
               >
                 100%&nbsp;&nbsp;
               </Heading>
@@ -121,6 +129,7 @@ function Acheievement() {
                   fontWeight="bold"
                   // lineHeight="56px"
                   textAlign="left"
+                  fontFamily='heading.h1'
                 >
                   Involvement in Competitons
                 </Heading>
@@ -130,6 +139,7 @@ function Acheievement() {
                   // lineHeight="30px"
                   letterSpacing="0.03em"
                   textAlign="left"
+                  fontFamily='body.b1'
                 >
                   We pride ourselves in being well represented in inter-school
                   competions both locally and internationally.

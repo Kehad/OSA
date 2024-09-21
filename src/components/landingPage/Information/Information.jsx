@@ -12,9 +12,17 @@ import InfoSecond from "../../generalComponent/InfoSecond";
 function Information() {
   return (
     <div className="py-12">
-      <h4 className="text-[32px] font-bold text-center leading-[40px] mb-8">
+      <Heading
+        as="h4"
+        fontSize="32px"
+        fontWeight="bold"
+        lineHeight="40px"
+        mb={8}
+        fontFamily='heading.h1'
+        textAlign='center'
+      >
         What We Offer You and Your Children
-      </h4>
+      </Heading>
       <div className="flex flex-col gap-16">
         <InfoFirst
           title="Admissions are currently ongoing"
@@ -61,6 +69,7 @@ function Information() {
               lineHeight="56px"
               textAlign="left"
               //   w="45%"
+              fontFamily='heading.h1'
             >
               Who Are We?
             </Heading>
@@ -69,9 +78,9 @@ function Information() {
               fontWeight="medium"
               lineHeight="30px"
               letterSpacing="0.03em"
-              //   mt={4}
               textAlign="left"
               //   w="45%"
+              fontFamily='body.h1'
             >
               We are a team of passionate educators and professionals who are
               dedicated to nurturing the minds and hearts of our students. Our
@@ -84,7 +93,7 @@ function Information() {
               where we prepare our students not only for academic success but
               also for a lifetime of learning, leadership, and service.
             </Text>
-            <Button color="#fff" bg="#1C3519" width="13rem">
+            <Button color="#fff" bg="#1C3519" width="13rem" fontFamily='body.h1'>
               Read more
             </Button>
           </Flex>
