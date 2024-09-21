@@ -1,4 +1,11 @@
-import { Box, Flex, Image, UnorderedList, ListItem, Button } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Image,
+  UnorderedList,
+  ListItem,
+  Button,
+} from "@chakra-ui/react";
 import OSA_LOGO from "../src/assets/OSA-LOGO.png";
 import { NavLink } from "react-router-dom";
 // import { AnimatePresence, motion } from "framer-motion";
@@ -6,30 +13,46 @@ import { NavLink } from "react-router-dom";
 function Nav() {
   return (
     <Box
-      px={{ base: "2rem", sm: "3rem", lg: "5rem" }}
-      py="4"
+      px={{ base: "2rem", sm: "3rem", lg: "3rem" }}
+      py="3"
       bg="transparent"
       color="white"
+      fontFamily="Lato"
     >
       <Flex wrap="wrap" justify="space-between" align="center">
         {/* Logo */}
-        <Image src={OSA_LOGO} alt="OSA logo" h="8" />
+        <Image src={OSA_LOGO} alt="OSA logo" h="16" />
 
         {/* Navigation */}
         <UnorderedList
           display="flex"
-          gap="4"
+          gap="8"
           color="#1C3519"
           listStyleType="none"
         >
-          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">
-            <NavLink to='/'>Home</NavLink>
+          <ListItem
+            pb="1"
+            px="1"
+            borderBottom="2px solid #1C3519"
+            cursor="pointer"
+          >
+            <NavLink to="/">Home</NavLink>
           </ListItem>
-          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">
-            <NavLink to='/about'>About Us</NavLink>
-          </ListItem> 
-          <ListItem pb="1" px="1" borderBottom="2px solid #1C3519">
-            <NavLink to='/contact'>Contact Us</NavLink>
+          <ListItem
+            pb="1"
+            px="1"
+            borderBottom="2px solid #1C3519"
+            cursor="pointer"
+          >
+            <NavLink to="/about">About Us</NavLink>
+          </ListItem>
+          <ListItem
+            pb="1"
+            px="1"
+            borderBottom="2px solid #1C3519"
+            cursor="pointer"
+          >
+            <NavLink to="/contact">Contact Us</NavLink>
           </ListItem>
         </UnorderedList>
 
@@ -66,4 +89,3 @@ function Nav() {
 }
 
 export default Nav;
-

@@ -8,14 +8,15 @@ import contactHeader4 from "../../../assets/contact-header4.png";
 function Header() {
   return (
     <Flex align="center" justify="space-between">
-      <Box color="black" width='55%'>
+      <Box color="black" width="55%">
         <Heading
           as="h3"
           fontSize="5xl"
           fontWeight="bold"
           lineHeight="56px"
           textAlign="left"
-          w="100%"
+          w="85%"
+          fontFamily="Montserrat"
         >
           Experience{" "}
           <Box
@@ -36,6 +37,7 @@ function Header() {
           letterSpacing="0.03em"
           mt={4}
           textAlign="left"
+          fontFamily="Lato"
           w="100%"
         >
           Here at Oluwatosin Success Academy we are dedicated to giving your
@@ -46,7 +48,7 @@ function Header() {
         </Text>
       </Box>
       <Box w="500px">
-        <Flex alignItems='flex-end' gap={6}>
+        <Flex alignItems="flex-end" gap={6}>
           <Image
             src={contactHeader1}
             w="600px"

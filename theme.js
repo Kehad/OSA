@@ -27,12 +27,13 @@ const theme = extendTheme({
   styles,
   fonts: {
     heading: {
+      h1: `'Montserrat', sans-serif`, // Body 5 - Montserrat
       h2: `'Lobster', cursive`, // Heading 2 - Lobster
     },
     body: {
-      b2: `'Cabin Sketch', cursive`, // Heading 1 - Cabin Sketch
-      b1: `'Patrick Hand', cursive`, // Body 1 - Patrick Hand
-      b5: `'Montserrat', sans-serif`, // Body 5 - Montserrat
+      b1: `'Lato', sans-serif`, // Body 5 - Montserrat
+      b2: `'Patrick Hand', cursive`, // Body 1 - Patrick Hand
+      b3: `'Cabin Sketch', cursive`, // Heading 1 - Cabin Sketch
     },
   },
 });

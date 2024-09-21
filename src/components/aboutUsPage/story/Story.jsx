@@ -10,12 +10,14 @@ function Story() {
       paddingBottom="3rem"
       gap={4}
     >
-      <Heading>Story</Heading>
+      <Heading fontFamily="heading.h1">Our Story</Heading>
       <Text
         width="70%"
         wordBreak="break-word"
         whiteSpace="pre-wrap"
         textAlign="center"
+        fontFamily="heading.h1"
+        fontWeight='400'
       >
         {`Oluwatosin Success Academy, OSA, is a school that is established as modern age educational centre with  
         international standard to provide excellent education at the elementary level, so as to contribute to the achievement 
@@ -27,8 +29,7 @@ section was birthed and began operation on the 7th of September, 2015.
 at the elementary level. 
 2.​The need to provide solid foundation for pupils and students in every aspect of life (Spiritually, Morally and
 Educationally)
-We are currently located in two States of the Federal Republic of Nigeria`
-              }
+We are currently located in two States of the Federal Republic of Nigeria`}
       </Text>
     </Flex>
   );

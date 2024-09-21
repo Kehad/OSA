@@ -3,9 +3,17 @@ import React from 'react'
 
 function Card() {
   return (
-      <Flex gap='6rem' bg="#F8DF84" justifyContent='cente' paddingX='4rem' padding='2rem' borderRadius='20px'>
+    <Flex
+      gap="6rem"
+      bg="#F8DF84"
+      justifyContent="cente"
+      paddingX="4rem"
+      padding="2rem"
+      borderRadius="20px"
+      fontFamily="Montserrat"
+    >
       <Box>
-        <Heading as="h2" fontSize="30px">
+        <Heading as="h2" fontSize="30px" color='#1C3519'>
           2000+
         </Heading>
         <Heading as="h6" fontSize="15px" fontWeight="normal" textAlign="center">
@@ -13,7 +21,7 @@ function Card() {
         </Heading>
       </Box>
       <Box>
-        <Heading as="h2" fontSize="30px">
+        <Heading as="h2" fontSize="30px" color='#1C3519'>
           100%
         </Heading>
         <Heading as="h6" fontSize="15px" fontWeight="normal" textAlign="center">
@@ -21,7 +29,7 @@ function Card() {
         </Heading>
       </Box>
       <Box>
-        <Heading as="h2" fontSize="30px">
+        <Heading as="h2" fontSize="30px" color='#1C3519'>
           100%
         </Heading>
         <Heading as="h6" fontSize="15px" fontWeight="normal" textAlign="center">
@@ -29,7 +37,7 @@ function Card() {
         </Heading>
       </Box>
       <Box>
-        <Heading as="h2" fontSize="30px">
+        <Heading as="h2" fontSize="30px" color='#1C3519'>
           100
         </Heading>
         <Heading as="h6" fontSize="15px" fontWeight="normal" textAlign="center">
@@ -37,7 +45,7 @@ function Card() {
         </Heading>
       </Box>
       <Box>
-        <Heading as="h2" fontSize="30px">
+        <Heading as="h2" fontSize="30px" color='#1C3519'>
           100
         </Heading>
         <Heading as="h6" fontSize="15px" fontWeight="normal" textAlign="center">

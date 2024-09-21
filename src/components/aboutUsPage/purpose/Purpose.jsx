@@ -14,8 +14,11 @@ function Purpose() {
       margin="auto"
       borderWidth="1rem"
       borderColor="#654321"
+      fontFamily="body.b3"
     >
-      <Heading fontSize="30px">What Drives Us</Heading>
+      <Heading fontSize="30px" fontFamily="body.b3">
+        What Drives Us
+      </Heading>
       <Flex
         direction="column"
         alignItems="center"
@@ -23,17 +26,17 @@ function Purpose() {
         gap={5}
       >
         <Box textAlign="center">
-          <Heading fontSize="20px" marginBottom={3}>
+          <Heading fontSize="20px" marginBottom={3} fontFamily="body.b2">
             Our Mission
           </Heading>
 
-          <Text width="100%" textAlign="center" fontFamily="body.b5">
+          <Text width="100%" textAlign="center">
             To build, transform and equip students through academic platform
             into destinies and nation builders
           </Text>
         </Box>
         <Box textAlign="center">
-          <Heading fontSize="20px" marginBottom={3}>
+          <Heading fontSize="20px" marginBottom={3} fontFamily="body.b2">
             Our Vision
           </Heading>
           <Text width="100%" textAlign="center">
