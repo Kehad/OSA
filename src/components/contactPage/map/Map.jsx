@@ -12,6 +12,7 @@ function Map() {
         top="5%"
         left="1%"
         fontFamily="heading.h1"
+        borderWidth='2px'
         _hover={{
           color: "#1c3519",
           bg: "#fff",
