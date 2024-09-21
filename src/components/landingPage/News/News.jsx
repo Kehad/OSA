@@ -1,12 +1,19 @@
+import { Box, Heading } from "@chakra-ui/react";
 import news from "../../../assets/news.png";
 import InfoSecond from "../../generalComponent/InfoSecond";
 
 function News() {
   return (
-    <div className="py-12">
-      <h4 className="text-[32px] font-bold leading-[40px] mb-8">
+    <Box paddingY="3rem">
+      <Heading
+        as="h4"
+        fontSize="32px"
+        fontWeight="bold"
+        lineHeight="40px"
+        mb={8}
+      >
         Latest News and Updates
-      </h4>
+      </Heading>
       <InfoSecond
         title="Admissions are currently ongoing"
         text="Qorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -16,7 +23,7 @@ function News() {
           lobortis."
         image={news}
       />
-    </div>
+    </Box>
   );
 }
 

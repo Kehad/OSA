@@ -1,25 +1,46 @@
+import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
 import headerImg from '../../../assets/header.png';
 
 function Header() {
   return (
-    <div className="flex items-center justify-between">
-      <div className="text-white">
-        <h3 className="text-4xl font-bold leading-[56px] text-left w-[70%]">
+    <Flex alignItems="center" justifyContent="space-between">
+      <Box color="white">
+        <Heading
+          as="h3"
+          fontSize="4xl"
+          fontWeight="bold"
+          lineHeight="56px"
+          textAlign="left"
+          w="70%"
+          fontFamily='heading.h1'
+        >
           Welcome to Oluwatosin Success Academy
-        </h3>
-        <p className="text-lg font-medium leading-[30px] tracking-[0.03em] w-[70%] mt-4 text-left">
+        </Heading>
+        <Text
+          fontSize="lg"
+          fontWeight="medium"
+          lineHeight="30px"
+          letterSpacing="0.03em"
+          w="70%"
+          mt={4}
+          textAlign="left"
+          fontFamily='heading.h1'
+        >
           Where we shape the lives of children to build effective future
           leaders.
-        </p>
-      </div>
-      <div className="w-[600p] size-1/2	">
-        <img
+        </Text>
+      </Box>
+
+      <Box w="600px">
+        <Image
           src={headerImg}
-          className="w-[100%} h-[100%]"
           alt="Image of 3 young students"
+          width="100%"
+          height="100%"
+          objectFit="cover"
         />
-      </div>
-    </div>
+      </Box>
+    </Flex>
   );
 }
 
