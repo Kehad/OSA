@@ -58,10 +58,18 @@ function Team() {
       direction="column"
       alignItems="center"
     >
-      <h4 className="text-[32px] font-bold text-center leading-[40px] mb-8">
+      <Heading
+        as="h4"
+        fontSize="32px"
+        fontWeight="bold"
+        textAlign="center"
+        lineHeight="40px"
+        mb={8}
+        fontFamily="heading.h1"
+      >
         Our Team
-      </h4>
-      <Text width="70%" textAlign="center">
+      </Heading>
+      <Text width="70%" textAlign="center" fontFamily="body.b1">
         Meet our team of dedicated and passionate stakeholders and educators who
         are the heart of our community. With a wealth of knowledge and diverse
         experiences, our team is committed to providing a supportive and
@@ -69,7 +77,12 @@ function Team() {
         talented individuals who inspire and guide our students toward success
         each day.
       </Text>
-      <Flex gap="1rem" marginTop="4rem" marginBottom="2rem">
+      <Flex
+        gap="1rem"
+        marginTop="4rem"
+        marginBottom="2rem"
+        fontFamily="heading.h1"
+      >
         <Box>
           <Box
             width="300px"
@@ -77,8 +90,10 @@ function Team() {
             borderRadius="10px"
             bg="#F8DF84"
           ></Box>
-          <Box textAlign="center">
-            <Heading fontSize="24px">OLUWATOSIN John</Heading>
+          <Box textAlign="center" fontFamily="headig.h1">
+            <Heading fontSize="24px" fontFamily="">
+              OLUWATOSIN John
+            </Heading>
             <Text fontSize="16px">OLUWATOSIN John</Text>
           </Box>
         </Box>
@@ -89,13 +104,22 @@ function Team() {
             borderRadius="10px"
             bg="#1C3519"
           ></Box>
-          <Box textAlign="center">
-            <Heading fontSize="24px">OLUWATOSIN John</Heading>
+          <Box textAlign="center" fontFamily="heading.h1">
+            <Heading fontSize="24px" fontFamily="heading.h1">
+              OLUWATOSIN John
+            </Heading>
             <Text fontSize="16px">OLUWATOSIN John</Text>
           </Box>
         </Box>
       </Flex>
-      <Flex width='70%' flexWrap='wrap' alignItems='center' justifyContent='center' gap='3rem'>
+      <Flex
+        width="70%"
+        flexWrap="wrap"
+        alignItems="center"
+        justifyContent="center"
+        gap="3rem"
+        fontFamily="heading.h1"
+      >
         {staffs.map((staff, index) => (
           <Box key={index}>
             <Box
@@ -104,9 +128,13 @@ function Team() {
               borderRadius="10px"
               bg="#1C3519"
             ></Box>
-            <Box textAlign="center" marginTop='0.8rem'>
-              <Heading fontSize="16px" fontWeight='normal'>OLUWATOSIN John</Heading>
-              <Text fontSize="12px">OLUWATOSIN John</Text>
+            <Box textAlign="center" marginTop="0.8rem" fontFamily="heading.h1">
+              <Heading fontSize="16px" fontWeight="normal" fontFamily="inherit">
+                OLUWATOSIN John
+              </Heading>
+              <Text fontSize="12px" fontFamily="inherit">
+                OLUWATOSIN John
+              </Text>
             </Box>
           </Box>
         ))}

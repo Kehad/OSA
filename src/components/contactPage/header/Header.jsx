@@ -20,6 +20,7 @@ function Header() {
           fontSize="72px"
           //   width="70%"
           textAlign="center"
+          fontFamily='heading.h1'
         >
           We want to{" "}
           <Box as="span" color="#F8DF84">

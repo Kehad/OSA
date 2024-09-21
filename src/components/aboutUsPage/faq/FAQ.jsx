@@ -43,9 +43,17 @@ function FAQ() {
       direction="column"
       alignItems="center"
     >
-      <h4 className="text-[32px] font-bold text-center leading-[40px] mb-8">
+      <Heading
+        as="h4"
+        fontSize="32px"
+        fontWeight="bold"
+        textAlign="center"
+        lineHeight="40px"
+        mb={8}
+        fontFamily="heading.h1"
+      >
         Frequently Asked Questions (FAQs)
-      </h4>
+      </Heading>
 
       <Accordion allowToggle width="700px">
         {AccordionBox.map((accordion, index) => (
@@ -56,14 +64,24 @@ function FAQ() {
                 border="1px"
                 borderColor="#A0A0A0"
               >
-                <Box as="span" flex="1" textAlign="left">
+                <Box
+                  as="span"
+                  flex="1"
+                  textAlign="left"
+                  fontFamily="heading.h1"
+                >
                   {accordion.title}
                 </Box>
                 <AccordionIcon />
               </AccordionButton>
             </h2>
-            <AccordionPanel pb={4} fontSize="11px" border="10px !important">
-             {accordion.text}
+            <AccordionPanel
+              pb={4}
+              fontSize="11px"
+              border="10px !important"
+              fontFamily="heading.h1"
+            >
+              {accordion.text}
             </AccordionPanel>
           </AccordionItem>
         ))}

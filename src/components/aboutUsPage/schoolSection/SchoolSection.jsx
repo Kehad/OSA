@@ -5,13 +5,22 @@ import primary from "../../../assets/contact-primary.png";
 import secondary from "../../../assets/contact-secondary.png";
 import InfoFirst from "../../generalComponent/InfoFirst";
 import InfoSecond from "../../generalComponent/InfoSecond";
+import { Heading } from "@chakra-ui/react";
 
 function SchoolSection() {
   return (
     <div className="py-12">
-      <h4 className="text-[32px] font-bold text-center leading-[40px] mb-8">
+      <Heading
+        as="h4"
+        fontSize="32px"
+        fontWeight="bold"
+        textAlign="center"
+        lineHeight="40px"
+        fontFamily='heading.h1'
+        mb={8}
+      >
         Our Step-By-Step Approach
-      </h4>
+      </Heading>
       <div className="flex flex-col gap-16">
         <InfoFirst
           title="Nursery Section"

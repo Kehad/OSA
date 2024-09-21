@@ -1,5 +1,5 @@
 import { Box, Circle, Flex, Heading, IconButton, Image, Spacer, Text } from '@chakra-ui/react';
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 import saying1 from "../../../assets/saying-1.png";
 
@@ -95,8 +95,9 @@ function MainSlider() {
         textAlign="center"
         lineHeight="40px"
         mb={8}
+        fontFamily="heading.h1"
       >
-        What We Offer You and Your Children
+        What Our Students Have To Say
       </Heading>
       <Box>
         <Flex direction="column" gap={8}>
@@ -106,22 +107,38 @@ function MainSlider() {
             position="relative"
           >
             <IconButton
-              icon={<ChevronLeftIcon />}
+              icon={<ArrowBackIcon />}
               onClick={handlePrevious}
               position="absolute"
-              left="10px"
+              left="60px"
               top="50%"
               transform="translateY(-50%)"
               aria-label="Previous image"
+              background="none"
+              color="#1C3519"
+              fontSize="50px"
+              paddingY="1.5rem"
+              _hover={{
+                background: "#1C3519",
+                color: "#FCF2CE",
+              }}
             />
             <IconButton
-              icon={<ChevronRightIcon />}
+              icon={<ArrowForwardIcon />}
               onClick={handleNext}
               position="absolute"
-              right="10px"
+              right="60px"
               top="50%"
               transform="translateY(-50%)"
               aria-label="Next image"
+              background="none"
+              color="#1C3519"
+              fontSize="50px"
+              paddingY="1.5rem"
+              _hover={{
+                background: "#1C3519",
+                color: "#FCF2CE",
+              }}
             />
 
             {[0, 1, 2].map((offset) => {
@@ -153,6 +170,7 @@ function MainSlider() {
                       lineHeight="30px"
                       letterSpacing="0.03em"
                       textAlign="left"
+                      fontFamily="body.b1"
                     >
                       {content.text}
                     </Text>
@@ -177,6 +195,7 @@ function MainSlider() {
                           fontWeight="normal"
                           letterSpacing="0.03em"
                           textAlign="left"
+                          fontFamily="body.b1"
                         >
                           {content.title}
                         </Text>
@@ -185,6 +204,7 @@ function MainSlider() {
                           fontWeight="normal"
                           letterSpacing="0.03em"
                           textAlign="left"
+                          fontFamily="body.b1"
                         >
                           {content.date}
                         </Text>

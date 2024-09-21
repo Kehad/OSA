@@ -9,6 +9,7 @@ function Story() {
       direction="column"
       paddingBottom="3rem"
       gap={4}
+      bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
     >
       <Heading fontFamily="heading.h1">Our Story</Heading>
       <Text
@@ -17,7 +18,7 @@ function Story() {
         whiteSpace="pre-wrap"
         textAlign="center"
         fontFamily="heading.h1"
-        fontWeight='400'
+        fontWeight="400"
       >
         {`Oluwatosin Success Academy, OSA, is a school that is established as modern age educational centre with  
         international standard to provide excellent education at the elementary level, so as to contribute to the achievement 

@@ -21,7 +21,7 @@ function Footer() {
         <Box width="200px" height="200px">
           <Image src={OSA_LOGO} alt="OSA logo" width="w-max" height="h-max" />
         </Box>
-        <Box color="#fff">
+        <Box color="#fff" fontFamily='body.b1'>
           <Text fontWeight="400" fontSize="lg">
             pakdsmdkljaojdcmklzm mm{" "}
           </Text>
@@ -37,36 +37,36 @@ function Footer() {
         <Box overflowX="auto">
           <Table variant="simple" size={{ base: "sm", md: "md", lg: "lg" }} color="#fff" border="none">
             <Thead>
-              <Tr>
-                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }}>Accounts</Th>
-                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }}>Information</Th>
-                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Quick Links</Th>
-                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Schedules</Th>
+              <Tr fontFamily='heading.h1'>
+                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Accounts</Th>
+                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Information</Th>
+                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Quick Links</Th>
+                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Schedules</Th>
               </Tr>
             </Thead>
             <Tbody border="none">
-              <Tr border="none">
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Parent Log In</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>About Us</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Parent Help</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>School Schedule</Td>
+              <Tr border="none" fontFamily='body.b1'>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Parent Log In</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>About Us</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Parent Help</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>School Schedule</Td>
               </Tr>
-              <Tr>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Teacher Log In</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Contact Us</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Teacher Help</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Class Timetable</Td>
+              <Tr fontFamily='body.b1'>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Teacher Log In</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Contact Us</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Teacher Help</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Class Timetable</Td>
               </Tr>
-              <Tr>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Admin Log In</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Blog</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Feedback</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>Exam Timetable</Td>
+              <Tr fontFamily='body.b1'>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Admin Log In</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Blog</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Feedback</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Exam Timetable</Td>
               </Tr>
-              <Tr>
+              <Tr fontFamily='body.b1'>
                 <Td border="none"></Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }}>Terms and Conditions</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }}>FAQs</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Terms and Conditions</Td>
+                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>FAQs</Td>
               </Tr>
             </Tbody>
           </Table>

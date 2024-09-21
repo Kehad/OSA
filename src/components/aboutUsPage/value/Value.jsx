@@ -42,15 +42,20 @@ const valueData = [
 function Value() {
   return (
     <Flex
-      bg="#E2FFDE66"
+      bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
       direction="column"
       alignItems="center"
       justifyContent="center"
       padding="3rem"
     >
-      <Heading>Core Values</Heading>
-      <Flex flexWrap="wrap" alignItems="center" justifyContent="center" gap={5} paddingTop={12}>
-       
+      <Heading fontFamily="heading.h1">Core Values</Heading>
+      <Flex
+        flexWrap="wrap"
+        alignItems="center"
+        justifyContent="center"
+        gap={5}
+        paddingTop={12}
+      >
         {valueData.map((value, index) => {
           return (
             <Flex
@@ -59,9 +64,9 @@ function Value() {
               borderWidth="3px"
               borderColor="#8E9A8C"
               alignItems="center"
-            //   width="max-content"
-                  width='445px'
-                  height='280px'
+              //   width="max-content"
+              width="445px"
+              height="280px"
               gap={5}
               padding={5}
               key={index}
@@ -74,12 +79,16 @@ function Value() {
                 width=""
                 height="max-content"
                 padding="1rem"
+                borderRadius="10px"
+                gap={2}
               >
                 <Image width="3rem" src={value.valueIcon} alt="Discipline" />
-                <Heading fontSize="20px">{value.valueTitle}</Heading>
+                <Heading fontSize="20px" fontFamily="heading.h1">
+                  {value.valueTitle}
+                </Heading>
               </Flex>
               <Box>
-                <Text fontSize="16px" width="16rem">
+                <Text fontSize="16px" width="16rem" fontFamily="body.b1">
                   {value.valueText}
                 </Text>
               </Box>

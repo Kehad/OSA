@@ -26,6 +26,7 @@ function Contact() {
           fontSize="40px"
           //   width="70%"
           textAlign="center"
+          fontFamily= 'heading.h1'
         >
           Phone
         </Heading>
@@ -97,6 +98,7 @@ function Contact() {
           fontSize="40px"
           //   width="70%"
           textAlign="center"
+          fontFamily= 'heading.h1'
         >
           Email
         </Heading>
@@ -190,6 +192,7 @@ function Contact() {
           fontSize="40px"
           //   width="70%"
           textAlign="center"
+          fontFamily= 'heading.h1'
         >
           Location
         </Heading>

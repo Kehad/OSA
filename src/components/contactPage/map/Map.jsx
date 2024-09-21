@@ -5,7 +5,7 @@ function Map() {
   return (
     <Flex position='relative'>
       <Image src={mapView} alt="Map View" />
-      <Button bg="#1C3519" color="white" position='absolute' top='5%' left='1%'>
+      <Button bg="#1C3519" color="white" position='absolute' top='5%' left='1%' fontFamily='heading.h1'>
         View Larger Map
       </Button>
     </Flex>

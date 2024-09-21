@@ -12,6 +12,7 @@ function InfoFirst({ title, text, image }) {
           lineHeight="56px"
           textAlign="left"
           w="100%"
+          fontFamily='heading.h1'
         >
           {title}
         </Heading>
@@ -22,6 +23,7 @@ function InfoFirst({ title, text, image }) {
           letterSpacing="0.03em"
           mt={4}
           textAlign="left"
+          fontFamily='body.b1'
           w="100%"
         >
           {text}
