@@ -77,7 +77,6 @@ function Header() {
             alt="Image of 3 young students"
           />
         </Flex>
-        {/* <Image src={image} w="600px" h="100%" alt="Image of 3 young students" /> */}
       </Box>
     </Flex>
   );

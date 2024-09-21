@@ -78,32 +78,3 @@ function Footer() {
 
 export default Footer;
 
-{
-  /* {[...Array(5)].map((_, rowIndex) => (
-                <Tr key={rowIndex}>
-                  {[...Array(4)].map((_, colIndex) => {
-                    let content;
-                    switch (colIndex) {
-                      case 0:
-                        content = `About Us ${rowIndex + 1}`;
-                        break;
-                      case 1:
-                        content = `Services ${rowIndex + 1}`;
-                        break;
-                      case 2:
-                        content = `Contact ${rowIndex + 1}`;
-                        break;
-                      case 3:
-                        content = `FAQ ${rowIndex + 1}`;
-                        break;
-                      default:
-                        content = `Item ${rowIndex + 1}-${colIndex + 1}`;
-                    }
-                    return <Td key={colIndex}>{content}</Td>;
-                  })}
-                </Tr>
-                
-                
-                
-                ))} */
-}

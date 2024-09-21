@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../src/components/aboutUsPage/header/Header";
 import Layout from "../src/components/generalComponent/Layout/Layout";
 import Card from "../src/components/aboutUsPage/header/Card";
