@@ -17,10 +17,12 @@ function Message() {
         borderRadius="15px"
         bg="white"
         boxShadow="0px 2px 8px black"
-        fontFamily='heading.h1'
+        fontFamily="heading.h1"
       >
-        <Heading fontSize="1.5rem" fontFamily='inherit'>Leave Us Your Message</Heading>
-        <Text fontFamily='inherit'>And We’ll Get Back To You</Text>
+        <Heading fontSize="1.5rem" fontFamily="inherit">
+          Leave Us Your Message
+        </Heading>
+        <Text fontFamily="inherit">And We’ll Get Back To You</Text>
         <Box
           as="form"
           display="flex"
@@ -32,7 +34,7 @@ function Message() {
           mt="8"
           w="22rem"
         >
-          <VStack spacing="0.5rem" w="100%" fontFamily='heading.h1'>
+          <VStack spacing="0.5rem" w="100%" fontFamily="heading.h1">
             <Input
               type="text"
               placeholder="Full Name*"
@@ -44,7 +46,7 @@ function Message() {
               border="2px solid"
               borderColor="#C8C8C8"
               _focus={{ outline: "none" }}
-              fontFamily='inherit'
+              fontFamily="inherit"
             />
           </VStack>
 
@@ -61,11 +63,11 @@ function Message() {
               border="2px solid"
               borderColor="#C8C8C8"
               _focus={{ outline: "none" }}
-              fontFamily='inherit'
+              fontFamily="inherit"
             />
           </VStack>
 
-          <VStack spacing="0.5rem" w="100%" fontFamily='heading.h1'>
+          <VStack spacing="0.5rem" w="100%" fontFamily="heading.h1">
             <Input
               type="text"
               placeholder="Subject*"
@@ -77,11 +79,11 @@ function Message() {
               border="2px solid"
               borderColor="#C8C8C8"
               _focus={{ outline: "none" }}
-              fontFamily='inherit'
+              fontFamily="inherit"
             />
           </VStack>
 
-          <VStack spacing="0.5rem" w="100%" fontFamily='heading.h1'>
+          <VStack spacing="0.5rem" w="100%" fontFamily="heading.h1">
             <Textarea
               placeholder="Message*"
               w="100%"
@@ -104,9 +106,14 @@ function Message() {
             borderRadius="md"
             px="1rem"
             w="100%"
-            _hover={{ bg: "#163017" }}
+            _hover={{
+              color: "#1c3519",
+              bg: "#fff",
+              borderWidth: 2,
+              borderColor: "#1c3519",
+            }}
             _focus={{ outline: "none" }}
-            fontFamily='heading.h1'
+            fontFamily="heading.h1"
           >
             SUBMIT NOW
           </Button>

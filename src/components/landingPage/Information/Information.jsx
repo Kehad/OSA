@@ -18,8 +18,8 @@ function Information() {
         fontWeight="bold"
         lineHeight="40px"
         mb={8}
-        fontFamily='heading.h1'
-        textAlign='center'
+        fontFamily="heading.h1"
+        textAlign="center"
       >
         What We Offer You and Your Children
       </Heading>
@@ -69,7 +69,7 @@ function Information() {
               lineHeight="56px"
               textAlign="left"
               //   w="45%"
-              fontFamily='heading.h1'
+              fontFamily="heading.h1"
             >
               Who Are We?
             </Heading>
@@ -80,7 +80,7 @@ function Information() {
               letterSpacing="0.03em"
               textAlign="left"
               //   w="45%"
-              fontFamily='body.h1'
+              fontFamily="body.h1"
             >
               We are a team of passionate educators and professionals who are
               dedicated to nurturing the minds and hearts of our students. Our
@@ -93,7 +93,18 @@ function Information() {
               where we prepare our students not only for academic success but
               also for a lifetime of learning, leadership, and service.
             </Text>
-            <Button color="#fff" bg="#1C3519" width="13rem" fontFamily='body.h1'>
+            <Button
+              color="#fff"
+              bg="#1C3519"
+              width="13rem"
+              fontFamily="body.h1"
+              _hover={{
+                color: "#1c3519",
+                bg: "#fff",
+                borderWidth: 2,
+                borderColor: "#1c3519",
+              }}
+            >
               Read more
             </Button>
           </Flex>

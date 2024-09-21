@@ -57,7 +57,7 @@ function Nav() {
         </UnorderedList>
 
         {/* Button */}
-        <Button bg="#1C3519" color="white" size="lg" w="10rem">
+        <Button bg="#1C3519" color="white" size="lg" w="10rem" _hover={{ color: '#1c3519', bg: '#fff', borderWidth: 2, borderColor: '#1c3519'}}>
           Log In
         </Button>
       </Flex>
