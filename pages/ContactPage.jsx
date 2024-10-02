@@ -3,7 +3,7 @@ import Header from "../src/components/contactPage/header/Header";
 import Contact from "../src/components/contactPage/contact/Contact";
 import Layout from "../src/components/generalComponent/Layout/Layout";
 import Message from "../src/components/contactPage/message/message";
-import Map from "../src/components/contactPage/map/MAp";
+import Map from "../src/components/contactPage/map/Map";
 
 function ContactPage() {
   return (
