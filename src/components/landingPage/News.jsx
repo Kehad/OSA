@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/react";
-import news from "../../../assets/news.png";
-import InfoSecond from "../../generalComponent/InfoSecond";
+import news from "../../assets/news.png";
+import InfoSecond from "../generalComponent/InfoSecond";
 
 function News() {
   return (
@@ -11,6 +11,7 @@ function News() {
         fontWeight="bold"
         lineHeight="40px"
         mb={8}
+        color={"black"}
         fontFamily='heading.h1'
       >
         Latest News and Updates

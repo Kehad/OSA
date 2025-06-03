@@ -1,5 +1,5 @@
 import { Button, Flex, Image } from '@chakra-ui/react'
-import mapView from '../../../assets/mapView.png'
+import mapView from '../../assets/mapView.png'
 
 function Map() {
   return (

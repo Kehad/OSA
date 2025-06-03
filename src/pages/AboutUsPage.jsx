@@ -1,14 +1,15 @@
-import Header from "../src/components/aboutUsPage/header/Header";
-import Layout from "../src/components/generalComponent/Layout/Layout";
-import Card from "../src/components/aboutUsPage/header/Card";
+import Header from "../components/aboutUsPage/Header"
+import Layout from "../components/generalComponent/Layout/Layout";
+
 import { Flex } from "@chakra-ui/react";
-import Story from "../src/components/aboutUsPage/story/Story";
-import Purpose from "../src/components/aboutUsPage/purpose/Purpose";
-import Value from "../src/components/aboutUsPage/value/Value";
-import SchoolSection from "../src/components/aboutUsPage/schoolSection/SchoolSection";
-import Team from "../src/components/aboutUsPage/team/Team";
-import MainSlider from "../src/components/aboutUsPage/slider/mainSlider";
-import FAQ from "../src/components/aboutUsPage/faq/FAQ";
+import Story from "../components/aboutUsPage/Story";
+import Purpose from "../components/aboutUsPage/Purpose";
+import Value from "../components/aboutUsPage/Value";
+import SchoolSection from "../components/aboutUsPage/SchoolSection";
+import Team from "../components/aboutUsPage/Team";
+import MainSlider from "../components/aboutUsPage/slider/mainSlider";
+import FAQ from "../components/aboutUsPage/FAQ";
+import Card from "../components/aboutUsPage/Card";
 
 function AboutUsPage() {
   return (

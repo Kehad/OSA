@@ -2,14 +2,13 @@ import { Box, Circle, Flex, Heading, IconButton, Image, Spacer, Text } from '@ch
 import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 import saying1 from "../../../assets/saying-1.png";
-
-import children4 from "../../../assets/children-4.png";
 import children1 from "../../../assets/children-1.png";
 import children2 from "../../../assets/children-2.png";
 import children3 from "../../../assets/children-3.png";
-import about1 from "../../../assets/about-1.png";
-import about2 from "../../../assets/about-2.png";
-import about3 from "../../../assets/about-3.png";
+
+// import about1 from "../../../assets/about-1.png";
+// import about2 from "../../../assets/about-2.png";
+// import about3 from "../../../assets/about-3.png";
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 

@@ -1,10 +1,9 @@
-
-import nursery from "../../../assets/contact-nursery.png";
-import junior from "../../../assets/contact-junior.png";
-import primary from "../../../assets/contact-primary.png";
-import secondary from "../../../assets/contact-secondary.png";
-import InfoFirst from "../../generalComponent/InfoFirst";
-import InfoSecond from "../../generalComponent/InfoSecond";
+import nursery from "../../assets/contact-nursery.png";
+import junior from "../../assets/contact-junior.png";
+import primary from "../../assets/contact-primary.png";
+import secondary from "../../assets/contact-secondary.png";
+import InfoFirst from "../generalComponent/InfoFirst";
+import InfoSecond from "../generalComponent/InfoSecond";
 import { Heading } from "@chakra-ui/react";
 
 function SchoolSection() {
@@ -16,7 +15,7 @@ function SchoolSection() {
         fontWeight="bold"
         textAlign="center"
         lineHeight="40px"
-        fontFamily='heading.h1'
+        fontFamily="heading.h1"
         mb={8}
       >
         Our Step-By-Step Approach

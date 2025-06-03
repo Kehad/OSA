@@ -1,5 +1,5 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import BG_CONTACT_IMG from "../../../assets/bg-contact.png";
+import BG_CONTACT_IMG from "../../assets/bg-contact.png";
 
 function Header() {
   return (

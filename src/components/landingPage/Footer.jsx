@@ -10,9 +10,8 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import React from "react";
 
-import OSA_LOGO from "../../../assets/OSA-LOGO.png";
+import OSA_LOGO from "../../assets/OSA-LOGO.png";
 
 function Footer() {
   return (

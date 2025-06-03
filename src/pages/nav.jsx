@@ -6,7 +6,7 @@ import {
   ListItem,
   Button,
 } from "@chakra-ui/react";
-import OSA_LOGO from "../src/assets/OSA-LOGO.png";
+import OSA_LOGO from "../assets/OSA-LOGO.png";
 import { NavLink } from "react-router-dom";
 // import { AnimatePresence, motion } from "framer-motion";
 
@@ -15,7 +15,7 @@ function Nav() {
     <Box
       px={{ base: "2rem", sm: "3rem", lg: "3rem" }}
       py="3"
-      bg="transparent"
+      bg="white"
       color="white"
       fontFamily="Lato"
     >

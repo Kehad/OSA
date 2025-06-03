@@ -1,10 +1,10 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
-import ContactDiscplineIcon from "../../../assets/Discipline-Icon.png";
-import IntegrityIcon from "../../../assets/IntegrityIcon.png";
-import SpiritualIcon from "../../../assets/spiritualityIcon.png";
-import MultiSkilledIcon from "../../../assets/MultiSkilled-Icon.png";
-import ExcellenceIcon from "../../../assets/Excellence-Icon.png";
+import ContactDiscplineIcon from "../../assets/Discipline-Icon.png";
+import IntegrityIcon from "../../assets/IntegrityIcon.png";
+import SpiritualIcon from "../../assets/spiritualityIcon.png";
+import MultiSkilledIcon from "../../assets/MultiSkilled-Icon.png";
+import ExcellenceIcon from "../../assets/Excellence-Icon.png";
 
 const valueData = [
   {

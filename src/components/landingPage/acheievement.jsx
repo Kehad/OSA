@@ -1,7 +1,7 @@
 import React from "react";
-import image from "../../../assets/achievement-1.png";
-import acheievement2 from "../../../assets/achievement-2.png";
-import ItemsLayout from "../../generalComponent/ItemsLayout";
+import image from "../../assets/achievement-1.png";
+import acheievement2 from "../../assets/achievement-2.png";
+import ItemsLayout from "../generalComponent/ItemsLayout";
 import { Box, Flex, Heading, Image, Text, Spacer } from "@chakra-ui/react";
 
 function Acheievement() {

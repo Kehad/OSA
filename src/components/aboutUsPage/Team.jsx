@@ -1,10 +1,10 @@
-import nursery from "../../../assets/contact-nursery.png";
-import junior from "../../../assets/contact-junior.png";
-import primary from "../../../assets/contact-primary.png";
-import secondary from "../../../assets/contact-secondary.png";
-import InfoFirst from "../../generalComponent/InfoFirst";
-import InfoSecond from "../../generalComponent/InfoSecond";
-import { Box, Flex, Heading, position, Text } from "@chakra-ui/react";
+// import nursery from "../../assets/contact-nursery.png";
+// import junior from "../../assets/contact-junior.png";
+// import primary from "../../assets/contact-primary.png";
+// import secondary from "../../assets/contact-secondary.png";
+// import InfoFirst from "../../generalComponent/InfoFirst";
+// import InfoSecond from "../../generalComponent/InfoSecond";
+import { Box, Flex, Heading,  Text } from "@chakra-ui/react";
 
 const staffs = [
   {
