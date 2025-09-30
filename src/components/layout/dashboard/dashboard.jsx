@@ -1,42 +1,33 @@
 import { useEffect, useState } from "react";
-// import { useLocation } from "react-router-dom";
-// import Header from "../../navigations/header/header";
-// import Sidenav from "../../navigations/sidenav/sidenav";
-// import ContactSupportLogo from "../../../assets/svg/contact_support";
-// import AttacheMoneyLogo from "../../../assets/svg/attach_money";
-// import VerifyUserLogo from "../../../assets/svg/verified_user";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Sidenav from "../../navigations/sidebar";
+import Header from "../../navigations/header/Header";
 
 const sidenavItems = [
   {
     id: "dashboard",
     label: "Dashboard",
-    // icon: <ContactSupportLogo />,
     routeLink: "overview",
   },
   {
     id: "riders",
     label: "Riders",
-    // icon: <VerifyUserLogo />,
     routeLink: "riders",
   },
   {
     id: "revenue",
     label: "Revenue",
-    // icon: <AttacheMoneyLogo />,
     routeLink: "revenue",
   },
   {
     id: "settings",
     label: "Settings",
-    // icon: <ContactSupportLogo />,
     routeLink: "settings",
   },
 ];
 
 export const DashboardLayout = () => {
-  // const location = useLocation();
+  const location = useLocation();
   const [activeItem, setActiveItem] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showHamburger, setShowHamburger] = useState(window.innerWidth < 768);
@@ -46,27 +37,24 @@ export const DashboardLayout = () => {
     setActiveItem(activeRoute || "dashboard");
   }, [location.pathname]);
 
-  const handleSelectedItem = () => {
+  const handleSelectedItem = (id) => {
     setActiveItem(id);
     setIsMobileMenuOpen(false);
   };
 
-//   useEffect(() => {
-//     const handleResize = () => {
-//       setShowHamburger(window.innerWidth < 768);
-//     };
-
-//     window.addEventListener("resize", handleResize);
-//     return () => {
-//       window.removeEventListener("resize", handleResize);
-//     };
-//   }, []);
+  useEffect(() => {
+    const handleResize = () => {
+      setShowHamburger(window.innerWidth < 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
-    <div className="h-screen flex w-full">
+    <div className="h-screen flex w-full overflow-hidden">
       {/* Sidebar */}
       <div
-        className={`fixe bottom-0 top-0 w-[200px] sm:w-[240px] bg-white border-r border-r-base-color z-50 transition-transform duration-300
+        className={`fixe bottom-0 top-0 w-[250px] sm:w-[20rem] bg-white border-r border-r-base-color z-50 transition-transform duration-300
         ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         } md:translate-x-0`}
@@ -76,24 +64,25 @@ export const DashboardLayout = () => {
           activeItem={activeItem}
           onItemSelect={handleSelectedItem}
         />
-              <div>asa</div>
-                  
       </div>
 
       {/* Main Content */}
-      <div className="ml-0 d:ml-[240px] w-full overflow-y-scroll bg-purple-500">
-        <div>Header</div>
-        <main className="p-4">
+      <div className="ml-0 md:ml-[240px flex flex-col h-screen w-full relative">
+        <Header />
+
+        {/* Scrollable Content Area */}
+        <main className="flex-1 overflow-y-auto p-">
           <Outlet />
         </main>
 
-        {/* Overlay for Mobile Menu */}
-        {!isMobileMenuOpen && !showHamburger && (
+       
+        {/* Mobile Overlay */}
+        {/* {isMobileMenuOpen && showHamburger && (
           <div
             onClick={() => setIsMobileMenuOpen(false)}
-            className="h-screen w-full absolute bg-dark bg-opacity-50 inset-0"
+            className="fixed h-screen w-full bg-black bg-opacity-50 inset-0 z-40"
           />
-        )}
+        )} */}
       </div>
     </div>
   );

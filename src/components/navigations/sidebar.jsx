@@ -65,7 +65,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="w-64 h-screen bg-white shadow border-r flex flex-col justify-between">
+    <aside className="w-[20rem] h-screen bg-white shadow border-r flex flex-col justify-between">
       <div>
         {/* Logo */}
         <div className="p-4 flex items-center gap-2  border-b-[2px] border-[#A0A0A0]">

@@ -1,9 +1,9 @@
-import News from "../components/landingPage/News";
-import MainSlider from "../components/landingPage/slider/mainSlider";
-import Information from "../components/landingPage/Information";
-import Acheievement from "../components/landingPage/acheievement";
-import Layout from "../components/generalComponent/Layout/Layout";
-import Header from "../components/landingPage/Header";
+import News from "../../components/landingPage/News";
+import MainSlider from "../../components/landingPage/slider/mainSlider";
+import Information from "../../components/landingPage/Information";
+import Acheievement from "../../components/landingPage/acheievement";
+import Layout from "../../components/generalComponent/Layout/Layout";
+import Header from "../../components/landingPage/Header";
 
 
 function LandingPage() {

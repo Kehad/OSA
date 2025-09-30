@@ -1,79 +1,85 @@
-import {
-  Box,
-  Flex,
-  Image,
-  Table,
-  Tbody,
-  Td,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
+// import {
+//   Box,
+//   Flex,
+//   Image,
+//   Table,
+//   Tbody,
+//   Td,
+//   Text,
+//   Th,
+//   Thead,
+//   Tr,
+// } from "@chakra-ui/react";
 
 import OSA_LOGO from "../../assets/OSA-LOGO.png";
 
 function Footer() {
   return (
-    <Flex justifyContent='space-evenly'>
-      <Flex direction="column" gap={5}>
-        <Box width="200px" height="200px">
-          <Image src={OSA_LOGO} alt="OSA logo" width="w-max" height="h-max" />
-        </Box>
-        <Box color="#fff" fontFamily='body.b1'>
-          <Text fontWeight="400" fontSize="lg">
-            pakdsmdkljaojdcmklzm mm{" "}
-          </Text>
-          <Text fontWeight="400" fontSize="lg">
-            pakdsmdkljaojdcmklzm mm{" "}
-          </Text>
-          <Text fontWeight="400" fontSize="lg">
-            pakdsmdkljaojdcmklzm mm{" "}
-          </Text>
-        </Box>
-      </Flex>
-      <Box>
-        <Box overflowX="auto">
-          <Table variant="simple" size={{ base: "sm", md: "md", lg: "lg" }} color="#fff" border="none">
-            <Thead>
-              <Tr fontFamily='heading.h1'>
-                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Accounts</Th>
-                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Information</Th>
-                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Quick Links</Th>
-                <Th color="#fff" border='none' fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Schedules</Th>
-              </Tr>
-            </Thead>
-            <Tbody border="none">
-              <Tr border="none" fontFamily='body.b1'>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Parent Log In</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>About Us</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Parent Help</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>School Schedule</Td>
-              </Tr>
-              <Tr fontFamily='body.b1'>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Teacher Log In</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Contact Us</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Teacher Help</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Class Timetable</Td>
-              </Tr>
-              <Tr fontFamily='body.b1'>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Admin Log In</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Blog</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Feedback</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>Exam Timetable</Td>
-              </Tr>
-              <Tr fontFamily='body.b1'>
-                <Td border="none"></Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} fontFamily='inherit'>Terms and Conditions</Td>
-                <Td border="none" fontSize={{ base: "xs", md: "sm", lg: "md" }} display={{ base: "none", md: "table-cell" }} fontFamily='inherit'>FAQs</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </Box>
-      </Box>
-    </Flex>
+    <div className="flex z-index-10 w-full flex-col md:flex-row justify-evenly bg-[#] py-10 px-4 text-white">
+      {/* Logo and Texts */}
+      <div className="flex flex-col gap-5 items-center md:items-start mb-8 md:mb-0">
+        <div className="w-[120px] h-[120px] md:w-[200px] md:h-[200px] flex items-center justify-center">
+          <img
+            src={OSA_LOGO}
+            alt="OSA logo"
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <div className="space-y-2 text-base font-normal">
+          <p>pakdsmdkljaojdcmklzm mm</p>
+          <p>pakdsmdkljaojdcmklzm mm</p>
+          <p>pakdsmdkljaojdcmklzm mm</p>
+        </div>
+      </div>
+      {/* Table */}
+      <div className="w-full md:w-auto overflow-x-auto">
+        <table className="min-w-[600px] w-full border-collapse text-white">
+          <thead>
+            <tr className="font-bold text-base border-b border-gray-700">
+              <th className="py-2 px-4 text-left">Accounts</th>
+              <th className="py-2 px-4 text-left">Information</th>
+              <th className="py-2 px-4 text-left hidden md:table-cell">
+                Quick Links
+              </th>
+              <th className="py-2 px-4 text-left hidden md:table-cell">
+                Schedules
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b border-gray-700">
+              <td className="py-2 px-4">Parent Log In</td>
+              <td className="py-2 px-4">About Us</td>
+              <td className="py-2 px-4 hidden md:table-cell">Parent Help</td>
+              <td className="py-2 px-4 hidden md:table-cell">
+                School Schedule
+              </td>
+            </tr>
+            <tr className="border-b border-gray-700">
+              <td className="py-2 px-4">Teacher Log In</td>
+              <td className="py-2 px-4">Contact Us</td>
+              <td className="py-2 px-4 hidden md:table-cell">Teacher Help</td>
+              <td className="py-2 px-4 hidden md:table-cell">
+                Class Timetable
+              </td>
+            </tr>
+            <tr className="border-b border-gray-700">
+              <td className="py-2 px-4">Admin Log In</td>
+              <td className="py-2 px-4">Blog</td>
+              <td className="py-2 px-4 hidden md:table-cell">Feedback</td>
+              <td className="py-2 px-4 hidden md:table-cell">Exam Timetable</td>
+            </tr>
+            <tr>
+              <td className="py-2 px-4"></td>
+              <td className="py-2 px-4">Terms and Conditions</td>
+              <td className="py-2 px-4 hidden md:table-cell">FAQs</td>
+              <td className="py-2 px-4 hidden md:table-cell"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 }
 
 export default Footer;
-
