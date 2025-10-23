@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Slider, Spacer, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
-function Purpose() {
+function AboutPurpose() {
   return (
     <Flex
       alignItems="center"
@@ -50,4 +50,4 @@ function Purpose() {
   );
 }
 
-export default Purpose;
+export default AboutPurpose;

@@ -1,7 +1,7 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import React from "react";
+import {  Flex, Heading, Text } from "@chakra-ui/react";
 
-function Story() {
+
+function AboutStory() {
   return (
     <Flex
       alignItems="center"
@@ -36,4 +36,4 @@ We are currently located in two States of the Federal Republic of Nigeria`}
   );
 }
 
-export default Story;
+export default AboutStory;

@@ -34,7 +34,7 @@ const AccordionBox = [
   },
 ];
 
-function FAQ() {
+function AboutFAQ() {
   return (
     <Flex
       paddingTop="3rem"
@@ -90,4 +90,4 @@ function FAQ() {
   );
 }
 
-export default FAQ;
+export default AboutFAQ;

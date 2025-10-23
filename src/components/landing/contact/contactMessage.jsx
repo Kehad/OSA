@@ -1,7 +1,6 @@
 import { Box, Button, Flex, Heading, Input, Text, Textarea, VStack } from "@chakra-ui/react";
-import React from "react";
 
-function Message() {
+function ContactMessage() {
   return (
     <Flex
       alignItems="center"
@@ -123,4 +122,4 @@ function Message() {
   );
 }
 
-export default Message;
+export default ContactMessage;

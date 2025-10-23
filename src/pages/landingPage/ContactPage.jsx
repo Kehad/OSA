@@ -1,18 +1,19 @@
-import Header from "../../components/contactPage/Header";
-import Contact from "../../components/contactPage/Contact";
-import Layout from "../../components/generalComponent/Layout/Layout";
-import Message from "../../components/contactPage/Message";
-import Map from "../../components/contactPage/Map";
+import ContactHeader from "../../components/landing/contact/contactHeader";
+import ContactMap from "../../components/landing/contact/contactMap";
+import ContactMessage from "../../components/landing/contact/contactMessage";
+import ContactSupport from "../../components/landing/contact/contactSupport";
+import Layout from "../../components/landing/generalComponent/Layout/Layout";
+
 
 function ContactPage() {
   return (
     <>
-      <Header />
+      <ContactHeader />
       <Layout paddingY="4rem" bg="#11200F">
-        <Contact />
+        <ContactSupport />
       </Layout>
-      <Message />
-      <Map />
+      <ContactMessage />
+      <ContactMap />
     </>
   );
 }

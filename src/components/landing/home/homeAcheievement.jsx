@@ -1,10 +1,10 @@
-import React from "react";
-import image from "../../assets/achievement-1.png";
-import acheievement2 from "../../assets/achievement-2.png";
-import ItemsLayout from "../generalComponent/ItemsLayout";
-import { Box, Flex, Heading, Image, Text, Spacer } from "@chakra-ui/react";
 
-function Acheievement() {
+import image from "../../../assets/achievement-1.png";
+import acheievement2 from "../../../assets/achievement-2.png";
+import ItemsLayout from "../generalComponent/ItemsLayout";
+import { Box, Flex, Heading, Image, Text} from "@chakra-ui/react";
+
+function HomeAcheievement() {
   return (
     <Box paddingTop="3rem" paddingBottom="6rem">
       <ItemsLayout>
@@ -155,4 +155,4 @@ function Acheievement() {
   );
 }
 
-export default Acheievement;
+export default HomeAcheievement;

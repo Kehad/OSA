@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { DashboardLayout } from "../components/layout/dashboard/dashboard";
+import { DashboardLayout } from "../components/dashboardLayout/dashboard";
 import Overview from "../pages/dashboard/overview/overview";
 
 // const AuthLogin = React.lazy(() => import("../pages/auth/login/Login"));
@@ -9,6 +9,7 @@ const AppRouter = () => {
   return (
     <React.Suspense>
       <Routes>
+        {/* <Route path="/contectPage" element={<ContectPage />} /> */}
         <Route path="/" element={<DashboardLayout />}>
           {/* Redirect from /dashboard to /dashboard/overview */}
           <Route index element={<Navigate to="overview" replace />} />

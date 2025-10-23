@@ -1,15 +1,16 @@
-import Header from "../../components/aboutUsPage/Header"
-import Layout from "../../components/generalComponent/Layout/Layout";
-
 import { Flex } from "@chakra-ui/react";
-import Story from "../../components/aboutUsPage/Story";
-import Purpose from "../../components/aboutUsPage/Purpose";
-import Value from "../../components/aboutUsPage/Value";
-import SchoolSection from "../../components/aboutUsPage/SchoolSection";
-import Team from "../../components/aboutUsPage/Team";
-import MainSlider from "../../components/aboutUsPage/slider/mainSlider";
-import FAQ from "../../components/aboutUsPage/FAQ";
-import Card from "../../components/aboutUsPage/Card";
+import AboutHeader from "../../components/landing/aboutUs/aboutHeader";
+import AboutCard from "../../components/landing/aboutUs/aboutCard";
+import AboutStory from "../../components/landing/aboutUs/aboutStory";
+import AboutPurpose from "../../components/landing/aboutUs/aboutPurpose";
+import Layout from "../../components/landing/generalComponent/Layout/Layout";
+import AboutValue from "../../components/landing/aboutUs/aboutValue";
+import AboutSchoolSection from "../../components/landing/aboutUs/aboutSchoolSection";
+import AboutTeam from "../../components/landing/aboutUs/aboutTeam";
+import AboutFAQ from "../../components/landing/aboutUs/aboutFAQ";
+import MainSlider from "../../components/landing/generalComponent/slider/mainSlider";
+
+
 
 function AboutUsPage() {
   return (
@@ -18,29 +19,29 @@ function AboutUsPage() {
         padding="3rem"
         bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
       >
-        <Header />
+        <AboutHeader />
         <Flex alignItems="center" justifyContent="center" paddingTop="4rem">
-          <Card />
+          <AboutCard />
         </Flex>
       </Layout>
 
-      <Story />
+      <AboutStory />
 
       <Flex alignItems="center" justifyContent="center" paddingBottom="4rem">
-        <Purpose />
+        <AboutPurpose />
       </Flex>
 
-      <Value />
+      <AboutValue />
       <Layout
         padding="3rem"
         bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
       >
-        <SchoolSection />
+        <AboutSchoolSection />
       </Layout>
 
-      <Team />
+      <AboutTeam />
 
-      <FAQ />
+      <AboutFAQ />
 
       <Layout
         paddingX="3rem"

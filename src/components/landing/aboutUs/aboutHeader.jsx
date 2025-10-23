@@ -1,11 +1,11 @@
 import { Box, Flex, Heading, Image, Slider, Text } from "@chakra-ui/react";
 
-import contactHeader1 from "../../assets/contact-header1.png";
-import contactHeader2 from "../../assets/contact-header2.png";
-import contactHeader3 from "../../assets/contact-header3.png";
-import contactHeader4 from "../../assets/contact-header4.png";
+import contactHeader1 from "../../../assets/contact-header1.png";
+import contactHeader2 from "../../../assets/contact-header2.png";
+import contactHeader3 from "../../../assets/contact-header3.png";
+import contactHeader4 from "../../../assets/contact-header4.png";
 
-function Header() {
+function AboutHeader() {
   return (
     <Flex align="center" justify="space-between">
       <Box color="black" width="55%">
@@ -82,4 +82,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default AboutHeader;

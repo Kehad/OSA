@@ -1,7 +1,7 @@
 import { Button, Flex, Image } from '@chakra-ui/react'
-import mapView from '../../assets/mapView.png'
+import mapView from '../../../assets/mapView.png'
 
-function Map() {
+function ContactMap() {
   return (
     <Flex position="relative">
       <Image src={mapView} alt="Map View" />
@@ -26,4 +26,4 @@ function Map() {
   );
 }
 
-export default Map;
+export default ContactMap;

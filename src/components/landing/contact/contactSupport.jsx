@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
 
-function Contact() {
+function ContactSupport() {
   return (
     <Flex alignItems="center" justifyContent="center" gap={8}>
       <Flex direction="column" alignItems="center" justifyContent="center">
@@ -224,4 +224,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactSupport;

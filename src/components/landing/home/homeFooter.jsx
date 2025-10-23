@@ -1,19 +1,8 @@
-// import {
-//   Box,
-//   Flex,
-//   Image,
-//   Table,
-//   Tbody,
-//   Td,
-//   Text,
-//   Th,
-//   Thead,
-//   Tr,
-// } from "@chakra-ui/react";
 
-import OSA_LOGO from "../../assets/OSA-LOGO.png";
 
-function Footer() {
+import OSA_LOGO from "../../../assets/OSA-LOGO.png";
+
+function HomeFooter() {
   return (
     <div className="flex z-index-10 w-full flex-col md:flex-row justify-evenly bg-[#] py-10 px-4 text-white">
       {/* Logo and Texts */}
@@ -82,4 +71,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default HomeFooter;

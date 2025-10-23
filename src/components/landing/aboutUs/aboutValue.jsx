@@ -1,10 +1,10 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 
-import ContactDiscplineIcon from "../../assets/Discipline-Icon.png";
-import IntegrityIcon from "../../assets/IntegrityIcon.png";
-import SpiritualIcon from "../../assets/spiritualityIcon.png";
-import MultiSkilledIcon from "../../assets/MultiSkilled-Icon.png";
-import ExcellenceIcon from "../../assets/Excellence-Icon.png";
+import ContactDiscplineIcon from "../../../assets/Discipline-Icon.png";
+import IntegrityIcon from "../../../assets/IntegrityIcon.png";
+import SpiritualIcon from "../../../assets/spiritualityIcon.png";
+import MultiSkilledIcon from "../../../assets/MultiSkilled-Icon.png";
+import ExcellenceIcon from "../../../assets/Excellence-Icon.png";
 
 const valueData = [
   {
@@ -39,7 +39,7 @@ const valueData = [
   },
 ];
 
-function Value() {
+function AboutValue() {
   return (
     <Flex
       bgImage={`linear-gradient(rgba(226, 255, 222, 0.4), rgba(255, 255, 255, 0.2))`}
@@ -100,4 +100,4 @@ function Value() {
   );
 }
 
-export default Value;
+export default AboutValue;

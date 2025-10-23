@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Search, Bell, MoreHorizontal } from "lucide-react";
-import { MessageIcon } from "../../../assets/svg/message.svg"; 
+// import { MessageIcon } from "../../../assets/svg/message.svg"; 
 
 export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -38,7 +38,7 @@ export default function Dashboard() {
             {/* More Options */}
             <button className="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-lg transition-colors">
               <MoreHorizontal className="h-5 w-5" />
-              <MessageIcon />
+              {/* <MessageIcon /> */}
             </button>
 
             {/* Notifications */}

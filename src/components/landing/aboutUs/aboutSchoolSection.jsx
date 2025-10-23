@@ -1,12 +1,12 @@
-import nursery from "../../assets/contact-nursery.png";
-import junior from "../../assets/contact-junior.png";
-import primary from "../../assets/contact-primary.png";
-import secondary from "../../assets/contact-secondary.png";
+import nursery from "../../../assets/contact-nursery.png";
+import junior from "../../../assets/contact-junior.png";
+import primary from "../../../assets/contact-primary.png";
+import secondary from "../../../assets/contact-secondary.png";
 import InfoFirst from "../generalComponent/InfoFirst";
 import InfoSecond from "../generalComponent/InfoSecond";
 import { Heading } from "@chakra-ui/react";
 
-function SchoolSection() {
+function AboutSchoolSection() {
   return (
     <div className="py-12">
       <Heading
@@ -48,4 +48,4 @@ Our dedicated faculty members are committed to providing individualized guidance
   );
 }
 
-export default SchoolSection;
+export default AboutSchoolSection;

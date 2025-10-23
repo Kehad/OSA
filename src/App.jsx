@@ -1,16 +1,22 @@
 import { Route, Routes } from "react-router-dom";
-import Nav from "./pages/nav.jsx";
+// import Nav from "./pages/nav.jsx";
 
-import Layout from "./components/generalComponent/Layout/Layout.jsx";
-import Footer from "./components/landingPage/Footer.jsx";
+import Footer from "./components/landing/home/homeFooter.jsx";
 import AppRouter from "./router/AppRouter.jsx";
+import Layout from "./components/landing/generalComponent/Layout/Layout.jsx";
+// import AboutUsPage from "./pages/landingPage/AboutUsPage.jsx";
+// import ContactPage from "./pages/landingPage/ContactPage.jsx";
+// import HomePage from "./pages/landingPage/HomePage.jsx";
+
 
 function App() {
   return (
     <div className="flex flex-col">
-      {/* <Nav /> */}
-      {/* <Routes>
-        <Route path="/landing-page" element={<LandingPage />} />
+
+     {/* Landing Page */}
+      {/* <Nav />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutUsPage />} />
       </Routes> */}

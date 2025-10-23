@@ -1,8 +1,8 @@
 import { Box, Heading } from "@chakra-ui/react";
-import news from "../../assets/news.png";
+import news from "../../../assets/news.png";
 import InfoSecond from "../generalComponent/InfoSecond";
 
-function News() {
+function HomeNews() {
   return (
     <Box paddingY="3rem">
       <Heading
@@ -29,4 +29,4 @@ function News() {
   );
 }
 
-export default News;
+export default HomeNews;

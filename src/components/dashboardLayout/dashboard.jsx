@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Sidenav from "../../navigations/sidebar";
-import Header from "../../navigations/header/Header";
+import Sidenav from "../navigations/sidebar";
+import Header from "../navigations/header/Header";
 
 const sidenavItems = [
   {

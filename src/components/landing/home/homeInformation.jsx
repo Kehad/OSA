@@ -1,15 +1,15 @@
 import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import children1 from "../../assets/children-1.png";
-import children2 from "../../assets/children-2.png";
-import children3 from "../../assets/children-3.png";
-import children4 from "../../assets/children-4.png";
-import about1 from "../../assets/about-1.png";
-import about2 from "../../assets/about-2.png";
-import about3 from "../../assets/about-3.png";
+import children1 from "../../../assets/children-1.png";
+import children2 from "../../../assets/children-2.png";
+import children3 from "../../../assets/children-3.png";
+import children4 from "../../../assets/children-4.png";
+import about1 from "../../../assets/about-1.png";
+import about2 from "../../../assets/about-2.png";
+import about3 from "../../../assets/about-3.png";
 import InfoFirst from "../generalComponent/InfoFirst";
 import InfoSecond from "../generalComponent/InfoSecond";
 
-function Information() {
+function HomeInformation() {
   return (
     <div className="py-12">
       <Heading
@@ -138,4 +138,4 @@ function Information() {
   );
 }
 
-export default Information;
+export default HomeInformation;

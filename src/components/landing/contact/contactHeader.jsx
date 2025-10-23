@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text } from "@chakra-ui/react";
-import BG_CONTACT_IMG from "../../assets/bg-contact.png";
+import BG_CONTACT_IMG from "../../../assets/bg-contact.png";
 
-function Header() {
+function ContactHeader() {
   return (
     <Flex
       bgImage={`linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${BG_CONTACT_IMG})`}
@@ -43,4 +43,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default ContactHeader;

@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react';
-import headerImg from '../../assets/header.png';
+import headerImg from '../../../assets/header.png';
 
-function Header() {
+function HomeHeader() {
   return (
     <Flex alignItems="center" justifyContent="space-between">
       <Box color="white">
@@ -44,4 +44,4 @@ function Header() {
   );
 }
 
-export default Header
+export default HomeHeader

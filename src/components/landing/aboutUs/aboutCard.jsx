@@ -1,6 +1,6 @@
 import { Box, Flex, Heading } from '@chakra-ui/react'
 
-function Card() {
+function AboutCard() {
   return (
     <Flex
       gap="6rem"
@@ -55,4 +55,4 @@ function Card() {
   );
 }
 
-export default Card
+export default AboutCard
