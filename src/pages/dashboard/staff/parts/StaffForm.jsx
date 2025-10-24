@@ -1,0 +1,92 @@
+/* eslint-disable react/prop-types */
+
+import Button from "../../../../components/button/button";
+import CompleteForm from "./CompleteForm";
+import { NextOfKinForm } from "./NextofKinForm";
+import PersonalInformationForm from "./PersonalInformation";
+import { WorkInformationForm } from "./WorkForm";
+
+// Add/Edit Staff Form Component
+const StaffForm = ({
+  isEdit,
+  currentStep,
+  formData,
+  onSave,
+  onBack,
+  onNext,
+  onChange,
+}) => (
+  <div className="min-h-screen bg-white p-8">
+    <div className="">
+      <div className="p-6 border-b border-gray-200 flex justify-between items-center">
+        <h1 className="text-2xl font-semibold text-gray-900">
+          {isEdit ? "Edit staff profile" : "Add new staff"}
+        </h1>
+        <button
+          onClick={onSave}
+          className="px-6 py-2 text-sm font-medium text-white bg-green-800 rounded-lg hover:bg-green-900"
+        >
+          Save
+        </button>
+      </div>
+
+      <div className="p-6">
+        <div className="mb-6 flex justify-end">
+          <span className="text-sm text-gray-600">{currentStep}/3</span>
+        </div>
+
+        <div className="mb-6">
+          <div className="h-1 bg-gray-200 rounded-full">
+            <div
+              className="h-1 bg-yellow-400 rounded-full transition-all"
+              style={{ width: `${(currentStep / 3) * 100}%` }}
+            ></div>
+          </div>
+        </div>
+
+        {currentStep === 1 && (
+          <PersonalInformationForm
+            formData={formData}
+            isEdit={isEdit}
+            onChange={onChange}
+          />
+        )}
+
+        {currentStep === 2 && (
+          <WorkInformationForm formData={formData} onChange={onChange} />
+        )}
+
+        {currentStep === 3 && (
+          <NextOfKinForm formData={formData} onChange={onChange} />
+        )}
+
+        {/* {isEdit && (
+          <CompleteForm
+            formData={formData}
+            isEdit={isEdit}
+            onChange={onChange}
+          />
+        )} */}
+
+        <div className="flex justify-center items-center mt-8 gap-5">
+          <Button
+            text={currentStep === 1 ? "Cancel" : "Back"}
+            onClick={onBack}
+            variant="outline"
+            colorScheme="white"
+            className="px-20 font-bold"
+            size="xl"
+          />
+          <Button
+            text={currentStep === 3 ? "Done" : "Next"}
+            onClick={currentStep === 3 ? onSave : onNext}
+            className="px-20 font-bold"
+            size="xl"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+export default StaffForm;
