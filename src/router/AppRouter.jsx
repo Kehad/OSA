@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { DashboardLayout } from "../components/dashboardLayout/dashboard";
 import Overview from "../pages/dashboard/overview/overview";
+import Staff from "../pages/dashboard/staff/staff";
+import StaffManagement from "../pages/dashboard/staff/parts/StaffManagement";
 
 // const AuthLogin = React.lazy(() => import("../pages/auth/login/Login"));
 
@@ -17,6 +19,8 @@ const AppRouter = () => {
           <Route path={`overview`}>
             <Route index element={<Overview />} />
           </Route>
+          {/* <Route path="/staff" element={<Staff /> } /> */}
+          <Route path="/staff" element={<StaffManagement /> } />
 
           {/* <Route path={`${base.riders.value}`}>
               <Route index element={<Riders />} />
