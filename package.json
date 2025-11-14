@@ -19,12 +19,17 @@
     "@fontsource/montserrat": "^5.1.0",
     "@fontsource/patrick-hand": "^5.1.0",
     "@fontsource/roboto": "^5.1.0",
+    "clsx": "^2.1.1",
     "framer-motion": "^11.3.31",
     "lucide-react": "^0.507.0",
+    "path": "^0.12.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.66.0",
     "react-router-dom": "^6.26.1",
-    "recharts": "^3.1.0"
+    "recharts": "^3.1.0",
+    "tailwind-merge": "^3.4.0",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

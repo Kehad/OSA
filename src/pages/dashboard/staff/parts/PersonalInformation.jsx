@@ -1,104 +1,119 @@
 /* eslint-disable react/prop-types */
 
 import { Plus } from "lucide-react";
+import Input from "../../../../components/ui/input.jsx";
+import { useForm } from "react-hook-form";
+import Button from "../../../../components/ui/button.jsx";
 
-// Personal Information Form Component
-const PersonalInformationForm = ({ formData, isEdit, onChange }) => (
-  <div>
-    <h2 className="text-lg text-black font-semibold mb-6">
-      Personal Information
-    </h2>
+const PersonalInformationForm = ({ formData, isEdit, onChange }) => {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      confirmPassword: "",
+      fullName: formData.fullName || "",
+      phoneNumber: formData.phoneNumber || "",
+      emailAddress: formData.emailAddress || "",
+      dateOfBirth: formData.dateOfBirth || "",
+      houseAddress: formData.houseAddress || "",
+    },
+  });
 
-    <div className="mb-6 text-black flex items-center gap-2">
-      <button className="flex items-center gap-2 px-5 py-5 border border-[#EEEEEE] bg-[#EEEEEE] rounded-full hover:bg-gray-50">
-        <Plus className="w-5 h-5" />
-      </button>
-      {isEdit ? "Edit Picture" : "Add profile picture"}
-    </div>
+  const onSubmit = (data) => {
+    console.log("Form submitted:", data);
+  };
 
-    {isEdit && (
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Staff ID
-        </label>
-        <input
-          type="text"
-          value={formData.id}
-          disabled
-          className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50"
-        />
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <h2 className="text-lg text-black font-semibold mb-6">
+        Personal Information
+      </h2>
+
+      {/* Profile Photo */}
+      <div className="mb-6 text-black flex items-center gap-2">
+        {/* <button className="flex items-center gap-2 px-5 py-5 border border-[#EEEEEE] bg-[#EEEEEE] rounded-full hover:bg-gray-50">
+          <Plus className="w-5 h-5" />
+        </button> */}
+        <Button leftIcon={Plus} className="flex items-center gap-2 px-5 py-5  border border-[#EEEEEE] bg-[#EEEEEE] rounded-[100%] hover:bg-gray-50" />
+        {isEdit ? "Edit Picture" : "Add profile picture"}
       </div>
-    )}
 
-    <div className="grid grid-cols-2 gap-4 mb-4">
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Full name *
-        </label>
-        <input
-          type="text"
-          placeholder="Enter full name"
-          value={formData.fullName}
-          onChange={(e) => onChange("fullName", e.target.value)}
-          className="w-full px-4 py-2 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-        />
-      </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Phone number *
-        </label>
-        <input
-          type="text"
-          placeholder="Enter phone number"
-          value={formData.phoneNumber}
-          onChange={(e) => onChange("phoneNumber", e.target.value)}
-          className="w-full px-4 py-2 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-        />
-      </div>
-    </div>
-
-    <div className="grid grid-cols-2 gap-4 mb-4">
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Email address
-        </label>
-        <input
-          type="email"
-          placeholder="Enter email address"
-          value={formData.emailAddress}
-          onChange={(e) => onChange("emailAddress", e.target.value)}
-          className="w-full px-4 py-2 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
-        />
-      </div>
-      <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          Date of birth *
-        </label>
-        <div className="relative">
+      {/* Staff ID (readonly) */}
+      {isEdit && (
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Staff ID
+          </label>
           <input
             type="text"
-            placeholder="Select date of birth"
-            value={formData.dateOfBirth}
-            onChange={(e) => onChange("dateOfBirth", e.target.value)}
-            className="w-full px-4 py-2 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            value={formData.id}
+            disabled
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-gray-50"
           />
-          {/* <Calendar className="absolute right-3 top-2.5 w-5 h-5 text-gray-400" /> */}
         </div>
-      </div>
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">
-          House address *
-        </label>
-        <textarea
-          placeholder="Enter house address"
-          value={formData.houseAddress}
-          onChange={(e) => onChange("houseAddress", e.target.value)}
-          rows={3}
-          className="w-full px-4 py-2 border bg-white border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+      )}
+
+     
+
+      {/* Full Name & Phone Number */}
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <Input
+          inputLabel="Full Name *"
+          name="fullName"
+          control={control}
+          type="input"
+          placeholderText="Enter full name"
+          rules={{ required: "Full name is required" }}
+          autoFocus={false}
+          textInputProps={{}}
+        />
+
+        <Input
+          inputLabel="Phone Number *"
+          name="phoneNumber"
+          control={control}
+          type="input"
+          placeholderText="Enter phone number"
+          rules={{ required: "Phone number is required" }}
+          autoFocus={false}
         />
       </div>
-    </div>
-  </div>
-);
+
+      {/* Email + DOB */}
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        <Input
+          inputLabel="Email Address"
+          name="emailAddress"
+          control={control}
+          type="input"
+          placeholderText="Enter email"
+          autoFocus={false}
+        />
+
+        <Input
+          inputLabel="Date of Birth *"
+          name="dateOfBirth"
+          control={control}
+          type="input"
+          placeholderText="Select date of birth"
+          rules={{ required: "Date of birth required" }}
+          autoFocus={false}
+        />
+      </div>
+
+      {/* House Address */}
+      <Input
+        inputLabel="House Address *"
+        name="houseAddress"
+        control={control}
+        type="multiline"
+        placeholderText="Enter house address"
+        rules={{ required: "House address is required" }}
+      />
+    </form>
+  );
+};
 
 export default PersonalInformationForm;

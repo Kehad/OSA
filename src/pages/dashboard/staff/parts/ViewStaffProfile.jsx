@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import Button from "../../../../components/button/button";
+import Button from "../../../../components/ui/button";
 
 // View Staff Profile Component
 export const ViewStaffProfile = ({ staff, onBack, onEdit }) => (

@@ -3,7 +3,7 @@ import { Filter, Plus } from "lucide-react";
 import { EmptyState } from "./Empystate";
 import { StaffTable } from "./StaffTable";
 import { Pagination } from "./Pagination";
-import Button from "../../../../components/button/button";
+import Button from "../../../../components/ui/button";
 
 // Staff List View Component
 const StaffListView = ({
