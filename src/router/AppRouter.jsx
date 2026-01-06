@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { DashboardLayout } from "../components/dashboardLayout/dashboard";
 import Overview from "../pages/dashboard/overview/overview";
 import StaffManagement from "../pages/dashboard/staff/parts/StaffManagement";
+import Students from "../pages/dashboard/students/student";
 
 // const AuthLogin = React.lazy(() => import("../pages/auth/login/Login"));
 
@@ -19,6 +20,7 @@ const AppRouter = () => {
             <Route index element={<Overview />} />
           </Route>
           <Route path="/staff" element={<StaffManagement /> } />
+          <Route path="/students" element={<Students /> } />
 
           {/* <Route path={`${base.riders.value}`}>
               <Route index element={<Riders />} />
