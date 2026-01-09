@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
 import { Plus } from "lucide-react";
-import Input from "../../../../components/ui/input.jsx";
+import Input from "../../../../components/ui/input.tsx";
 import { useForm } from "react-hook-form";
-import Button from "../../../../components/ui/button.jsx";
+import Button from "../../../../components/ui/button.tsx";
 
 const PersonalInformationForm = ({ formData, isEdit, onChange }) => {
   const {
@@ -36,7 +36,10 @@ const PersonalInformationForm = ({ formData, isEdit, onChange }) => {
         {/* <button className="flex items-center gap-2 px-5 py-5 border border-[#EEEEEE] bg-[#EEEEEE] rounded-full hover:bg-gray-50">
           <Plus className="w-5 h-5" />
         </button> */}
-        <Button leftIcon={Plus} className="flex items-center gap-2 px-5 py-5  border border-[#EEEEEE] bg-[#EEEEEE] rounded-[100%] hover:bg-gray-50" />
+        <Button
+          leftIcon={Plus}
+          className="flex items-center gap-2 px-5 py-5  border border-[#EEEEEE] bg-[#EEEEEE] rounded-[100%] hover:bg-gray-50"
+        />
         {isEdit ? "Edit Picture" : "Add profile picture"}
       </div>
 
@@ -54,8 +57,6 @@ const PersonalInformationForm = ({ formData, isEdit, onChange }) => {
           />
         </div>
       )}
-
-     
 
       {/* Full Name & Phone Number */}
       <div className="grid grid-cols-2 gap-4 mb-4">

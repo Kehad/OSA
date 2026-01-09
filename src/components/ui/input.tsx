@@ -1,32 +1,45 @@
-// import * as React from "react"
-
-// import { cn } from "@/lib/utils"
-
-
-// const Input = React.forwardRef(
-//   ({ className, type, ...props }, ref) => {
-//     return (
-//       <input
-//         type={type}
-//         className={cn(
-//           "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-//           className
-//         )}
-//         ref={ref}
-//         {...props}
-//       />
-//     )
-//   }
-// )
-// Input.displayName = "Input"
-
-// export { Input }
-
-
 /* eslint-disable prettier/prettier */
-import React, { useState, useMemo } from "react";
-import { Controller } from "react-hook-form";
+import React, {
+  useState,
+  useMemo,
+  InputHTMLAttributes,
+  TextareaHTMLAttributes,
+  SelectHTMLAttributes,
+} from "react";
+import {
+  Controller,
+  Control,
+  FieldValues,
+  Path,
+  RegisterOptions,
+} from "react-hook-form";
 import * as yup from "yup";
+
+type PasswordRequirement = {
+  text: string;
+  met: boolean;
+};
+
+interface InputProps<T extends FieldValues> {
+  placeholderText?: string;
+  inputLabel?: string;
+  name: Path<T>;
+  type?: "input" | "password" | "multiline" | "date" | "select";
+  control: Control<T>;
+  rules?: Omit<
+    RegisterOptions<T, Path<T>>,
+    "valueAsNumber" | "valueAsDate" | "setValueAs" | "disabled"
+  >;
+  editable?: boolean;
+  textInputProps?:
+  | InputHTMLAttributes<HTMLInputElement>
+  | TextareaHTMLAttributes<HTMLTextAreaElement>
+  | SelectHTMLAttributes<HTMLSelectElement>;
+  autoFocus?: boolean;
+  showPasswordRequirements?: boolean;
+  helperText?: string;
+  options?: { label: string; value: string | number }[];
+}
 
 // Yup password validation schema
 export const passwordValidationSchema = yup.object({
@@ -41,13 +54,14 @@ export const passwordValidationSchema = yup.object({
 
 // Individual validation functions for real-time feedback
 export const passwordValidations = {
-  minLength: (password) => password.length >= 8,
-  hasUppercase: (password) => /[A-Z]/.test(password),
-  hasDigit: (password) => /\d/.test(password),
-  hasSpecialChar: (password) => /[!@#$%^&*(),.?":{}|<>]/.test(password),
+  minLength: (password: string): boolean => password.length >= 8,
+  hasUppercase: (password: string): boolean => /[A-Z]/.test(password),
+  hasDigit: (password: string): boolean => /\d/.test(password),
+  hasSpecialChar: (password: string): boolean =>
+    /[!@#$%^&*(),.?":{}|<>]/.test(password),
 };
 
-const Input = ({
+const Input = <TFieldValues extends FieldValues>({
   placeholderText = "",
   inputLabel = "",
   name,
@@ -57,18 +71,18 @@ const Input = ({
   editable = true,
   textInputProps,
   autoFocus = true,
-  options = [],
   showPasswordRequirements = false,
   helperText,
-}) => {
+  options,
+}: InputProps<TFieldValues>) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
-    };
+  };
 
   // Password validation logic
-  const validatePassword = (password) => {
+  const validatePassword = (password: string): PasswordRequirement[] => {
     if (!password) {
       return [
         { text: "At least 8 characters", met: false },
@@ -79,20 +93,32 @@ const Input = ({
     }
 
     return [
-      { text: "At least 8 characters", met: passwordValidations.minLength(password) },
-      { text: "At least 1 uppercase letter", met: passwordValidations.hasUppercase(password) },
+      {
+        text: "At least 8 characters",
+        met: passwordValidations.minLength(password),
+      },
+      {
+        text: "At least 1 uppercase letter",
+        met: passwordValidations.hasUppercase(password),
+      },
       { text: "At least 1 digit", met: passwordValidations.hasDigit(password) },
-      { text: "At least 1 special character", met: passwordValidations.hasSpecialChar(password) },
+      {
+        text: "At least 1 special character",
+        met: passwordValidations.hasSpecialChar(password),
+      },
     ];
   };
 
   // Custom Yup validator for react-hook-form
-  const yupPasswordValidator = (value) => {
+  const yupPasswordValidator = (value: string): boolean | string => {
     try {
       passwordValidationSchema.validateSync({ password: value });
       return true;
     } catch (error) {
-      return error.message;
+      if (error instanceof yup.ValidationError) {
+        return error.message;
+      }
+      return "An unknown validation error occurred";
     }
   };
 
@@ -111,7 +137,10 @@ const Input = ({
             yupValidation: yupPasswordValidator,
           },
         }}
-        render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => {
+        render={({
+          field: { onChange, onBlur, value },
+          fieldState: { error },
+        }) => {
           const requirements = useMemo(
             () => validatePassword(value || ""),
             [value]
@@ -121,16 +150,15 @@ const Input = ({
           return (
             <>
               <div
-                className={`flex items-center rounded-lg border px-2 h-[60px] bg-transparent mt-2 ${
-                  error
-                    ? "border-red-600"
-                    : allRequirementsMet && value
+                className={`flex items-center rounded-lg border px-2 h-[60px] bg-transparent mt-2 ${error
+                  ? "border-red-600"
+                  : allRequirementsMet && value
                     ? "border-green-500"
                     : "border-gray-400"
-                }`}
+                  }`}
               >
                 <input
-                  {...textInputProps}
+                  {...(textInputProps as InputHTMLAttributes<HTMLInputElement>)}
                   className="flex-1 h-full border-none text-[20px] outline-none bg-transparent text-black placeholder:text-gray-400"
                   onChange={(e) => onChange(e.target.value)}
                   onBlur={onBlur}
@@ -191,11 +219,8 @@ const Input = ({
                   {requirements.map((req, index) => (
                     <div key={index} className="flex items-center space-x-2">
                       <div
-                        className={`w-4 h-4 rounded-full flex items-center justify-center ${
-                          req.met
-                            ? "bg-green-500"
-                            : "border-2 border-gray-300"
-                        }`}
+                        className={`w-4 h-4 rounded-full flex items-center justify-center ${req.met ? "bg-green-500" : "border-2 border-gray-300"
+                          }`}
                       >
                         {req.met && (
                           <svg width="10" height="8" fill="none">
@@ -210,9 +235,8 @@ const Input = ({
                         )}
                       </div>
                       <span
-                        className={`text-sm ${
-                          req.met ? "text-green-600" : "text-gray-600"
-                        }`}
+                        className={`text-sm ${req.met ? "text-green-600" : "text-gray-600"
+                          }`}
                       >
                         {req.text}
                       </span>
@@ -240,15 +264,17 @@ const Input = ({
         control={control}
         name={name}
         rules={rules}
-        render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
+        render={({
+          field: { onChange, onBlur, value },
+          fieldState: { error },
+        }) => (
           <>
             <div
-              className={`flex items-center text-[20px] rounded-lg border border-gray-400 px-[10px] h-[60px] bg-transparent mt-2 ${
-                error ? "border-red-600" : ""
-              }`}
+              className={`flex items-center text-[20px] rounded-lg border border-gray-400 px-[10px] h-[60px] bg-transparent mt-2 ${error ? "border-red-600" : ""
+                }`}
             >
               <input
-                {...textInputProps}
+                {...(textInputProps as InputHTMLAttributes<HTMLInputElement>)}
                 className="flex-1 h-full border-none outline-none bg-transparent text-black placeholder:text-gray-400"
                 onChange={(e) => onChange(e.target.value)}
                 onBlur={onBlur}
@@ -281,10 +307,13 @@ const Input = ({
         control={control}
         name={name}
         rules={rules}
-        render={({ field: { onChange, onBlur, value }, fieldState: { error } }) => (
+        render={({
+          field: { onChange, onBlur, value },
+          fieldState: { error },
+        }) => (
           <>
             <textarea
-              {...textInputProps}
+              {...(textInputProps as TextareaHTMLAttributes<HTMLTextAreaElement>)}
               className="w-full h-32 rounded-md border border-black px-[10px] py-2 resize-vertical outline-none bg-transparent placeholder:text-gray-400"
               onChange={(e) => onChange(e.target.value)}
               onBlur={onBlur}
@@ -302,26 +331,112 @@ const Input = ({
     </div>
   );
 
+  const renderDateInput = () => (
+    <div className="mb-2">
+      {inputLabel && (
+        <p className="font-normal text-[22px] text-black mb-1">{inputLabel}</p>
+      )}
+      <Controller
+        control={control}
+        name={name}
+        rules={rules}
+        render={({
+          field: { onChange, onBlur, value },
+          fieldState: { error },
+        }) => (
+          <>
+            <div
+              className={`relative flex items-center text-[20px] rounded-lg border border-gray-400 px-[10px] h-[60px] bg-transparent mt-2 ${error ? "border-red-600" : ""
+                }`}
+            >
+              <input
+                {...(textInputProps as InputHTMLAttributes<HTMLInputElement>)}
+                className={`flex-1 h-full border-none outline-none bg-transparent text-black placeholder:text-gray-400 ${!value ? "text-transparent" : ""
+                  }`}
+                onChange={(e) => onChange(e.target.value)}
+                onBlur={onBlur}
+                disabled={!editable}
+                autoFocus={autoFocus}
+                value={value || ""}
+                type="date"
+              />
+              {!value && (
+                <span className="absolute left-[10px] text-gray-400 pointer-events-none">
+                  {placeholderText}
+                </span>
+              )}
+            </div>
+
+            {error && (
+              <p className="text-red-600 text-xs mt-1">{error.message}</p>
+            )}
+
+            {helperText && (
+              <p className="text-black-600 text-[16px] mt-1">{helperText}</p>
+            )}
+          </>
+        )}
+      />
+    </div>
+  );
+
+  const renderSelectInput = () => (
+    <div className="mb-2">
+      {inputLabel && (
+        <p className="font-normal text-[22px] text-black mb-1">{inputLabel}</p>
+      )}
+      <Controller
+        control={control}
+        name={name}
+        rules={rules}
+        render={({
+          field: { onChange, onBlur, value },
+          fieldState: { error },
+        }) => (
+          <>
+            <div
+              className={`flex items-center text-[20px] rounded-lg border border-gray-400 px-[10px] h-[60px] bg-transparent mt-2 ${error ? "border-red-600" : ""
+                }`}
+            >
+              <select
+                className="flex-1 h-full border-none outline-none bg-transparent text-black placeholder:text-gray-400"
+                onChange={(e) => onChange(e.target.value)}
+                onBlur={onBlur}
+                disabled={!editable}
+                value={value || ""}
+              >
+                <option value="" disabled>
+                  {placeholderText || "Select an option"}
+                </option>
+                {options?.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {error && (
+              <p className="text-red-600 text-xs mt-1">{error.message}</p>
+            )}
+
+            {helperText && (
+              <p className="text-black-600 text-[16px] mt-1">{helperText}</p>
+            )}
+          </>
+        )}
+      />
+    </div>
+  );
+
   if (type === "input") return renderTextInput();
   if (type === "password") return renderPasswordInput();
   if (type === "multiline") return renderMultiLineInput();
+  if (type === "date") return renderDateInput();
+  if (type === "select") return renderSelectInput();
+
 
   return null;
 };
 
 export default Input;
-
-
-          // <QcInput
-          //   inputLabel="Confirm Password*"
-          //   name="confirmPassword"
-          //   control={control}
-          //   rules={{ required: true }}
-          //   placeholderText="Confirm your password"
-          //   type="password"
-          //   editable={true}
-          //   autoFocus={false}
-          //   textInputProps={{
-          //     onBlur: () => handleFieldBlur("confirmPassword")
-          //   }}
-          // />
