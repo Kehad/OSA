@@ -85,13 +85,15 @@ const EntityForm = ({
               formData={formData}
               isEdit={isEdit}
               onChange={onChange}
+              onNext={onNext}
+              onBack={onBack}
+              onSave={onSave}
               entityType={entityType}
               config={config}
             />
           ) : (
             <div>Step component not found</div>
           )}
-
           <div className="flex justify-center gap-5 mt-8">
             {/* FIX: Use children for text, not text="" prop */}
             <Button
@@ -112,6 +114,7 @@ const EntityForm = ({
         </div>
       </div>
     </div>
+
   );
 };
 

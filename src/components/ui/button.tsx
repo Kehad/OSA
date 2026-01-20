@@ -125,9 +125,8 @@ const Button = ({
     const IconComponent = Icon;
     return (
       <IconComponent
-        className={`flex-shrink-0 h-4 w-4 ${
-          position === "left" ? "mr-1" : "ml-1"
-        }`}
+        className={`flex-shrink-0 h-4 w-4 ${position === "left" ? "mr-1" : "ml-1"
+          }`}
         aria-hidden="true"
       />
     );

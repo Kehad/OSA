@@ -1,18 +1,36 @@
-// src/components/entity/EntityListView.jsx
-import { Plus, Search } from "lucide-react";
-import Button from "../ui/Button";
+// src/components/entity/EntityListView.tsx
+import React from "react";
+import { Plus } from "lucide-react";
+import Button from "../ui/button";
 import EmptyState from "./EmptyState";
 import EntityTable from "./EntityTable";
 import Pagination from "./Pagination";
+import { Entity, EntityConfigItem, EntityType } from "./EntityManagement";
 
-const EntityListView = ({
+interface EntityListViewProps {
+  entityType: EntityType;
+  entities: Entity[];
+  totalItems: number;
+  currentPage: number;
+  itemsPerPage: number;
+  searchTerm: string;
+  onSearch: (term: string) => void;
+  onAdd: () => void;
+  onView: (entity: Entity) => void;
+  onEdit: (entity: Entity) => void;
+  onDelete: (id: string) => void;
+  onPageChange: (page: number) => void;
+  config: EntityConfigItem;
+}
+
+const EntityListView: React.FC<EntityListViewProps> = ({
   entityType,
   entities,
   totalItems,
   currentPage,
   itemsPerPage,
-  searchTerm,
-  onSearch,
+  // searchTerm, // currently unused in UI but passed
+  // onSearch,   // currently unused in UI but passed
   onAdd,
   onView,
   onEdit,
@@ -20,7 +38,7 @@ const EntityListView = ({
   onPageChange,
   config,
 }) => {
-  console.log(entities, config);
+  // console.log(entities, config);
   return (
     <div className="min-h-screen bg-white p-8">
       <div className="mx-auto">
@@ -30,6 +48,7 @@ const EntityListView = ({
             onClick={onAdd}
             leftIcon={Plus}
             size="lg"
+            className="bg-[#1b3b2a] text-white"
           />
         </div>
 

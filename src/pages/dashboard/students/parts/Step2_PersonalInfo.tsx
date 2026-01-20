@@ -7,6 +7,11 @@ interface StepProps {
   onChange: (data: Record<string, any>) => void; // Update logic to handle bulk change if needed, or stick to field
   onNext: () => void;
   onBack: () => void;
+  // Added optional props to satisfy EntityForm passing them
+  onSave?: () => void;
+  isEdit?: boolean;
+  entityType?: string;
+  config?: any;
 }
 
 const Step2_PersonalInfo = ({ formData, onChange, onNext, onBack }: StepProps) => {
@@ -102,16 +107,12 @@ const Step2_PersonalInfo = ({ formData, onChange, onNext, onBack }: StepProps) =
   // 2. Handle Form Submission
   const handleNext = (data: any) => {
     // Merge new data with existing formData
-    // Assuming the parent handles the merge via onChange, 
-    // or we can call onChange for each field.
-    // Ideally, EntityManagement should have a bulk update method.
-    Object.keys(data).forEach(key => {
-      // We use the passed onChange (which might be singular) 
-      // If your onChange supports object, pass `data`. 
-      // If it supports (key, value), we loop:
-      // @ts-ignore
-      if (onChange) onChange(key, data[key]);
-    });
+    // Object.keys(data).forEach((key) => {
+    //   // @ts-ignore
+    //   if (onChange) onChange(key, data[key]);
+    // });
+    console.log(data)
+    if (onChange) onChange(data);
 
     onNext();
   };
@@ -134,7 +135,7 @@ const Step2_PersonalInfo = ({ formData, onChange, onNext, onBack }: StepProps) =
                so it sits at the top (visually matching the screenshot) */}
         <div className="flex items-center gap-4 mb-6">
           <div className="w-[5rem] h-[5rem] bg-gray-100 rounded-full flex items-center justify-center text-gray-400 border border-gray-200 cursor-pointer hover:bg-gray-200 transition">
-            <svg  
+            <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"

@@ -5,8 +5,11 @@ import DynamicForm, { FormField } from "@/components/ui/form"; // Adjust path as
 interface StepProps {
   formData: Record<string, any>;
   onChange: (data: Record<string, any>) => void;
-  onSave: () => void; // Use onSave since this is the final step
+  onSave: () => void;
   onBack: () => void;
+  isEdit?: boolean;
+  entityType?: string;
+  config?: any;
 }
 
 const Step3_HealthInfo = ({ formData, onChange, onSave, onBack }: StepProps) => {
@@ -57,11 +60,12 @@ const Step3_HealthInfo = ({ formData, onChange, onSave, onBack }: StepProps) => 
 
   const handleSave = (data: any) => {
     // Bulk update parent state before saving
-    Object.keys(data).forEach((key) => {
-      // @ts-ignore
-      if (onChange) onChange(key, data[key]);
-    });
-    
+    // Object.keys(data).forEach((key) => {
+    //   // @ts-ignore
+    //   if (onChange) onChange(key, data[key]);
+    // });
+    if (onChange) onChange(data);
+
     // Trigger the final save action
     onSave();
   };

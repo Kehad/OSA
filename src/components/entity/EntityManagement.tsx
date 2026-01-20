@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// Assuming these components are also being converted or are .jsx files
+
 import EntityListView from "./EntityListView";
 import EntityForm from "./EntityForm/EntityForm";
 import ViewEntityProfile from "./ViewEntityProfile";
@@ -11,7 +11,7 @@ export type EntityType = "staff" | "student" | "parent";
 export interface Entity {
   id: string;
   // Index signature allows accessing dynamic fields (e.g., entity['fullName'])
-  [key: string]: any; 
+  [key: string]: any;
 }
 
 export interface EntityConfigItem {
@@ -42,7 +42,7 @@ const EntityManagement: React.FC<EntityManagementProps> = ({
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [selectedEntity, setSelectedEntity] = useState<Entity | null>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
-  
+
   // formData is Partial because it might be empty during creation
   const [formData, setFormData] = useState<Partial<Entity>>({});
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -79,8 +79,8 @@ const EntityManagement: React.FC<EntityManagementProps> = ({
     return `${cfg.idPrefix}${String(entities.length + 1).padStart(4, "0")}`;
   };
 
-  const handleInputChange = (field: string, value: any) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+  const handleInputChange = (data: Partial<Entity>) => {
+    setFormData((prev) => ({ ...prev, ...data }));
   };
 
   const handleAdd = () => {
@@ -89,15 +89,16 @@ const EntityManagement: React.FC<EntityManagementProps> = ({
     setViewMode("add");
   };
 
-  const handleSave = () => {
+  const handleSave = (data?: Partial<Entity>) => {
+    const dataToSave = data || formData;
     if (viewMode === "add") {
       // Cast newEntity to Entity since we generate the ID here
-      const newEntity = { id: generateId(), ...formData } as Entity;
+      const newEntity = { id: generateId(), ...dataToSave } as Entity;
       setEntities([...entities, newEntity]);
     } else if (viewMode === "edit" && selectedEntity) {
       setEntities(
         entities.map((e) =>
-          e.id === selectedEntity.id ? { ...e, ...formData } : e
+          e.id === selectedEntity.id ? { ...e, ...dataToSave } : e
         )
       );
     }
@@ -153,15 +154,13 @@ const EntityManagement: React.FC<EntityManagementProps> = ({
         />
       )}
 
-      {/* {(viewMode === "add" || viewMode === "edit") && ( */}
-      {(viewMode === "add") && (
+      {viewMode === "add" && (
         <EntityForm
           entityType={entityType}
-          // isEdit={viewMode === "edit"}
           isEdit={false}
           currentStep={currentStep}
           formData={formData}
-          onSave={handleSave}
+          onSave={() => handleSave()}
           onBack={() => {
             if (currentStep > 1) {
               setCurrentStep(currentStep - 1);
@@ -182,7 +181,7 @@ const EntityManagement: React.FC<EntityManagementProps> = ({
           onBack={() => setViewMode("list")}
           // Passed without args, relies on selectedEntity state in handleEdit
           onSave={handleSave}
-          onEdit={() => handleEdit()} 
+          onEdit={() => handleEdit()}
           config={cfg}
           planMode={viewMode}
         />

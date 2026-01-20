@@ -5,11 +5,15 @@ import DynamicForm, { FormField } from "@/components/ui/form";
 
 interface StepProps {
   formData: Record<string, any>;
-  onChange: (field: string, value: any) => void;
-  onNext?: () => void; // Optional: to trigger next step automatically if search is successful
+  onChange: (data: Record<string, any>) => void;
+  onNext?: () => void;
+  onBack?: () => void;
+  isEdit?: boolean;
+  entityType?: string;
+  config?: any;
 }
 
-const Step1_ParentInfo = ({ formData, onChange, onNext }: StepProps) => {
+const Step1_ParentInfo = ({ formData, onChange, onNext, onBack }: StepProps) => {
 
   // 1. Configure the search field using the DynamicForm structure
   const searchFields: FormField[] = [
@@ -26,57 +30,58 @@ const Step1_ParentInfo = ({ formData, onChange, onNext }: StepProps) => {
         },
       },
     },
-    
+
   ];
 
   // 2. Handle the Form Submission (The Search Action)
   const handleSearchSubmit = async (data: any) => {
     // Update the parent formData state
-    onChange("parentPhoneNumber", data.parentPhoneNumber);
+    console.log(data.phoneNumber)
+    onChange({ parentPhoneNumber: data.parentPhoneNumber });
 
     // Simulate API search or logic here
     console.log("Searching for parent:", data.parentPhoneNumber);
 
     // If you want to automatically move next upon valid search:
-    // if (onNext) onNext();
+    if (onNext) onNext();
   };
 
   const handleCreateNew = () => {
     // Logic to switch to "Create New Parent" mode
     console.log("Switching to Create New Parent Profile...");
     // You might want to clear the phone search or set a flag in formData
-    onChange("isNewParent", true);
+    onChange({ isNewParent: true });
+    if (onNext) onNext();
   };
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold text-gray-800">
-        Parent Information
-      </h2>
+      <div className="flex justify-between items-center">
+        <h2 className="text-xl font-semibold text-gray-800">
+          Parent Information
+        </h2>
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="text-gray-500 hover:text-gray-700 text-sm font-medium"
+          >
+            Cancel
+          </button>
+        )}
+      </div>
 
       <div className="space-y-4 max-w-[30rem]">
         <p className="text-gray-600 text-xl">Select already existing Parent</p>
 
         {/* 3. Render DynamicForm for the Input and Search Button */}
-        {/* <DynamicForm
-          fields={searchFields}
-          initialValues={{ parentPhoneNumber: formData.parentPhoneNumber }}
-          onSubmit={handleSearchSubmit}
-          submitButtonText="Search"
-          // We override the default className to remove the card shadow/bg 
-          // so it fits inside the existing container perfectly.
-          className="w-full p-0 bg-transparent shadow-none"
-        /> */}
         <DynamicForm
           fields={searchFields}
           initialValues={{ parentPhoneNumber: formData.parentPhoneNumber }}
           onSubmit={handleSearchSubmit}
           submitButtonText="Search"
-          // We override the default className to remove the card shadow/bg 
-          // so it fits inside the existing container perfectly.
           className="w-full p-0 bg-transparent shadow-none"
         />
-         
+
 
         {/* 4. The "OR" Divider */}
         <div className="relative py-2">
@@ -90,7 +95,7 @@ const Step1_ParentInfo = ({ formData, onChange, onNext }: StepProps) => {
           </div>
         </div>
 
-        {/* 5. The "Create New" Button (Kept separate as it's an alternative action) */}
+        {/* 5. The "Create New" Button */}
         <button
           onClick={handleCreateNew}
           type="button"

@@ -153,6 +153,7 @@ function DynamicForm<T extends FieldValues = any>({
                       control={control as Control<any>}
                       type={field.type as any}
                       placeholderText={field.placeholder}
+                      options={field.options} 
                       {...inputProps}
                     />
                   )

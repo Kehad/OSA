@@ -1,15 +1,16 @@
 // src/components/entity/ViewEntityProfile.tsx
 
+import { Entity, EntityConfigItem } from "./EntityManagement";
 import DynamicForm, { FormField } from "@/components/ui/form"; // Adjust path
 import Button from "@/components/ui/button"; // Adjust path
 
 interface ViewEntityProfileProps {
-  entity: Record<string, any>;
+  entity: Entity;
   entityType: string;
   onBack: () => void;
   onEdit: () => void;
-  onSave: () => void;
-  config?: any;
+  onSave: (data: Partial<Entity>) => void;
+  config?: EntityConfigItem;
   planMode?: string;
 }
 
@@ -26,9 +27,9 @@ const ViewEntityProfile = ({
   const viewFields: FormField[] = [
     // --- Personal Information ---
     { name: "id", label: "Student ID", type: "input" },
-    { 
-      name: "feesStatus", 
-      label: "Fees Status", 
+    {
+      name: "feesStatus",
+      label: "Fees Status",
       type: "custom",
       renderCustom: (value) => (
         <span className={`inline-block px-20 py-2 rounded-md text-white text-sm font-medium ${value === 'Paid' ? 'bg-[#16a34a]' : 'bg-red-500'}`}>
@@ -41,7 +42,8 @@ const ViewEntityProfile = ({
     { name: "middleName", label: "Middle Name", type: "input" },
     { name: "dateOfBirth", label: "Date of Birth", type: "input" }, // Treated as text for view
     { name: "class", label: "Class", type: "input" },
-    { name: "subjects", label: "Subjects", type: "input" },
+    { name: "subject", label: "Subjects", type: "input" },
+    { name: "emailAddress", label: "Email Address", type: "input" },
 
     // --- Other Information ---
     { name: "divider_other", label: "Other Information", type: "divider" },
@@ -61,22 +63,23 @@ const ViewEntityProfile = ({
     { name: "motherName", label: "Mother's name", type: "input" },
     { name: "parentId", label: "Parent ID", type: "input" },
     { name: "contact", label: "Phone number", type: "input" },
+    { name: "nokPhoneNumber", label: "Next of Kin Phone", type: "input" },
   ];
 
-  
+
 
   return (
     <div className="min-h-screen bg-white p-8">
       <div className="">
-        
+
         {/* Header */}
         <div className="flex justify-between items-center mb-2">
           <h1 className="text-2xl font-semibold text-gray-900">
             {planMode === "view" ? "View" : "Edit"} {entityType} profile
           </h1>
-          <Button 
-            text={planMode === "view" ? "Edit" : "Save"} 
-            onClick={onEdit} 
+          <Button
+            text={planMode === "view" ? "Edit" : "Save"}
+            onClick={onEdit}
             className="bg-[#1b3b2a] text-white px-[4rem] py-2 rounded-lg"
           />
         </div>
