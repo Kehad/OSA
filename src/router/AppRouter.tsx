@@ -21,6 +21,7 @@ const AppRouter = () => {
           </Route>
           <Route path="/staff" element={<StaffManagement /> } />
           <Route path="/students" element={<Students /> } />
+          {/* <Route path="/settings" element={<Settings /> } /> */}
 
           {/* <Route path={`${base.riders.value}`}>
               <Route index element={<Riders />} />
