@@ -1,6 +1,13 @@
 /* eslint-disable react/prop-types */
+import { Staff } from "./types";
+
+interface NextOfKinFormProps {
+  formData: Partial<Staff>;
+  onChange: (field: keyof Staff, value: string) => void;
+}
+
 // Next of Kin Form Component
-export const NextOfKinForm = ({ formData, onChange }) => (
+export const NextOfKinForm = ({ formData, onChange }: NextOfKinFormProps) => (
   <div>
     <h2 className="text-lg font-semibold mb-6 text-[#2B2B2B]">
       Next of Kin Information

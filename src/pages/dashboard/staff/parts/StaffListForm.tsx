@@ -4,6 +4,18 @@ import { EmptyState } from "./Empystate";
 import { StaffTable } from "./StaffTable";
 import { Pagination } from "./Pagination";
 import Button from "../../../../components/ui/button";
+import { Staff } from "./types";
+
+interface StaffListViewProps {
+  staffList: Staff[];
+  currentPage: number;
+  itemsPerPage: number;
+  onAddStaff: () => void;
+  onView: (staff: Staff) => void;
+  onEdit: (staff: Staff) => void;
+  onDelete: (id: string) => void;
+  onPageChange: (page: number) => void;
+}
 
 // Staff List View Component
 const StaffListView = ({
@@ -15,7 +27,7 @@ const StaffListView = ({
   onEdit,
   onDelete,
   onPageChange,
-}) => {
+}: StaffListViewProps) => {
   const totalItems = staffList.length;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
@@ -31,7 +43,7 @@ const StaffListView = ({
               onClick={onAddStaff}
               leftIcon={Filter}
               size="lg"
-              colorScheme="black"
+              colorScheme="gray"
               variant="outline"
             />
             <Button
@@ -43,11 +55,11 @@ const StaffListView = ({
           </div>
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-semibold text-gray-900">Staff List</h1>
-          {staffList.length > 0 && (
-            <div className="mt-4 text-md text-black">
-              Showing <span className="font-bold">{startIndex + 1} to {endIndex}</span>  of <span className="font-bold">{totalItems}</span> results
-            </div>
-          )}
+            {staffList.length > 0 && (
+              <div className="mt-4 text-md text-black">
+                Showing <span className="font-bold">{startIndex + 1} to {endIndex}</span>  of <span className="font-bold">{totalItems}</span> results
+              </div>
+            )}
           </div>
         </div>
 
@@ -63,13 +75,13 @@ const StaffListView = ({
               onDelete={onDelete}
             />
             {/* {Math.ceil(totalItems / itemsPerPage) > 1 && ( */}
-              <Pagination
-                currentPage={currentPage}
-                totalItems={totalItems}
-                itemsPerPage={itemsPerPage}
-                onPrevious={() => onPageChange(Math.max(1, currentPage - 1))}
-                onNext={() => onPageChange(currentPage + 1)}
-              />
+            <Pagination
+              currentPage={currentPage}
+              totalItems={totalItems}
+              itemsPerPage={itemsPerPage}
+              onPrevious={() => onPageChange(Math.max(1, currentPage - 1))}
+              onNext={() => onPageChange(currentPage + 1)}
+            />
             {/* )} */}
           </>
         )}

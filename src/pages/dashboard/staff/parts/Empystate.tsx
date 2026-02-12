@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Plus } from "lucide-react";
 
+interface EmptyStateProps {
+  onAddClick: () => void;
+}
 
 // Empty State Component
-export const EmptyState = ({ onAddClick }) => (
+export const EmptyState = ({ onAddClick }: EmptyStateProps) => (
   <div className="flex flex-col items-center justify-center py-24">
     <div className="w-32 h-32 mb-6 rounded-full bg-gray-100 flex items-center justify-center">
       <div className="relative">
@@ -14,7 +17,7 @@ export const EmptyState = ({ onAddClick }) => (
       </div>
     </div>
     <p className="text-gray-500 text-lg mb-8">There are no staffs yet</p>
-    <button 
+    <button
       onClick={onAddClick}
       className="flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-green-800 rounded-lg hover:bg-green-900 w-80"
     >

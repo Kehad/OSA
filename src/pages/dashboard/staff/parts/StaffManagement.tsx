@@ -1,13 +1,12 @@
 // Main App Component
-
 import { useState } from "react";
 import StaffForm from "./StaffForm";
 import { ViewStaffProfile } from "./ViewStaffProfile";
-import StaffListView from "./StaffListForm";;
+import StaffListView from "./StaffListForm";
+import { Staff } from "./types";
 
-//
 const StaffManagement = () => {
-  const [staffList, setStaffList] = useState([
+  const [staffList, setStaffList] = useState<Staff[]>([
     {
       id: "OSA-STAFF-0001",
       fullName: "Oluwafemi John",
@@ -219,15 +218,15 @@ const StaffManagement = () => {
   ]);
   // const [staffList, setStaffList] = useState([]);
 
-  const [viewMode, setViewMode] = useState("list");
-  const [currentStep, setCurrentStep] = useState(1);
-  const [selectedStaff, setSelectedStaff] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [formData, setFormData] = useState({});
+  const [viewMode, setViewMode] = useState<"list" | "add" | "edit" | "view">("list");
+  const [currentStep, setCurrentStep] = useState<number>(1);
+  const [selectedStaff, setSelectedStaff] = useState<Staff | null>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [formData, setFormData] = useState<Partial<Staff>>({});
 
   const itemsPerPage = 10;
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: keyof Staff, value: string) => {
     setFormData({ ...formData, [field]: value });
   };
 
@@ -268,9 +267,8 @@ const StaffManagement = () => {
 
   const handleSave = () => {
     if (viewMode === "add") {
-      const newStaff = {
+      const newStaff: Staff = {
         id: `OSA-STAFF-${String(staffList.length + 1).padStart(4, "0")}`,
-        profilePicture: formData.profilePicture || "",
         fullName: formData.fullName || "",
         phoneNumber: formData.phoneNumber || "",
         emailAddress: formData.emailAddress || "",
@@ -284,6 +282,7 @@ const StaffManagement = () => {
         nokPhoneNumber: formData.nokPhoneNumber || "",
         nokEmailAddress: formData.nokEmailAddress || "",
         nokHouseAddress: formData.nokHouseAddress || "",
+        profilePicture: formData.profilePicture || "",
       };
       setStaffList([...staffList, newStaff]);
       setViewMode("list");
@@ -292,17 +291,17 @@ const StaffManagement = () => {
       const updatedList = staffList.map((staff) =>
         staff.id === selectedStaff.id ? { ...staff, ...formData } : staff
       );
-      setStaffList(updatedList);
+      setStaffList(updatedList as Staff[]);
       setViewMode("list");
     }
   };
 
-  const handleView = (staff) => {
+  const handleView = (staff: Staff) => {
     setSelectedStaff(staff);
     setViewMode("view");
   };
 
-  const handleEdit = (staff) => {
+  const handleEdit = (staff?: Staff) => {
     const staffToEdit = staff || selectedStaff;
     if (staffToEdit) {
       setSelectedStaff(staffToEdit);
@@ -311,7 +310,7 @@ const StaffManagement = () => {
     }
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = (id: string) => {
     setStaffList(staffList.filter((staff) => staff.id !== id));
   };
 
@@ -330,9 +329,9 @@ const StaffManagement = () => {
         />
       )}
 
-      {(viewMode === "add" || viewMode === "edit") && (
+      {viewMode === "add" && (
         <StaffForm
-          isEdit={viewMode === "edit"}
+
           currentStep={currentStep}
           formData={formData}
           onSave={handleSave}
@@ -342,12 +341,20 @@ const StaffManagement = () => {
         />
       )}
 
-     
-
-      {viewMode === "view" && selectedStaff && (
+      {(viewMode === "view" || viewMode === "edit") && selectedStaff && (
         <ViewStaffProfile
           staff={selectedStaff}
-          onBack={() => setViewMode("list")}
+          isEdit={viewMode === "edit"}
+          formData={formData}
+          onChange={handleInputChange}
+          onSave={handleSave}
+          onBack={() => {
+            if (viewMode === "edit") {
+              setViewMode("view");
+            } else {
+              setViewMode("list");
+            }
+          }}
           onEdit={() => handleEdit()}
         />
       )}
