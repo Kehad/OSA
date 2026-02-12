@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import Button from "../../../../components/button/button";
+import Button from "../../../../components/ui/button";
 import CompleteForm from "./CompleteForm";
 import { NextOfKinForm } from "./NextofKinForm";
 import PersonalInformationForm from "./PersonalInformation";

@@ -1,9 +1,19 @@
 /* eslint-disable react/prop-types */
 
-import Button from "../../../../components/button/button";
+import Button from "../../../../components/ui/button";
+
+interface ViewStaffProfileProps {
+  staff: Record<string, any>;
+  onBack: () => void;
+  onEdit: () => void;
+}
 
 // View Staff Profile Component
-export const ViewStaffProfile = ({ staff, onBack, onEdit }) => (
+export const ViewStaffProfile = ({
+  staff,
+  onBack,
+  onEdit,
+}: ViewStaffProfileProps) => (
   <div className="min-h-screen">
     <div className="bg-white shadow-sm">
       <div className="p-6  flex justify-between items-center">
