@@ -216,6 +216,7 @@ const StaffManagement = () => {
       nokHouseAddress: "15 Lobiside Street, Texas, Akure",
     },
   ]);
+  
   // const [staffList, setStaffList] = useState([]);
 
   const [viewMode, setViewMode] = useState<"list" | "add" | "edit" | "view">("list");

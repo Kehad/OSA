@@ -4,8 +4,8 @@ import { Funnel, Import, Plus } from "lucide-react";
 import Button from "../ui/button";
 import EmptyState from "./EmptyState";
 import EntityTable from "./EntityTable";
-import Pagination from "./Pagination";
 import { Entity, EntityConfigItem, EntityType } from "./EntityManagement";
+import { Pagination } from "../ui/pagination";
 
 interface EntityListViewProps {
   entityType: EntityType;
