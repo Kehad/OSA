@@ -1,11 +1,5 @@
-
-
 import Step1_ParentInfo from "@/pages/dashboard/students/parts/Step1_ParentInfo";
 import Button from "../../ui/button"; // Ensure this path is correct for your project
-import Step1_PersonalInfo from "./Step1_PersonalInfo";
-import Step2_WorkInfo from "./Step2_WorkInfo";
-import Step3_NextOfKin from "./Step3_NextOfKin";
-import Step4_ParentInfo from "./Step4_ParentInfo";
 import Step2_PersonalInfo from "@/pages/dashboard/students/parts/Step2_PersonalInfo";
 import Step3_HealthInfo from "@/pages/dashboard/students/parts/Step3_HealthInfo";
 
@@ -69,12 +63,12 @@ const EntityForm = ({
         </div>
 
         <div className="p-4">
-          <div className="mb-6 text-right text-sm text-gray-600">
+          <div className="mb-6 text-right text-md text-gray-600">
             {currentStep}/{Steps.length}
           </div>
-          <div className="mb-6 h-1 bg-gray-200 rounded-full">
+          <div className="mb-6 h-1.5 bg-gray-200 rounded-full">
             <div
-              className="h-1 bg-yellow-400 rounded-full transition-all"
+              className="h-1.5 bg-yellow-400 rounded-full transition-all"
               style={{ width: `${(currentStep / Steps.length) * 100}%` }}
             />
           </div>
@@ -94,9 +88,9 @@ const EntityForm = ({
           ) : (
             <div>Step component not found</div>
           )}
-          <div className="flex justify-center gap-5 mt-8">
+          {currentStep !== 10 && <div className="flex justify-center gap-5 mt-8">
             {/* FIX: Use children for text, not text="" prop */}
-            <Button
+            {/* <Button
               onClick={onBack}
               variant="outline"
               className="px-20 font-bold"
@@ -109,8 +103,8 @@ const EntityForm = ({
               className="px-20 font-bold"
             >
               {currentStep === Steps.length ? "Save" : "Next"}
-            </Button>
-          </div>
+            </Button> */}
+          </div>}
         </div>
       </div>
     </div>

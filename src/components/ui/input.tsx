@@ -5,6 +5,7 @@ import React, {
   InputHTMLAttributes,
   TextareaHTMLAttributes,
   SelectHTMLAttributes,
+  useRef,
 } from "react";
 import {
   Controller,
@@ -76,6 +77,7 @@ const Input = <TFieldValues extends FieldValues>({
   options,
 }: InputProps<TFieldValues>) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const dateInputRef = useRef<HTMLInputElement | null>(null);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -258,7 +260,7 @@ const Input = <TFieldValues extends FieldValues>({
   const renderTextInput = () => (
     <div className="mb-2">
       {inputLabel && (
-        <p className="font-normal text-[22px] text-black mb-1">{inputLabel}</p>
+        <p className="font-normal text-[16px] text-black mb-1">{inputLabel}</p>
       )}
       <Controller
         control={control}
@@ -301,7 +303,7 @@ const Input = <TFieldValues extends FieldValues>({
   const renderMultiLineInput = () => (
     <div className="mb-2">
       {inputLabel && (
-        <p className="font-normal text-[22px] text-black mb-1">{inputLabel}</p>
+        <p className="font-normal text-[16px] text-black mb-1">{inputLabel}</p>
       )}
       <Controller
         control={control}
@@ -334,14 +336,14 @@ const Input = <TFieldValues extends FieldValues>({
   const renderDateInput = () => (
     <div className="mb-2">
       {inputLabel && (
-        <p className="font-normal text-[22px] text-black mb-1">{inputLabel}</p>
+        <p className="font-normal text-[16px] text-black mb-1">{inputLabel}</p>
       )}
       <Controller
         control={control}
         name={name}
         rules={rules}
         render={({
-          field: { onChange, onBlur, value },
+          field: { onChange, onBlur, value, ref: fieldRef },
           fieldState: { error },
         }) => (
           <>
@@ -351,6 +353,10 @@ const Input = <TFieldValues extends FieldValues>({
             >
               <input
                 {...(textInputProps as InputHTMLAttributes<HTMLInputElement>)}
+                ref={(e) => {
+                  fieldRef(e);
+                  dateInputRef.current = e;
+                }}
                 className={`flex-1 h-full border-none outline-none bg-transparent text-black placeholder:text-gray-400 ${!value ? "text-transparent" : ""
                   }`}
                 onChange={(e) => onChange(e.target.value)}
@@ -359,7 +365,30 @@ const Input = <TFieldValues extends FieldValues>({
                 autoFocus={autoFocus}
                 value={value || ""}
                 type="date"
+                onClick={() => dateInputRef.current?.showPicker()}
               />
+              <div
+                className="cursor-pointer ml-2"
+                // onClick={() => dateInputRef.current?.showPicker()}
+              >
+                {/* <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-500"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg> */}
+              </div>
               {!value && (
                 <span className="absolute left-[10px] text-gray-400 pointer-events-none">
                   {placeholderText}
@@ -383,7 +412,7 @@ const Input = <TFieldValues extends FieldValues>({
   const renderSelectInput = () => (
     <div className="mb-2">
       {inputLabel && (
-        <p className="font-normal text-[22px] text-black mb-1">{inputLabel}</p>
+        <p className="font-normal text-[16px] text-black mb-1">{inputLabel}</p>
       )}
       <Controller
         control={control}

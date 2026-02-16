@@ -108,12 +108,8 @@ function DynamicForm<T extends FieldValues = any>({
                 </div>
               );
             }
-
             // 2. Handle Inputs
             const inputProps = readOnly ? { disabled: true } : {};
-            // console.log(initialValues[field.name])
-            // console.log(initialValues)/
-
             return (
               <div key={field.name} className="flex flex-col gap-1.5">
                 {readOnly ? (
@@ -174,7 +170,7 @@ function DynamicForm<T extends FieldValues = any>({
             <button
               type="button"
               onClick={onBack}
-              className="px-12 py-2.5 rounded-lg border border-gray-200 text-gray-700 font-bold hover:bg-gray-50 transition shadow-sm"
+              className="px-16 py-2.5 text-lg rounded-lg shadow-lg shadow-[0_0_9px_rgba(0,0,0,0.1)] text-gray-700 font-bold hover:bg-gray-50 transition"
             >
               Back
             </button>
@@ -189,7 +185,7 @@ function DynamicForm<T extends FieldValues = any>({
                 onEdit?.();         // calls onEdit if it exists
               }
             }}
-            className={`${fields.length === 1 ? "w-full" : ""} px-12 py-2.5 rounded-lg bg-[#1b3b2a] text-white font-bold hover:bg-[#142d20] transition shadow-sm disabled:opacity-50`}
+            className={`${fields.length === 1 ? "w-full" : ""} px-16 py-2.5 rounded-lg bg-[#1b3b2a] text-white font-bold hover:bg-[#142d20] transition shadow-sm disabled:opacity-50`}
           >
             {planMode === "view"
               ? "Edit"

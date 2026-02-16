@@ -85,11 +85,8 @@ const Step1_ParentInfo = ({ formData, onChange, onNext, onBack }: StepProps) => 
 
         {/* 4. The "OR" Divider */}
         <div className="relative py-2">
-          <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-200"></div>
-          </div>
           <div className="relative flex justify-start">
-            <span className="pr-2 bg-white text-sm text-gray-500 font-medium">
+            <span className="pr-2 bg-white text-[20px] text-[#2B2B2B] font-medium">
               OR
             </span>
           </div>
@@ -99,7 +96,7 @@ const Step1_ParentInfo = ({ formData, onChange, onNext, onBack }: StepProps) => 
         <button
           onClick={handleCreateNew}
           type="button"
-          className="w-full border border-gray-200 text-[#1b3b2a] py-3 rounded-md font-medium hover:bg-gray-50 transition-colors bg-white shadow-sm"
+          className="w-full border border-gray-200 font-semibold text-[#1b3b2a] text-lg py-2.5 rounded-md hover:bg-gray-50 transition-colors bg-white shadow-sm"
         >
           Create New Parent Profile
         </button>
