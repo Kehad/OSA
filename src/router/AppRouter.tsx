@@ -4,6 +4,7 @@ import { DashboardLayout } from "../components/dashboardLayout/dashboard";
 import Overview from "../pages/dashboard/overview/overview";
 import StaffManagement from "../pages/dashboard/staff/parts/StaffManagement";
 import Students from "../pages/dashboard/students/student";
+import Parents from "@/pages/dashboard/parents/parents";
 
 // const AuthLogin = React.lazy(() => import("../pages/auth/login/Login"));
 
@@ -21,6 +22,7 @@ const AppRouter = () => {
           </Route>
           <Route path="/staff" element={<StaffManagement /> } />
           <Route path="/students" element={<Students /> } />
+          <Route path="/parents" element={<Parents /> } />
           {/* <Route path="/settings" element={<Settings /> } /> */}
 
           {/* <Route path={`${base.riders.value}`}>
