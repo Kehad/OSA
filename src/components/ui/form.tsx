@@ -34,6 +34,8 @@ export interface DynamicFormProps<T extends FieldValues> {
   children?: React.ReactNode;
   onBack?: () => void;
   readOnly?: boolean;
+  onEdit?: () => void;
+  planMode?: string;
 }
 
 function DynamicForm<T extends FieldValues = any>({
@@ -46,6 +48,8 @@ function DynamicForm<T extends FieldValues = any>({
   children,
   onBack,
   readOnly = false,
+  onEdit,
+  planMode,
 }: DynamicFormProps<T>) {
   const {
     control,
@@ -153,7 +157,7 @@ function DynamicForm<T extends FieldValues = any>({
                       control={control as Control<any>}
                       type={field.type as any}
                       placeholderText={field.placeholder}
-                      options={field.options} 
+                      options={field.options}
                       {...inputProps}
                     />
                   )
@@ -176,11 +180,24 @@ function DynamicForm<T extends FieldValues = any>({
             </button>
           )}
           <button
-            type="submit"
-            disabled={isSubmitting}
+            type={planMode === "view" ? "button" : "submit"}
+            disabled={planMode === "edit" && isSubmitting}
+            onClick={(e) => {
+              // Only intercept the click if we are in view mode
+              if (planMode === "view") {
+                e.preventDefault(); // Explicitly stops form submission
+                onEdit?.();         // calls onEdit if it exists
+              }
+            }}
             className={`${fields.length === 1 ? "w-full" : ""} px-12 py-2.5 rounded-lg bg-[#1b3b2a] text-white font-bold hover:bg-[#142d20] transition shadow-sm disabled:opacity-50`}
           >
-            {isSubmitting ? "Saving..." : submitButtonText}
+            {planMode === "view"
+              ? "Edit"
+              : planMode === "edit"
+                ? isSubmitting
+                  ? "Saving..."
+                  : "Save"
+                : submitButtonText}
           </button>
         </div>
       </form>

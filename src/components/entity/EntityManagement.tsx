@@ -106,12 +106,14 @@ const EntityManagement: React.FC<EntityManagementProps> = ({
   };
 
   const handleView = (entity: Entity) => {
+    console.log('view')
     setSelectedEntity(entity);
     setViewMode("view");
   };
 
   // Entity is optional here because ViewEntityProfile calls onEdit without args
   const handleEdit = (entity?: Entity) => {
+    console.log('edit')
     const toEdit = entity || selectedEntity;
     if (toEdit) {
       setSelectedEntity(toEdit);

@@ -89,10 +89,11 @@ const ViewEntityProfile = ({
         <DynamicForm
           fields={viewFields}
           initialValues={entity}
-          // onSubmit={onEdit} // The primary button in view mode acts as Edit
+          onEdit={onEdit} // The primary button in view mode acts as Edit
           onSubmit={onSave} // The primary button in view mode acts as Edit
           submitButtonText={planMode === "view" ? "Edit" : "Save"}
           onBack={onBack}
+          planMode={planMode}
           readOnly={planMode === "view"} // Triggers the view-only styling
         >
           {/* Profile Picture Placeholder */}
