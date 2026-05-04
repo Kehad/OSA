@@ -30,6 +30,7 @@ export default function Sidebar() {
       icon: Calendar,
       children: [
         { label: "Timetable", link: "/schedule/timetable" },
+        { label: "Calendar", link: "/schedule/calendar" },
         { label: "Events", link: "/schedule/events" },
       ],
     },
@@ -81,13 +82,16 @@ export default function Sidebar() {
       );
     }
 
+    const isParentActive = item.children && item.children.some(child => isActive(undefined, child.link));
+    const showActive = dropdownOpen || isParentActive;
+
     // Dropdown parent
     return (
       <div key={idx}>
         <button
           onClick={() => toggleDropdown(item.label)}
           className={`flex items-center gap-3 w-full px-3 py-2 rounded transition-colors
-            ${dropdownOpen ? "bg-gray-100" : "hover:bg-gray-100"} text-gray-700`}
+            ${showActive ? "bg-green-900 text-white" : "hover:bg-gray-100 text-gray-700"}`}
           aria-expanded={dropdownOpen}
           aria-haspopup="true"
         >
@@ -116,10 +120,13 @@ export default function Sidebar() {
                 <Link
                   key={i}
                   to={child.link}
-                  className={`block py-1 pl-2 pr-4 rounded text-sm transition-colors
+                  className={`block py-1 pl-2 pr-4 rounded text-sm transition-colors relative
                     ${childActive ? "text-green-900 font-medium" : "text-gray-600 hover:text-gray-900"}`}
                   role="menuitem"
                 >
+                  {childActive && (
+                    <div className="absolute left-[-1.5rem] top-0 bottom-0 w-[3px] bg-green-900 rounded-full" />
+                  )}
                   {child.label}
                 </Link>
               );
