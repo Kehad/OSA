@@ -1,49 +1,82 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import ScheduleHeader from "./ScheduleHeader";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { motion, AnimatePresence } from "framer-motion";
 
-const specialDates = [
+// Simulated event data - in a real app, this would come from an API
+const academicEvents = [
   {
-    month: "October",
+    month: "February",
+    year: 2024,
     events: [
       {
-        date: "Monday, OCT 8, 2024",
-        title: "First Term Resumption, 2024/2025 Academic Session",
+        date: new Date(2024, 1, 26),
+        label: "Monday, FEB 26, 2024",
+        title: "Mid-Term Break Begins",
+        type: "highlighted"
+      }
+    ]
+  },
+  {
+    month: "March",
+    year: 2024,
+    events: [
+      {
+        date: new Date(2024, 2, 21),
+        label: "Thursday, MAR 21, 2024",
+        title: "Inter-House Sports Competition",
+        type: "outlined"
       },
       {
-        date: "Monday, OCT 8, 2024",
-        title: "First Term Resumption, 2024/2025 Academic Session",
+        date: new Date(2024, 2, 26),
+        label: "Tuesday, MAR 26, 2024",
+        title: "Open Day / Parent-Teacher Conference",
+        type: "outlined"
+      }
+    ]
+  },
+  {
+    month: "April",
+    year: 2024,
+    events: [
+      {
+        date: new Date(2024, 3, 14),
+        label: "Sunday, APR 14, 2024",
+        title: "First Term Resumption",
+        type: "outlined"
       },
-    ],
+      {
+        date: new Date(2024, 3, 15),
+        label: "Monday, APR 15, 2024",
+        title: "Academic Session 2024/2025 Kickoff",
+        type: "outlined"
+      },
+      {
+        date: new Date(2024, 3, 16),
+        label: "Tuesday, APR 16, 2024",
+        title: "Orientation for New Students",
+        type: "outlined"
+      }
+    ]
   },
   {
     month: "October",
+    year: 2024,
     events: [
       {
-        date: "Monday, OCT 8, 2024",
+        date: new Date(2024, 9, 8),
+        label: "Monday, OCT 8, 2024",
         title: "First Term Resumption, 2024/2025 Academic Session",
-      },
-      {
-        date: "Monday, OCT 8, 2024",
-        title: "First Term Resumption, 2024/2025 Academic Session",
-      },
-    ],
-  },
-  {
-    month: "October",
-    events: [
-      {
-        date: "Monday, OCT 8, 2024",
-        title: "First Term Resumption, 2024/2025 Academic Session",
-      },
-    ],
-  },
+        type: "outlined"
+      }
+    ]
+  }
 ];
 
 const CalendarPage = () => {
   const [startMonth, setStartMonth] = useState(new Date(2024, 0)); // Start with Jan 2024
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   
   const handleNext = () => {
     const nextStart = new Date(startMonth);
@@ -57,7 +90,7 @@ const CalendarPage = () => {
     setStartMonth(prevStart);
   };
 
-  const getVisibleMonths = () => {
+  const visibleMonths = useMemo(() => {
     return Array.from({ length: 4 }).map((_, i) => {
       const d = new Date(startMonth);
       d.setMonth(startMonth.getMonth() + i);
@@ -66,22 +99,22 @@ const CalendarPage = () => {
         date: d,
       };
     });
-  };
+  }, [startMonth]);
 
-  const visibleMonths = getVisibleMonths();
-
-  const modifiers = {
-    highlighted: [new Date(2024, 1, 26)],
-    outlined: [
-      new Date(2024, 2, 21),
-      new Date(2024, 2, 26),
-      new Date(2024, 3, 14),
-      new Date(2024, 3, 15),
-      new Date(2024, 3, 16),
-      new Date(2024, 3, 17),
-      new Date(2024, 3, 18),
-    ],
-  };
+  // Derive modifiers from the event data
+  const modifiers = useMemo(() => {
+    const highlighted: Date[] = [];
+    const outlined: Date[] = [];
+    
+    academicEvents.forEach(group => {
+      group.events.forEach(event => {
+        if (event.type === "highlighted") highlighted.push(event.date);
+        else outlined.push(event.date);
+      });
+    });
+    
+    return { highlighted, outlined };
+  }, []);
 
   const modifiersStyles = {
     highlighted: { backgroundColor: "#1C3A1C", color: "white", fontWeight: "bold", borderRadius: "6px" },
@@ -99,15 +132,18 @@ const CalendarPage = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={startMonth.toISOString()}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 md:grid-cols-2 flex justify-items-center gap-8"
+                className="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-8"
               >
                 {visibleMonths.map((m) => (
-                  <div key={m.name} className="bg-white w-max  rounded-[2rem] p-1 shadow-sm border border-gray-100 flex justify-center hover:shadow-md transition-shadow">
+                  <div key={m.name} className="bg-white rounded-[2rem] w-max p-8 shadow-sm border border-gray-100 flex justify-center hover:shadow-md transition-all">
                    <Calendar
+                      mode="single"
+                      selected={selectedDate}
+                      onSelect={setSelectedDate}
                       month={m.date}
                       hideNavigation
                       modifiers={modifiers}
@@ -116,18 +152,18 @@ const CalendarPage = () => {
                         formatCaption: (date) => date.toLocaleString("default", { month: "long" })
                       }}
                       classNames={{
-                        month: "space-y-3 w-full",
+                        month: "space-y-4 w-full",
                         month_caption: "flex justify-center pt-1 relative items-center mb-6",
                         caption_label: m.name === "February" 
-                          ? "bg-[#1C3A1C] text-white px-4 py-1.5 rounded-md text-[0.7rem] font-semibold tracking-wide" 
-                          : "text-gray-400 text-[0.75rem] font-medium",
+                          ? "bg-[#1C3A1C] text-white px-6 py-2 rounded-md text-[0.75rem] font-bold tracking-wide" 
+                          : "text-black text-[0.8rem] font-bold",
                         weekdays: "flex justify-around mb-2",
-                        weekday: "text-gray-400 w-9 font-normal text-[0.7rem]text-center",
+                        weekday: "text-black w-10 font-bold text-[0.75rem] text-center",
                         week: "flex w-full mt-1 justify-around",
-                        day: "h-9 w-9 cursor-pointer text-center text-black text-sm m-1 relative flex items-center justify-center",
-                        day_button: "h-8 w-8 p-0 font-normal text-sm hover:bg-gray-50 rounded-md transition-colors flex items-center justify-center",
-                        selected: "bg-[#1C3A1C] text-white hover:bg-[#1C3A1C] rounded-md font-normal",
-                        outside: "text-gray-600 opacity-30",
+                        day: "h-10 w-10 cursor-pointer m-1  text-center text-sm relative flex items-center justify-center",
+                        day_button: "h-9 w-9 p-0 font-medium text-sm text-black hover:bg-gray-100 rounded-md transition-colors flex items-center justify-center",
+                        selected: "bg-yellow-400 text-black hover:bg-yellow-400 rounded-md font-bold border-none",
+                        outside: "text-gray-300",
                         disabled: "text-gray-200 opacity-30",
                       }}
                     />
@@ -139,36 +175,36 @@ const CalendarPage = () => {
             <div className="flex justify-center gap-6 mt-12">
               <button 
                 onClick={handlePrev}
-                className="flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 rounded-xl text-gray-700 font-semibold hover:bg-gray-50 active:scale-95 transition-all shadow-sm"
+                className="flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 rounded-xl text-black font-bold hover:bg-gray-50 active:scale-95 transition-all shadow-sm"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-400" />
+                <ChevronLeft className="w-5 h-5 text-black" />
                 Previous
               </button>
               <button 
                 onClick={handleNext}
-                className="flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 rounded-xl text-gray-700 font-semibold hover:bg-gray-50 active:scale-95 transition-all shadow-sm"
+                className="flex items-center gap-2 px-8 py-3 bg-white border border-gray-200 rounded-xl text-black font-bold hover:bg-gray-50 active:scale-95 transition-all shadow-sm"
               >
                 Next
-                <ChevronRight className="w-5 h-5 text-gray-400" />
+                <ChevronRight className="w-5 h-5 text-black" />
               </button>
             </div>
           </div>
 
           {/* Sidebar: Special Dates */}
-          <div className="w-full lg:w-96 bg-white rounded-[2rem] shadow-sm border border-gray-100 p-8 self-start sticky top-8">
-            <h2 className="text-2xl font-montserrat font-bold text-gray-800 mb-8">Special dates</h2>
+          <div className="w-full lg:w-96 bg-white rounded-[2rem] shadow-sm border border-gray-100 p-5 self-start sticky top-8">
+            <h2 className="text-2xl font-montserrat   text-black mb-8">Special dates</h2>
             
             <div className="space-y-10">
-              {specialDates.map((group, idx) => (
+              {academicEvents.filter(group => group.year === 2024).map((group, idx) => (
                 <div key={idx}>
-                  <h3 className="text-lg font-montserrat font-bold text-gray-800 mb-5">{group.month}</h3>
+                  <h3 className="text-lg font-montserrat font-bold text-black mb-5">{group.month}</h3>
                   <div className="space-y-6">
                     {group.events.map((event, eventIdx) => (
                       <div key={eventIdx} className="flex gap-5 group cursor-default">
-                        <div className="w-1 bg-yellow-400 rounded-full flex-shrink-0 group-hover:scale-y-110 transition-transform" />
+                        <div className={`w-1 rounded-full flex-shrink-0 transition-transform ${event.type === 'highlighted' ? 'bg-[#1C3A1C]' : 'bg-yellow-400'}`} />
                         <div>
-                          <p className="text-xs text-gray-400 font-bold uppercase tracking-wider mb-2">{event.date}</p>
-                          <p className="text-[0.95rem] font-bold text-gray-800 leading-snug group-hover:text-green-900 transition-colors">
+                          <p className="text-xs  text-gray-500 font-bold uppercase tracking-wider mb-2">{event.label}</p>
+                          <p className="text-[0.95rem] font-bold text-black leading-snug group-hover:text-green-900 transition-colors">
                             {event.title}
                           </p>
                         </div>
