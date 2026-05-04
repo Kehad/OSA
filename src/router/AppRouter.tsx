@@ -8,6 +8,7 @@ import Parents from "@/pages/dashboard/parents/parents";
 import AdminScheduleTimetable from "@/pages/dashboard/schedule/timetable";
 import CalendarPage from "@/pages/dashboard/schedule/calendar";
 import EventsPage from "@/pages/dashboard/schedule/events";
+import SettingsPage from "@/pages/dashboard/settings/settings";
 
 // const AuthLogin = React.lazy(() => import("../pages/auth/login/Login"));
 
@@ -26,6 +27,7 @@ const AppRouter = () => {
           <Route path="/staff" element={<StaffManagement /> } />
           <Route path="/students" element={<Students /> } />
           <Route path="/parents" element={<Parents /> } />
+          <Route path="/settings" element={<SettingsPage /> } />
           <Route path="/schedule">
             <Route path="timetable" element={<AdminScheduleTimetable /> } />
             <Route path="calendar" element={<CalendarPage /> } />
