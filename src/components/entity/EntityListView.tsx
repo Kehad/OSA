@@ -38,12 +38,11 @@ const EntityListView: React.FC<EntityListViewProps> = ({
   onPageChange,
   config,
 }) => {
-  // console.log(entities, config);
+  console.log(entities, config);
   return (
     <div className="min-h-screen bg-white p-8">
       <div className="mx-auto">
         <div className="flex items-center gap-4 justify-end">
-          {entityType === 'student' && (
             <div className="flex gap-2">
             <Button
               text={`Filter`}
@@ -53,7 +52,8 @@ const EntityListView: React.FC<EntityListViewProps> = ({
               leftIcon={Funnel}
               size="lg"
               className="bg-[#fff] text-[#1b3b2a] shadow-md border-gray-400"
-            />
+              />
+              {entityType === 'student' && (
             <Button
               text={`Import Students`}
               // onClick={onAdd}
@@ -63,8 +63,8 @@ const EntityListView: React.FC<EntityListViewProps> = ({
               size="lg"
               className="bg-[#fff] !font-bold text-[#1b3b2a] border-none shadow-lg"
             />
+            )}
             </div>
-          )}
 
           <Button
             text={`Add new ${entityType}`}

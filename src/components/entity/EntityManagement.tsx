@@ -68,7 +68,7 @@ const EntityManagement: React.FC<EntityManagementProps> = ({
       title: "Parents",
       idPrefix: "OSA-PAR-",
       steps: ["Personal Info", "Child Info", "Contact Info"],
-      fields: ["fullName", "phoneNumber", "emailAddress", "childName"],
+      fields: ["fullName", "contact", "noOfChildren"],
       entityType: "parent",
     },
   };
