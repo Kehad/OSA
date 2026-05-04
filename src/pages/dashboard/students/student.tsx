@@ -4,10 +4,11 @@ import { useState } from "react";
 import EntityManagement from "../../../components/entity/EntityManagement";
 
 export default function Students() {
-  const [staffList, setStaffList] = useState([
+  // const [staffList, setStaffList] = useState([]);
+const [staffList, setStaffList] = useState([
     {
       id: "OSA-24S-0001",
-      fullName: "Nachi Mert John",
+      fullName: "Nachi Mert John Nachi Mert John Nachi Mert",
       middleName: "Mert",
       firstName: "John",
       surname: "John",
@@ -28,7 +29,7 @@ export default function Students() {
       parentId: "OSA/24P/001",
       contact: "09087654321",
     },
-    {
+    {  
       id: "OSA-24S-0002",
       fullName: "Sarah Connor",
       middleName: "Connor",

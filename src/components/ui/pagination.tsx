@@ -1,8 +1,16 @@
 /* eslint-disable react/prop-types */
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+interface PaginationProps {
+  currentPage: number;
+  totalItems: number;
+  itemsPerPage: number;
+  onPrevious: () => void;
+  onNext: () => void;
+}
+
 // Pagination Component
-export const Pagination = ({ currentPage, totalItems, itemsPerPage, onPrevious, onNext }) => {
+export const Pagination = ({ currentPage, totalItems, itemsPerPage, onPrevious, onNext }: PaginationProps) => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
   const totalPages = Math.ceil(totalItems / itemsPerPage);

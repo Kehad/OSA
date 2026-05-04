@@ -2,8 +2,15 @@
 import PersonalInformationForm from "./PersonalInformation";
 import { WorkInformationForm } from "./WorkForm";
 import { NextOfKinForm } from "./NextofKinForm";
+import { Staff } from "./types";
 
-function CompleteForm({ formData, isEdit, onChange }) {
+interface CompleteFormProps {
+  formData: Partial<Staff>;
+  isEdit: boolean;
+  onChange: (field: keyof Staff, value: string) => void;
+}
+
+function CompleteForm({ formData, isEdit, onChange }: CompleteFormProps) {
   return (
     <div>
       <PersonalInformationForm

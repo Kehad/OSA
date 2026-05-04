@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import { Edit2, Trash2 } from "lucide-react";
+import { Staff } from "./types";
 
 interface StaffTableProps {
-  staff: any[];
+  staff: Staff[];
   startIndex: number;
-  onView: (staff: any) => void;
-  onEdit: (staff: any) => void;
-  onDelete: (staff: any) => void;
+  onView: (staff: Staff) => void;
+  onEdit: (staff: Staff) => void;
+  onDelete: (id: string) => void;
 }
 
 // Staff Table Component

@@ -4,8 +4,15 @@ import { Plus } from "lucide-react";
 import Input from "../../../../components/ui/input.tsx";
 import { useForm } from "react-hook-form";
 import Button from "../../../../components/ui/button.tsx";
+import { Staff } from "./types";
 
-const PersonalInformationForm = ({ formData, isEdit, onChange }) => {
+interface PersonalInformationFormProps {
+  formData: Partial<Staff>;
+  isEdit: boolean;
+  onChange: (field: keyof Staff, value: string) => void;
+}
+
+const PersonalInformationForm = ({ formData, isEdit, onChange }: PersonalInformationFormProps) => {
   const {
     control,
     handleSubmit,
@@ -21,7 +28,7 @@ const PersonalInformationForm = ({ formData, isEdit, onChange }) => {
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: any) => {
     console.log("Form submitted:", data);
   };
 

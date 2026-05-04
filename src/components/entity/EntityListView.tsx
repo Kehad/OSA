@@ -1,11 +1,11 @@
 // src/components/entity/EntityListView.tsx
 import React from "react";
-import { Plus } from "lucide-react";
+import { Funnel, Import, Plus } from "lucide-react";
 import Button from "../ui/button";
 import EmptyState from "./EmptyState";
 import EntityTable from "./EntityTable";
-import Pagination from "./Pagination";
 import { Entity, EntityConfigItem, EntityType } from "./EntityManagement";
+import { Pagination } from "../ui/pagination";
 
 interface EntityListViewProps {
   entityType: EntityType;
@@ -42,7 +42,30 @@ const EntityListView: React.FC<EntityListViewProps> = ({
   return (
     <div className="min-h-screen bg-white p-8">
       <div className="mx-auto">
-        <div className="flex items-center justify-end">
+        <div className="flex items-center gap-4 justify-end">
+          {entityType === 'student' && (
+            <div className="flex gap-2">
+            <Button
+              text={`Filter`}
+              // onClick={onAdd}
+              colorScheme="main"
+              variant="outline"
+              leftIcon={Funnel}
+              size="lg"
+              className="bg-[#fff] text-[#1b3b2a] shadow-md border-gray-400"
+            />
+            <Button
+              text={`Import Students`}
+              // onClick={onAdd}
+              colorScheme="main"
+              variant="outline"
+              leftIcon={Import}
+              size="lg"
+              className="bg-[#fff] !font-bold text-[#1b3b2a] border-none shadow-lg"
+            />
+            </div>
+          )}
+
           <Button
             text={`Add new ${entityType}`}
             onClick={onAdd}
