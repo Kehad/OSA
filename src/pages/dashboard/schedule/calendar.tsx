@@ -1,78 +1,11 @@
 import React, { useState, useMemo } from "react";
-import ScheduleHeader from "./ScheduleHeader";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Simulated event data - in a real app, this would come from an API
-const academicEvents = [
-  {
-    month: "February",
-    year: 2024,
-    events: [
-      {
-        date: new Date(2024, 1, 26),
-        label: "Monday, FEB 26, 2024",
-        title: "Mid-Term Break Begins",
-        type: "highlighted"
-      }
-    ]
-  },
-  {
-    month: "March",
-    year: 2024,
-    events: [
-      {
-        date: new Date(2024, 2, 21),
-        label: "Thursday, MAR 21, 2024",
-        title: "Inter-House Sports Competition",
-        type: "outlined"
-      },
-      {
-        date: new Date(2024, 2, 26),
-        label: "Tuesday, MAR 26, 2024",
-        title: "Open Day / Parent-Teacher Conference",
-        type: "outlined"
-      }
-    ]
-  },
-  {
-    month: "April",
-    year: 2024,
-    events: [
-      {
-        date: new Date(2024, 3, 14),
-        label: "Sunday, APR 14, 2024",
-        title: "First Term Resumption",
-        type: "outlined"
-      },
-      {
-        date: new Date(2024, 3, 15),
-        label: "Monday, APR 15, 2024",
-        title: "Academic Session 2024/2025 Kickoff",
-        type: "outlined"
-      },
-      {
-        date: new Date(2024, 3, 16),
-        label: "Tuesday, APR 16, 2024",
-        title: "Orientation for New Students",
-        type: "outlined"
-      }
-    ]
-  },
-  {
-    month: "October",
-    year: 2024,
-    events: [
-      {
-        date: new Date(2024, 9, 8),
-        label: "Monday, OCT 8, 2024",
-        title: "First Term Resumption, 2024/2025 Academic Session",
-        type: "outlined"
-      }
-    ]
-  }
-];
+import ScheduleHeader from "./ScheduleHeader";
+import { academicEvents } from "./data";
+import { Calendar } from "@/components/ui/calendar";
+
 
 const CalendarPage = () => {
   const [startMonth, setStartMonth] = useState(new Date(2024, 0)); // Start with Jan 2024

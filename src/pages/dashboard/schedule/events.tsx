@@ -1,31 +1,6 @@
 import ScheduleHeader from "./ScheduleHeader";
 
-const events = [
-  {
-    id: 1,
-    title: "PTA Meeting",
-    description:
-      "The termly meeting for Parents, teachers, and staffs to interact and evaluate students performance and the schools performance and come up with be...",
-    date: "24-10-2024",
-    time: "12:00 P.M.",
-  },
-  {
-    id: 2,
-    title: "PTA Meeting",
-    description:
-      "The termly meeting for Parents, teachers, and staffs to interact and evaluate students performance and the schools performance and come up with be...",
-    date: "24-10-2024",
-    time: "12:00 P.M.",
-  },
-  {
-    id: 3,
-    title: "PTA Meeting",
-    description:
-      "The termly meeting for Parents, teachers, and staffs to interact and evaluate students performance and the schools performance and come up with be...",
-    date: "24-10-2024",
-    time: "12:00 P.M.",
-  },
-];
+import { events } from "./data";
 
 const EventsPage = () => {
   return (

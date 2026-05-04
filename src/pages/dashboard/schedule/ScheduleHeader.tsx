@@ -17,15 +17,15 @@ const ScheduleHeader: React.FC<ScheduleHeaderProps> = ({ title }) => {
   return (
     <div className="mb-6">
       <h1 className="text-2xl font-bold text-gray-800 mb-8">{title}</h1>
-      <div className="flex justify-center border-b border-gray-200">
-        <div className="flex gap-16">
+      <div className="flex justify-center">
+        <div className="flex gap-32">
           {tabs.map((tab) => {
             const isActive = location.pathname === tab.link;
             return (
               <Link
                 key={tab.link}
                 to={tab.link}
-                className={`pb-4 px-4 text-lg font-medium transition-colors relative ${
+                className={`pb-4 px-10 text-lg font-medium transition-colors relative ${
                   isActive
                     ? "text-gray-900"
                     : "text-gray-400 hover:text-gray-600"
