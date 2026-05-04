@@ -11,6 +11,7 @@ import EventsPage from "@/pages/dashboard/schedule/events";
 import SettingsPage from "@/pages/dashboard/settings/settings";
 import PaymentsPage from "@/pages/dashboard/payment/payments";
 import BillingsPage from "@/pages/dashboard/payment/billings";
+import AttendancePage from "@/pages/dashboard/attendance/attendance";
 
 // const AuthLogin = React.lazy(() => import("../pages/auth/login/Login"));
 
@@ -40,6 +41,7 @@ const AppRouter = () => {
             <Route path="history" element={<PaymentsPage />} />
             <Route path="billings" element={<BillingsPage />} />
           </Route>
+          <Route path="/attendance" element={<AttendancePage />} />
           {/* <Route path="/settings" element={<Settings /> } /> */}
 
           {/* <Route path={`${base.riders.value}`}>
