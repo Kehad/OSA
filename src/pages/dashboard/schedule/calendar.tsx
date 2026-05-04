@@ -103,10 +103,10 @@ const CalendarPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8"
+                className="grid grid-cols-1 md:grid-cols-2 flex justify-items-center gap-8"
               >
                 {visibleMonths.map((m) => (
-                  <div key={m.name} className="bg-white rounded-[2rem] p-6 shadow-sm border border-gray-100 flex justify-center hover:shadow-md transition-shadow">
+                  <div key={m.name} className="bg-white w-max  rounded-[2rem] p-1 shadow-sm border border-gray-100 flex justify-center hover:shadow-md transition-shadow">
                    <Calendar
                       month={m.date}
                       hideNavigation
@@ -124,7 +124,7 @@ const CalendarPage = () => {
                         weekdays: "flex justify-around mb-2",
                         weekday: "text-gray-400 w-9 font-normal text-[0.7rem]text-center",
                         week: "flex w-full mt-1 justify-around",
-                        day: "h-9 w-9 cursor-pointer text-center text-sm m-1 relative flex items-center justify-center",
+                        day: "h-9 w-9 cursor-pointer text-center text-black text-sm m-1 relative flex items-center justify-center",
                         day_button: "h-8 w-8 p-0 font-normal text-sm hover:bg-gray-50 rounded-md transition-colors flex items-center justify-center",
                         selected: "bg-[#1C3A1C] text-white hover:bg-[#1C3A1C] rounded-md font-normal",
                         outside: "text-gray-600 opacity-30",
