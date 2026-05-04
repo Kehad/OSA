@@ -16,7 +16,7 @@ const [parentsList, setParentsList] = useState([
       title: "Mr",
       firstName: "John",
       lastName: "Doe",
-      FatherphoneNumber: 08097779392,
+      FatherphoneNumber: '08097779392',
       FatherEmailAddress: "sas@gmail.com",  
 
     },
