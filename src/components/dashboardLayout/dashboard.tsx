@@ -71,7 +71,7 @@ export const DashboardLayout = () => {
         <Header />
 
         {/* Scrollable Content Area */}
-        <main className="flex-1 overflow-y-auto p-">
+        <main className="flex-1 overflow-y-auto">
           <Outlet />
         </main>
 
