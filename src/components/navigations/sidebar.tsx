@@ -12,7 +12,7 @@ import {
   X,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import OSA_LOGO from "../../assets/OSA-LOGO.png"; // Adjust path as needed
+import OSA_LOGO from "@/assets/OSA-LOGO.png"; // Adjust path as needed
 
 export default function Sidebar() {
   const location = useLocation();
@@ -35,7 +35,7 @@ export default function Sidebar() {
       ],
     },
     { label: "Attendance", icon: ClipboardList, link: "/attendance" },
-    { label: "Payment", icon: CreditCard, link: "/payment" },
+    { label: "Payment & Billings", icon: CreditCard, link: "/payment" },
 
     // Bottom items
     { label: "Settings", icon: Settings, link: "/settings", isBottom: true },

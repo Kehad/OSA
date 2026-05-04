@@ -9,6 +9,8 @@ import AdminScheduleTimetable from "@/pages/dashboard/schedule/timetable";
 import CalendarPage from "@/pages/dashboard/schedule/calendar";
 import EventsPage from "@/pages/dashboard/schedule/events";
 import SettingsPage from "@/pages/dashboard/settings/settings";
+import PaymentsPage from "@/pages/dashboard/payment/payments";
+import BillingsPage from "@/pages/dashboard/payment/billings";
 
 // const AuthLogin = React.lazy(() => import("../pages/auth/login/Login"));
 
@@ -32,6 +34,11 @@ const AppRouter = () => {
             <Route path="timetable" element={<AdminScheduleTimetable /> } />
             <Route path="calendar" element={<CalendarPage /> } />
             <Route path="events" element={<EventsPage /> } />
+          </Route>
+          <Route path="/payment">
+            <Route index element={<Navigate to="history" replace />} />
+            <Route path="history" element={<PaymentsPage />} />
+            <Route path="billings" element={<BillingsPage />} />
           </Route>
           {/* <Route path="/settings" element={<Settings /> } /> */}
 
