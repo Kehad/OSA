@@ -5,7 +5,7 @@ import Overview from "../pages/dashboard/overview/overview";
 import StaffManagement from "../pages/dashboard/staff/parts/StaffManagement";
 import Students from "../pages/dashboard/students/student";
 import Parents from "@/pages/dashboard/parents/parents";
-import AdminScheduleTimetable from "@/pages/dashboard/schedule/schedule";
+import AdminScheduleTimetable from "@/pages/dashboard/schedule/timetable";
 import CalendarPage from "@/pages/dashboard/schedule/calendar";
 import EventsPage from "@/pages/dashboard/schedule/events";
 

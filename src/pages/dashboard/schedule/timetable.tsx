@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ChevronDown, Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -13,20 +13,11 @@ import { timeSlots, timetableData } from "./data";
 
 import ScheduleHeader from "./ScheduleHeader";
 import emptysearch from "@/assets/empty-search.png";
+import { useTimetable } from "./model/useTimetable";
 
 
 const AdminScheduleTimetable = () => {
-  const [hasSearched, setHasSearched] = useState(false);
-  const [filters, setFilters] = useState({
-    session: "",
-    term: "",
-    format: "",
-    class: "",
-  });
-
-  const handleSearch = () => {
-    setHasSearched(true);
-  };
+  const { hasSearched, filters, handleSearch, updateFilter } = useTimetable();
 
   const FilterSelect = ({ label, placeholder, value, options, onChange }: any) => (
     <div className="flex flex-col md:flex-row md:items-center gap-4 w-full max-w-2xl mx-auto mb-6">
@@ -60,28 +51,28 @@ const AdminScheduleTimetable = () => {
               placeholder="Select Session" 
               value={filters.session}
               options={["2023/2024", "2024/2025"]}
-              onChange={(val: string) => setFilters({...filters, session: val})}
+              onChange={(value: string) => updateFilter("session", value)}
             />
             <FilterSelect 
               label="Term" 
               placeholder="Select Term" 
               value={filters.term}
               options={["First Term", "Second Term", "Third Term"]}
-              onChange={(val: string) => setFilters({...filters, term: val})}
+              onChange={(value: string) => updateFilter("term", value)}
             />
             <FilterSelect 
               label="Format" 
               placeholder="Select format" 
               value={filters.format}
               options={["Regular", "Exam", "Summer"]}
-              onChange={(val: string) => setFilters({...filters, format: val})}
+              onChange={(val: string) => updateFilter("format", val)}
             />
             <FilterSelect 
               label="Class" 
               placeholder="Select a class" 
               value={filters.class}
               options={["Basic 3 A", "Basic 3 B", "Basic 4 A"]}
-              onChange={(val: string) => setFilters({...filters, class: val})}
+              onChange={(val: string) => updateFilter("class", val)}
             />
           </div>
 
