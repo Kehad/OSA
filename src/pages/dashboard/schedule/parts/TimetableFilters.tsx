@@ -1,74 +1,88 @@
 import React from "react";
-import { ChevronDown } from "lucide-react";
-
-interface FilterSelectProps {
-  label: string;
-  placeholder: string;
-  value: string;
-  options: string[];
-  onChange: (value: string) => void;
-}
-
-const FilterSelect: React.FC<FilterSelectProps> = ({ label, placeholder, value, options, onChange }) => (
-  <div className="flex flex-col md:flex-row md:items-center gap-4 w-full max-w-2xl mx-auto mb-4">
-    <label className="w-24 text-gray-700 font-bold text-sm shrink-0">{label}</label>
-    <div className="relative flex-1">
-      <select 
-        className="w-full appearance-none bg-white border border-gray-200 rounded-xl px-5 py-3.5 pr-12 text-gray-500 focus:outline-none focus:ring-2 focus:ring-green-900/10 transition-all cursor-pointer"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      >
-        <option value="" disabled>{placeholder}</option>
-        {options.map((opt: string) => (
-          <option key={opt} value={opt}>{opt}</option>
-        ))}
-      </select>
-      <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-    </div>
-  </div>
-);
+import { Control } from "react-hook-form";
+import Input from "@/components/ui/input";
 
 interface TimetableFiltersProps {
   filters: any;
+  control: Control<any>;
   updateFilter: (key: string, value: string) => void;
   isEditMode?: boolean;
 }
 
-const TimetableFilters: React.FC<TimetableFiltersProps> = ({ filters, updateFilter, isEditMode }) => {
+const TimetableFilters: React.FC<TimetableFiltersProps> = ({ control, isEditMode }) => {
   return (
-    <div className="space-y-1">
+    <div className="space-y-4">
       {!isEditMode && (
         <>
-          <FilterSelect 
-            label="Session" 
-            placeholder="Select Session" 
-            value={filters.session}
-            options={["2023/2024", "2024/2025", "2025/2026"]}
-            onChange={(value) => updateFilter("session", value)}
-          />
-          <FilterSelect 
-            label="Term" 
-            placeholder="Select Term" 
-            value={filters.term}
-            options={["First Term", "Second Term", "Third Term"]}
-            onChange={(value) => updateFilter("term", value)}
-          />
+          <div className="flex flex-col md:flex-row md:items-center gap-4 w-full max-w-2xl mx-auto">
+            <label className="w-24 text-gray-700 font-bold text-sm shrink-0">Session</label>
+            <div className="flex-1">
+              <Input
+                name="session"
+                control={control}
+                type="select"
+                placeholderText="Select Session"
+                options={[
+                  { label: "2023/2024", value: "2023/2024" },
+                  { label: "2024/2025", value: "2024/2025" },
+                  { label: "2025/2026", value: "2025/2026" },
+                ]}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center gap-4 w-full max-w-2xl mx-auto">
+            <label className="w-24 text-gray-700 font-bold text-sm shrink-0">Term</label>
+            <div className="flex-1">
+              <Input
+                name="term"
+                control={control}
+                type="select"
+                placeholderText="Select Term"
+                options={[
+                  { label: "First Term", value: "First Term" },
+                  { label: "Second Term", value: "Second Term" },
+                  { label: "Third Term", value: "Third Term" },
+                ]}
+              />
+            </div>
+          </div>
         </>
       )}
-      <FilterSelect 
-        label="Format" 
-        placeholder="Select format" 
-        value={filters.format}
-        options={["Regular", "Exam", "Summer"]}
-        onChange={(val) => updateFilter("format", val)}
-      />
-      <FilterSelect 
-        label="Class" 
-        placeholder="Select a class" 
-        value={filters.class}
-        options={["Basic 3 A", "Basic 3 B", "Basic 3 A & B"]}
-        onChange={(val) => updateFilter("class", val)}
-      />
+
+      <div className="flex flex-col md:flex-row md:items-center gap-4 w-full max-w-2xl mx-auto">
+        <label className="w-24 text-gray-700 font-bold text-sm shrink-0">Format</label>
+        <div className="flex-1">
+          <Input
+            name="format"
+            control={control}
+            type="select"
+            placeholderText="Select format"
+            options={[
+              { label: "Regular", value: "Regular" },
+              { label: "Exam", value: "Exam" },
+              { label: "Summer", value: "Summer" },
+            ]}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-col md:flex-row md:items-center gap-4 w-full max-w-2xl mx-auto">
+        <label className="w-24 text-gray-700 font-bold text-sm shrink-0">Class</label>
+        <div className="flex-1">
+          <Input
+            name="class"
+            control={control}
+            type="select"
+            placeholderText="Select a class"
+            options={[
+              { label: "Basic 3 A", value: "Basic 3 A" },
+              { label: "Basic 3 B", value: "Basic 3 B" },
+              { label: "Basic 3 A & B", value: "Basic 3 A & B" },
+            ]}
+          />
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,16 +1,22 @@
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { timetableData as initialData } from "../data";
 
 export const useTimetable = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
   const [gridData, setGridData] = useState(initialData);
-  const [filters, setFilters] = useState({
-    session: "",
-    term: "",
-    format: "",
-    class: "",
+
+  const { control, watch, setValue } = useForm({
+    defaultValues: {
+      session: "",
+      term: "",
+      format: "",
+      class: "",
+    }
   });
+
+  const filters = watch();
 
   const handleSearch = () => {
     if (filters.session && filters.term && filters.format && filters.class) {
@@ -19,7 +25,7 @@ export const useTimetable = () => {
   };
 
   const updateFilter = (key: string, value: string) => {
-    setFilters((prev) => ({ ...prev, [key]: value }));
+    setValue(key as any, value);
   };
 
   const toggleEditMode = () => {
@@ -45,6 +51,7 @@ export const useTimetable = () => {
     hasSearched,
     isEditMode,
     filters,
+    control,
     gridData,
     handleSearch,
     updateFilter,

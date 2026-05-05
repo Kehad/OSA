@@ -8,6 +8,8 @@ import CalendarViewSelector from "./parts/CalendarViewSelector";
 import CalendarYearView from "./parts/CalendarYearView";
 import CalendarSpecialDates from "./parts/CalendarSpecialDates";
 import CalendarSessionView from "./parts/CalendarSessionView";
+import CalendarTermView from "./parts/CalendarTermView";
+import CalendarUpdateForm from "./parts/CalendarUpdateForm";
 
 const CalendarPage = () => {
   const {
@@ -26,6 +28,10 @@ const CalendarPage = () => {
     modifiers,
     triggerNewSession,
     triggerEditSession,
+    isUpdating,
+    setIsUpdating,
+    toggleUpdate,
+    saveUpdate,
   } = useCalendar();
 
   return (
@@ -52,20 +58,29 @@ const CalendarPage = () => {
               </button>
             ) : (
               <button
-                onClick={triggerEditSession}
+                onClick={() => setSessionMode("view")}
                 className="flex items-center gap-2 px-10 py-2 bg-[#1C3A1C] text-white rounded-lg font-bold hover:bg-[#152a15] transition-colors"
               >
-                
+                <Check className="w-4 h-4" />
                 Save
               </button>
             )
           ) : view === "Year" ? (
             <button
-              // onClick={triggerNewSession}
+              onClick={isUpdating ? saveUpdate : toggleUpdate}
               className="flex items-center gap-2 px-6 py-2 bg-[#1C3A1C] text-white rounded-lg font-bold hover:bg-[#152a15] transition-colors"
             >
-              <Pen className="w-4 h-4" />
-              Update Calendar
+              {isUpdating ? (
+                <>
+                  <Check className="w-4 h-4" />
+                  Save update
+                </>
+              ) : (
+                <>
+                  <Pen className="w-4 h-4" />
+                  Update Calendar
+                </>
+              )}
             </button>
           ) : (
             <button
@@ -93,16 +108,20 @@ const CalendarPage = () => {
                 exit={{ opacity: 0, x: 20 }}
                 className="flex-1"
               >
-                <CalendarYearView
-                  visibleMonths={visibleMonths}
-                  selectedDate={selectedDate}
-                  setSelectedDate={setSelectedDate}
-                  modifiers={modifiers}
-                  handlePrev={handlePrev}
-                  handleNext={handleNext}
-                />
+                {isUpdating ? (
+                  <CalendarUpdateForm selectedDate={selectedDate} />
+                ) : (
+                  <CalendarYearView
+                    visibleMonths={visibleMonths}
+                    selectedDate={selectedDate}
+                    setSelectedDate={setSelectedDate}
+                    modifiers={modifiers}
+                    handlePrev={handlePrev}
+                    handleNext={handleNext}
+                  />
+                )}
               </motion.div>
-            ) : (
+            ) : view === "Session" ? (
               <motion.div
                 key="session"
                 initial={{ opacity: 0, x: -20 }}
@@ -117,6 +136,16 @@ const CalendarPage = () => {
                   setHasSession={setHasSession}
                 />
               </motion.div>
+            ) : (
+              <motion.div
+                key="term"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                className="flex-1"
+              >
+                 <CalendarTermView />
+               </motion.div>
             )}
           </AnimatePresence>
 

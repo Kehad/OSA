@@ -1,11 +1,11 @@
-import { Edit3, Plus, Calendar as CalendarIcon } from "lucide-react";
+import { Edit3, Plus } from "lucide-react";
 import { useForm, useFieldArray } from "react-hook-form";
 import Input from "@/components/ui/input";
 import emptySession from "@/assets/empty-search.png";
 
 interface CalendarSessionViewProps {
-  mode: "view" | "create" | "edit";
-  setMode: (mode: "view" | "create" | "edit") => void;
+  mode: "view" | "create" | "edit" | "";
+  setMode: (mode: "view" | "create" | "edit" | "") => void;
   hasSession: boolean;
   setHasSession: (has: boolean) => void;
 }
@@ -19,8 +19,8 @@ const CalendarSessionView: React.FC<CalendarSessionViewProps> = ({
   const { control, handleSubmit } = useForm({
     defaultValues: {
       sessionName: "2024/2025 academic session",
-      sessionBegins: "",
-      sessionEnds: "",
+      sessionBegins: "2024-10-24",
+      sessionEnds: "2024-10-24",
       terms: [
         { name: "", begins: "", ends: "" }
       ]
@@ -76,34 +76,24 @@ const CalendarSessionView: React.FC<CalendarSessionViewProps> = ({
             <Input
               name="sessionName"
               control={control}
-              inputLabel={<span>Session name <span className="text-red-500">*</span></span>}
+              inputLabel="Session name *"
               placeholderText="Enter Session name e.g. 2024/2025 academic session"
               rules={{ required: "Session name is required" }}
             />
 
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-800">Session begins</label>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Select date"
-                  className="w-full px-5 py-4 rounded-xl border border-gray-100 bg-gray-50/30 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1C3A1C]/5 transition-all text-sm"
-                />
-                <CalendarIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              </div>
-            </div>
+            <Input
+              name="sessionBegins"
+              control={control}
+              inputLabel="Session begins"
+              type="date"
+            />
 
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-gray-800">Session ends</label>
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Select date"
-                  className="w-full px-5 py-4 rounded-xl border border-gray-100 bg-gray-50/30 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1C3A1C]/5 transition-all text-sm"
-                />
-                <CalendarIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-              </div>
-            </div>
+            <Input
+              name="sessionEnds"
+              control={control}
+              inputLabel="Session ends"
+              type="date"
+            />
           </div>
 
           <div className="pt-4 space-y-6">
@@ -114,34 +104,24 @@ const CalendarSessionView: React.FC<CalendarSessionViewProps> = ({
                 <Input
                   name={`terms.${index}.name`}
                   control={control}
-                  inputLabel={<span>Term name <span className="text-red-500">*</span></span>}
+                  inputLabel="Term name *"
                   placeholderText="Enter Term name e.g. First term"
                   rules={{ required: "Term name is required" }}
                 />
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-800">Term begins</label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="Select date"
-                      className="w-full px-5 py-4 rounded-xl border border-gray-100 bg-gray-50/30 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1C3A1C]/5 transition-all text-sm"
-                    />
-                    <CalendarIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  </div>
-                </div>
+                <Input
+                  name={`terms.${index}.begins`}
+                  control={control}
+                  inputLabel="Term begins"
+                  type="date"
+                />
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-gray-800">Term ends</label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="Select date"
-                      className="w-full px-5 py-4 rounded-xl border border-gray-100 bg-gray-50/30 text-gray-800 focus:outline-none focus:ring-2 focus:ring-[#1C3A1C]/5 transition-all text-sm"
-                    />
-                    <CalendarIcon className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  </div>
-                </div>
+                <Input
+                  name={`terms.${index}.ends`}
+                  control={control}
+                  inputLabel="Term ends"
+                  type="date"
+                />
               </div>
             ))}
 
@@ -178,18 +158,18 @@ const CalendarSessionView: React.FC<CalendarSessionViewProps> = ({
 
       <div className="space-y-8">
         <div className="grid grid-cols-2 gap-8">
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-gray-500">Session begins</label>
-            <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 text-gray-800 font-medium">
-              24-10-2024
-            </div>
-          </div>
-          <div className="space-y-2">
-            <label className="text-sm font-bold text-gray-500">Session ends</label>
-            <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 text-gray-800 font-medium">
-              24-10-2024
-            </div>
-          </div>
+          <Input
+            name="sessionBegins"
+            control={control}
+            inputLabel="Session begins"
+            editable={false}
+          />
+          <Input
+            name="sessionEnds"
+            control={control}
+            inputLabel="Session ends"
+            editable={false}
+          />
         </div>
 
         <div className="space-y-6 pt-4">

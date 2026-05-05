@@ -13,6 +13,7 @@ const AdminScheduleTimetable = () => {
     hasSearched, 
     isEditMode, 
     filters, 
+    control,
     gridData, 
     handleSearch, 
     updateFilter, 
@@ -29,6 +30,7 @@ const AdminScheduleTimetable = () => {
         <div className="mt-10 max-w-4xl mx-auto">
           <TimetableFilters 
             filters={filters} 
+            control={control}
             updateFilter={updateFilter} 
             isEditMode={isEditMode} 
           />
