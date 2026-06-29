@@ -2,6 +2,11 @@ import { useState, useMemo } from "react";
 import { academicEvents } from "../data";
 
 export const useCalendar = () => {
+  const [view, setView] = useState<"Year" | "Session" | "Term">("Year");
+  const [sessionMode, setSessionMode] = useState<"view" | "create" | "edit" | "">("");
+  const [hasSession, setHasSession] = useState(false); // Mock state
+  const [isUpdating, setIsUpdating] = useState(false);
+  
   const [startMonth, setStartMonth] = useState(new Date(2024, 0)); // Start with Jan 2024
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   
@@ -42,7 +47,35 @@ export const useCalendar = () => {
     return { highlighted, outlined };
   }, []);
 
+  const triggerNewSession = () => {
+    setView("Session");
+    setSessionMode("create");
+    setHasSession(true);
+  };
+
+  const triggerEditSession = () => {
+    setView("Session");
+    setSessionMode("edit");
+  };
+
+  const toggleUpdate = () => {
+    setIsUpdating(!isUpdating);
+  };
+
+  const saveUpdate = () => {
+    console.log("Saving calendar update for:", selectedDate);
+    setIsUpdating(false);
+  };
+
   return {
+    view,
+    setView,
+    sessionMode,
+    setSessionMode,
+    hasSession,
+    setHasSession,
+    isUpdating,
+    setIsUpdating,
     startMonth,
     selectedDate,
     setSelectedDate,
@@ -50,5 +83,9 @@ export const useCalendar = () => {
     handlePrev,
     visibleMonths,
     modifiers,
+    triggerNewSession,
+    triggerEditSession,
+    toggleUpdate,
+    saveUpdate,
   };
 };
