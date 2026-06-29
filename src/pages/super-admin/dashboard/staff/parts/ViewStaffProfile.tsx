@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import Button from "../../../../components/ui/button";
+import Button from "@/components/ui/button";
 import { Staff } from "./types";
 
 interface ViewStaffProfileProps {

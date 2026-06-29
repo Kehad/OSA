@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
 import { Plus } from "lucide-react";
-import Input from "../../../../components/ui/input.tsx";
+import Input from "@/components/ui/input.tsx";
 import { useForm } from "react-hook-form";
-import Button from "../../../../components/ui/button.tsx";
+import Button from "@/components/ui/button.tsx";
 import { Staff } from "./types";
 
 interface PersonalInformationFormProps {

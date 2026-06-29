@@ -1,7 +1,7 @@
-import Step1_ParentInfo from "@/pages/dashboard/students/parts/Step1_ParentInfo";
+import Step1_ParentInfo from "@/pages/super-admin/dashboard/students/parts/Step1_ParentInfo";
 import Button from "../../ui/button"; // Ensure this path is correct for your project
-import Step2_PersonalInfo from "@/pages/dashboard/students/parts/Step2_PersonalInfo";
-import Step3_HealthInfo from "@/pages/dashboard/students/parts/Step3_HealthInfo";
+import Step2_PersonalInfo from "@/pages/super-admin/dashboard/students/parts/Step2_PersonalInfo";
+import Step3_HealthInfo from "@/pages/super-admin/dashboard/students/parts/Step3_HealthInfo";
 
 interface EntityFormProps {
   entityType: "staff" | "student" | "parent";

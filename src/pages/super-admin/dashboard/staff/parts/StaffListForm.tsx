@@ -2,8 +2,8 @@
 import { Filter, Plus } from "lucide-react";
 import { EmptyState } from "./Empystate";
 import { StaffTable } from "./StaffTable";
-import { Pagination } from "../../../../components/ui/pagination";
-import Button from "../../../../components/ui/button";
+import { Pagination } from "@/components/ui/pagination";
+import Button from "@/components/ui/button";
 import { Staff } from "./types";
 
 interface StaffListViewProps {

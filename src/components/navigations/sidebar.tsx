@@ -19,28 +19,36 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
+  const basePath = location.pathname.startsWith("/super-admin") ? "/super-admin" : "/admin";
+
+  const isAdmin = basePath === "/admin";
+
   // Menu configuration
-  const menuItems = [
-    { label: "Dashboard", icon: Home, link: "/dashboard" },
-    { label: "Staff", icon: User, link: "/staff" },
-    { label: "Students", icon: Users, link: "/students" },
-    { label: "Parents", icon: User, link: "/parents" },
+  let menuItems = [
+    { label: "Dashboard", icon: Home, link: `${basePath}/dashboard` },
+    { label: "Staff", icon: User, link: `${basePath}/staff` },
+    { label: "Students", icon: Users, link: `${basePath}/students` },
+    { label: "Parents", icon: User, link: `${basePath}/parents` },
     {
       label: "Schedule",
       icon: Calendar,
       children: [
-        { label: "Timetable", link: "/schedule/timetable" },
-        { label: "Calendar", link: "/schedule/calendar" },
-        { label: "Events", link: "/schedule/events" },
+        { label: "Timetable", link: `${basePath}/schedule/timetable` },
+        { label: "Calendar", link: `${basePath}/schedule/calendar` },
+        { label: "Events", link: `${basePath}/schedule/events` },
       ],
     },
-    { label: "Attendance", icon: ClipboardList, link: "/attendance" },
-    { label: "Payment & Billings", icon: CreditCard, link: "/payment" },
+    { label: "Attendance", icon: ClipboardList, link: `${basePath}/attendance` },
+    { label: "Payment & Billings", icon: CreditCard, link: `${basePath}/payment` },
 
     // Bottom items
-    { label: "Settings", icon: Settings, link: "/settings", isBottom: true },
-    { label: "Log Out", icon: LogOut, link: "/logout", isBottom: true },
+    { label: "Settings", icon: Settings, link: `${basePath}/settings`, isBottom: true },
+    { label: "Log Out", icon: LogOut, link: "/logout", isBottom: true }, // Keep logout absolute if it handles app-wide sign out
   ];
+
+  if (isAdmin) {
+    menuItems = menuItems.filter(item => item.label !== "Staff" && item.label !== "Parents");
+  }
 
   // Helper: check if path is active
   const isActive = (itemLink, childLink) => {

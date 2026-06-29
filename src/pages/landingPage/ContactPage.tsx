@@ -1,8 +1,8 @@
-import ContactHeader from "../../components/landing/contact/contactHeader";
-import ContactMap from "../../components/landing/contact/contactMap";
-import ContactMessage from "../../components/landing/contact/contactMessage";
-import ContactSupport from "../../components/landing/contact/contactSupport";
-import Layout from "../../components/landing/generalComponent/Layout/Layout";
+import ContactHeader from "@/components/landing/contact/contactHeader";
+import ContactMap from "@/components/landing/contact/contactMap";
+import ContactMessage from "@/components/landing/contact/contactMessage";
+import ContactSupport from "@/components/landing/contact/contactSupport";
+import Layout from "@/components/landing/generalComponent/Layout/Layout";
 
 
 function ContactPage() {

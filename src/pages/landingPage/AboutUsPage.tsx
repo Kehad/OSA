@@ -1,14 +1,14 @@
 import { Flex } from "@chakra-ui/react";
-import AboutHeader from "../../components/landing/aboutUs/aboutHeader";
-import AboutCard from "../../components/landing/aboutUs/aboutCard";
-import AboutStory from "../../components/landing/aboutUs/aboutStory";
-import AboutPurpose from "../../components/landing/aboutUs/aboutPurpose";
-import Layout from "../../components/landing/generalComponent/Layout/Layout";
-import AboutValue from "../../components/landing/aboutUs/aboutValue";
-import AboutSchoolSection from "../../components/landing/aboutUs/aboutSchoolSection";
-import AboutTeam from "../../components/landing/aboutUs/aboutTeam";
-import AboutFAQ from "../../components/landing/aboutUs/aboutFAQ";
-import MainSlider from "../../components/landing/generalComponent/slider/mainSlider";
+import AboutHeader from "@/components/landing/aboutUs/aboutHeader";
+import AboutCard from "@/components/landing/aboutUs/aboutCard";
+import AboutStory from "@/components/landing/aboutUs/aboutStory";
+import AboutPurpose from "@/components/landing/aboutUs/aboutPurpose";
+import Layout from "@/components/landing/generalComponent/Layout/Layout";
+import AboutValue from "@/components/landing/aboutUs/aboutValue";
+import AboutSchoolSection from "@/components/landing/aboutUs/aboutSchoolSection";
+import AboutTeam from "@/components/landing/aboutUs/aboutTeam";
+import AboutFAQ from "@/components/landing/aboutUs/aboutFAQ";
+import MainSlider from "@/components/landing/generalComponent/slider/mainSlider";
 
 
 

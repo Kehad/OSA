@@ -1,7 +1,7 @@
 // // pages/StudentsPage.jsx
 
 import { useState } from "react";
-import EntityManagement from "../../../components/entity/EntityManagement";
+import EntityManagement from "@/components/entity/EntityManagement";
 
 export default function Parents() {
   // const [staffList, setStaffList] = useState([]);
