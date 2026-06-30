@@ -1,4 +1,4 @@
-import { Pen, Trash2 } from "lucide-react";
+
 import { Event } from "../model/useEvents";
 
 interface EventListProps {
@@ -7,7 +7,7 @@ interface EventListProps {
   onDelete: (id: string) => void;
 }
 
-const EventList: React.FC<EventListProps> = ({ events, onEdit, onDelete }) => {
+const EventList: React.FC<EventListProps> = ({ events }) => {
   return (
     <div className="space-y-6 w-full animate-in fade-in slide-in-from-bottom-4 duration-500">
       {events.map((event) => (
@@ -35,22 +35,7 @@ const EventList: React.FC<EventListProps> = ({ events, onEdit, onDelete }) => {
             </button>
           </div>
           
-          <div className="flex gap-4 md:self-center">
-            <button 
-              onClick={() => onEdit(event)}
-              className="p-3 text-green-500 hover:bg-green-50 rounded-xl transition-colors"
-              title="Edit Event"
-            >
-              <Pen className="w-5 h-5" />
-            </button>
-            <button 
-              onClick={() => onDelete(event.id)}
-              className="p-3 text-red-400 hover:bg-red-50 rounded-xl transition-colors"
-              title="Delete Event"
-            >
-              <Trash2 className="w-5 h-5" />
-            </button>
-          </div>
+          
         </div>
       ))}
     </div>
