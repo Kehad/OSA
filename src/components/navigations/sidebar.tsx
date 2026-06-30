@@ -10,6 +10,7 @@ import {
   LogOut,
   Menu,
   X,
+  BookOpenText,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import OSA_LOGO from "@/assets/OSA-LOGO.png"; // Adjust path as needed
@@ -28,6 +29,7 @@ export default function Sidebar() {
     { label: "Dashboard", icon: Home, link: `${basePath}/dashboard` },
     { label: "Staff", icon: User, link: `${basePath}/staff` },
     { label: "Students", icon: Users, link: `${basePath}/students` },
+    { label: "Results", icon: BookOpenText, link: `${basePath}/results` },
     { label: "Parents", icon: User, link: `${basePath}/parents` },
     {
       label: "Schedule",
