@@ -23,6 +23,7 @@ import AdminCalendarPage from "../pages/admin/dashboard/schedule/calendar";
 import AdminEventsPage from "../pages/admin/dashboard/schedule/events";
 import AdminSettingsPage from "../pages/admin/dashboard/settings/settings";
 import AdminAttendancePage from "../pages/admin/dashboard/attendance/attendance";
+import AdminResultPage from "@/pages/admin/dashboard/result/result";
 
 const AppRouter = () => {
   return (
@@ -64,6 +65,7 @@ const AppRouter = () => {
           </Route>
           <Route path="students" element={<AdminStudents />} />
           <Route path="settings" element={<AdminSettingsPage />} />
+          <Route path="results" element={<AdminResultPage />} />
           <Route path="schedule">
             <Route path="timetable" element={<AdminScheduleTimetable />} />
             <Route path="calendar" element={<AdminCalendarPage />} />
