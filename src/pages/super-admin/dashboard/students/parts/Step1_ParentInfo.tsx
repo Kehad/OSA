@@ -3,15 +3,7 @@ import DynamicForm, { FormField } from "@/components/ui/form";
 // import React from "react";
 // import DynamicForm, { FormField } from "./DynamicForm"; // Adjust import path as needed
 
-interface StepProps {
-  formData: Record<string, any>;
-  onChange: (data: Record<string, any>) => void;
-  onNext?: () => void;
-  onBack?: () => void;
-  isEdit?: boolean;
-  entityType?: string;
-  config?: any;
-}
+import { StepProps } from "../types";
 
 const Step1_ParentInfo = ({ formData, onChange, onNext, onBack }: StepProps) => {
 

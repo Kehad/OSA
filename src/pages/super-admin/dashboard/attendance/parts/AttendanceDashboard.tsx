@@ -13,11 +13,7 @@ import {
 } from "recharts";
 import AttendanceStatsCard from "./AttendanceStatsCard";
 
-interface AttendanceDashboardProps {
-  stats: any[];
-  weeklyData: any[];
-  onViewSchool: (id: string) => void;
-}
+import { AttendanceDashboardProps } from "../types";
 
 const AttendanceDashboard: React.FC<AttendanceDashboardProps> = ({
   stats,

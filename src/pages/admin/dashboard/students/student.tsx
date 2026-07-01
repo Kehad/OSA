@@ -6,11 +6,12 @@ import { FilterSelect } from "@/components/ui-template/filterSelect";
 
 import EntityTable from "@/components/entity/EntityTable";
 import { studentList } from "./data";
+import { Student } from "./types";
 
 export default function Students() {
   const [hasSearched, setHasSearched] = useState(false);
   const [viewMode, setViewMode] = useState<"list" | "view">("list");
-  const [selectedStudent, setSelectedStudent] = useState<any>(null);
+  const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
   const sessionOptions = useMemo(() => Array.from(new Set(studentList.map(s => s.session))), []);
   const termOptions = useMemo(() => Array.from(new Set(studentList.map(s => s.term))), []);
@@ -38,7 +39,7 @@ export default function Students() {
     setHasSearched(true);
   };
 
-  const handleView = (student: any) => {
+  const handleView = (student: Student) => {
     setSelectedStudent(student);
     setViewMode("view");
   };

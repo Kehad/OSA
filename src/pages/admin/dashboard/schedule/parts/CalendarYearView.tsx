@@ -2,14 +2,7 @@ import React from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 
-interface CalendarYearViewProps {
-  visibleMonths: any[];
-  selectedDate: Date | undefined;
-  setSelectedDate: (date: Date | undefined) => void;
-  modifiers: any;
-  handlePrev: () => void;
-  handleNext: () => void;
-}
+import { CalendarYearViewProps } from "../types";
 
 const CalendarYearView: React.FC<CalendarYearViewProps> = ({
   visibleMonths,

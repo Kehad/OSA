@@ -2,10 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Input from "@/components/ui/input";
 
-interface AddBillFormProps {
-  onCancel: () => void;
-  onSubmit: (data: any) => void;
-}
+import { AddBillFormProps } from "../types";
 
 const AddBillForm: React.FC<AddBillFormProps> = ({ onCancel, onSubmit }) => {
   const { control, handleSubmit } = useForm({

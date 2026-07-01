@@ -9,16 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-interface BillingItem {
-  id: string;
-  class: string;
-  fees: string;
-  lastUpdated: string;
-}
-
-interface BillingTableProps {
-  data: BillingItem[];
-}
+import { BillingTableProps } from "../types";
 
 const BillingTable: React.FC<BillingTableProps> = ({ data }) => {
   return (

@@ -1,9 +1,7 @@
 import { Plus } from "lucide-react";
 import emptyEvent from "@/assets/empty-search.png"; // Reusing the high-quality empty state asset
 
-interface EventEmptyStateProps {
-  onCreate: () => void;
-}
+import { EventEmptyStateProps } from "../types";
 
 const EventEmptyState: React.FC<EventEmptyStateProps> = ({ onCreate }) => {
   return (

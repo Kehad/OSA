@@ -1,4 +1,6 @@
-export const dummyStudent = {
+import { Student } from "./types";
+
+export const dummyStudent: Student = {
   id: "OSA/24S/0001",
   fullName: "Nwachi Victory Onyekachi",
   middleName: "Onyekachi",
@@ -24,7 +26,7 @@ export const dummyStudent = {
   term: "First Term",
 };
 
-export const studentList = [
+export const studentList: Student[] = [
   { ...dummyStudent, session: "2023/2024", term: "First Term", class: "SS 1 Blue" },
   { ...dummyStudent, id: "OSA/24S/0002", session: "2023/2024", term: "Second Term", class: "Basic 3 A" },
   { ...dummyStudent, id: "OSA/24S/0003", session: "2024/2025", term: "First Term", class: "Basic 3 B" },

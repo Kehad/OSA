@@ -1,11 +1,5 @@
 
-import { Event } from "../model/useEvents";
-
-interface EventListProps {
-  events: Event[];
-  onEdit: (event: Event) => void;
-  onDelete: (id: string) => void;
-}
+import { EventListProps } from "../types";
 
 const EventList: React.FC<EventListProps> = ({ events }) => {
   return (

@@ -4,13 +4,7 @@ import { Plus } from "lucide-react";
 import Input from "@/components/ui/input.tsx";
 import { useForm } from "react-hook-form";
 import Button from "@/components/ui/button.tsx";
-import { Staff } from "./types";
-
-interface PersonalInformationFormProps {
-  formData: Partial<Staff>;
-  isEdit: boolean;
-  onChange: (field: keyof Staff, value: string) => void;
-}
+import { PersonalInformationFormProps } from "../types";
 
 const PersonalInformationForm = ({ formData, isEdit, onChange }: PersonalInformationFormProps) => {
   const {

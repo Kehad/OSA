@@ -1,17 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import Button from "@/components/ui/button";
-import { Staff } from "./types";
-
-interface ViewStaffProfileProps {
-  staff: Staff;
-  isEdit?: boolean;
-  formData?: Partial<Staff>;
-  onChange?: (field: keyof Staff, value: string) => void;
-  onSave?: () => void;
-  onBack: () => void;
-  onEdit: () => void;
-}
+import { Staff, ViewStaffProfileProps } from "../types";
 
 // View Staff Profile Component
 export const ViewStaffProfile = ({

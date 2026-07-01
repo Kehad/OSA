@@ -6,11 +6,7 @@ const tabs = [
   { label: "Billings", link: "/payment/billings" },
 ];
 
-interface PaymentHeaderProps {
-  title: string;
-  showAddButton?: boolean;
-  onAddClick?: () => void;
-}
+import { PaymentHeaderProps } from "./types";
 
 const PaymentHeader: React.FC<PaymentHeaderProps> = ({ title, showAddButton, onAddClick }) => {
   const location = useLocation();

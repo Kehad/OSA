@@ -11,7 +11,9 @@ export const timeSlots = [
   "14:00 - 14:45",
 ];
 
-export const timetableData = [
+import { TimetableRowData, EventItem, AcademicEventGroup } from "./types";
+
+export const timetableData: TimetableRowData[] = [
   { day: "Mon", periods: ["English", "Maths", "Long Break", "Basic Science", "English", "Maths", "Short Break", "Maths", "Maths", "Basic Science"] },
   { day: "Tue", periods: ["Maths", "English", "Long Break", "Maths", "Basic Science", "English", "Short Break", "Basic Science", "Maths", "English"] },
   { day: "Wed", periods: ["Basic Science", "English", "Long Break", "English", "Maths", "Maths", "Short Break", "Maths", "English", "Maths"] },
@@ -19,7 +21,7 @@ export const timetableData = [
   { day: "Fri", periods: ["Maths", "Maths", "Long Break", "English", "Basic Science", "English", "Short Break", "English", "Maths", "Basic Science"] },
 ];
 
-export const events = [
+export const events: EventItem[] = [
   {
     id: 1,
     title: "PTA Meeting",
@@ -46,7 +48,7 @@ export const events = [
   },
 ];
 
-export const academicEvents = [
+export const academicEvents: AcademicEventGroup[] = [
   {
     month: "February",
     year: 2024,

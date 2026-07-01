@@ -1,10 +1,7 @@
 import React from "react";
 import { ArrowLeft, Calendar, Download } from "lucide-react";
 
-interface ClassAttendanceDetailProps {
-  className: string;
-  onBack: () => void;
-}
+import { ClassAttendanceDetailProps } from "../types";
 
 const studentData = Array(30)
   .fill({

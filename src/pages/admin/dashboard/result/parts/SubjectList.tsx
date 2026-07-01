@@ -1,15 +1,6 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 import Button from "@/components/ui/button";
-import { StudentResult } from "../models/useResult";
-
-interface SubjectListProps {
-  subjects: string[];
-  expandedSubject: string | null;
-  toggleSubject: (subject: string) => void;
-  students: StudentResult[];
-  updateScore: (studentId: string, subject: string, field: "ca1" | "ca2" | "exam", value: string) => void;
-  calculateTotalAndGrade: (ca1: string, ca2: string, exam: string) => { total: string; grade: string };
-}
+import { SubjectListProps } from "../types";
 
 export const SubjectList = ({
   subjects,

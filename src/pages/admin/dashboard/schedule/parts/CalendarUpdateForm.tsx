@@ -1,9 +1,7 @@
 import { useForm } from "react-hook-form";
 import Input from "@/components/ui/input";
 
-interface CalendarUpdateFormProps {
-  selectedDate: Date | undefined;
-}
+import { CalendarUpdateFormProps } from "../types";
 
 const CalendarUpdateForm: React.FC<CalendarUpdateFormProps> = ({ selectedDate }) => {
   const { control } = useForm({

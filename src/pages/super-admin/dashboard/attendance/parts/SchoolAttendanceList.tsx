@@ -9,11 +9,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-interface SchoolAttendanceListProps {
-  schoolName: string;
-  onBack: () => void;
-  onClassClick: (id: string) => void;
-}
+import { SchoolAttendanceListProps } from "../types";
 
 const schoolData = Array(10).fill({
   id: "01",

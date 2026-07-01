@@ -1,12 +1,6 @@
 import { useForm } from "react-hook-form";
 import Input from "@/components/ui/input";
-import { Event } from "../model/useEvents";
-
-interface EventFormProps {
-  mode: "create" | "edit";
-  initialData: Event | null;
-  onSubmit: (data: any) => void;
-}
+import { EventFormProps } from "../types";
 
 const EventForm: React.FC<EventFormProps> = ({ mode, initialData, onSubmit }) => {
   const { control, handleSubmit } = useForm({

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export type PasswordStep = "request" | "processing" | "form" | "success";
+import { PasswordStep } from "../types";
 
 export const usePasswordFlow = () => {
   const [step, setStep] = useState<PasswordStep>("processing");

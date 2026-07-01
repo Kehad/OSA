@@ -1,13 +1,8 @@
 import React from "react";
-import { Control } from "react-hook-form";
+
 import Input from "@/components/ui/input";
 
-interface TimetableFiltersProps {
-  filters: any;
-  control: Control<any>;
-  updateFilter: (key: string, value: string) => void;
-  isEditMode?: boolean;
-}
+import { TimetableFiltersProps } from "../types";
 
 const TimetableFilters: React.FC<TimetableFiltersProps> = ({ control, isEditMode }) => {
   return (

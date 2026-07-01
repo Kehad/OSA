@@ -1,5 +1,7 @@
+import { StatCardProps } from "../types";
+
 // / Statistics Card Component
-const StatCard = ({ title, value, gradient }) => {
+const StatCard = ({ title, value, gradient }: StatCardProps) => {
   return (
     <div 
       className="rounded-3xl p-6 text-white shadow-lg relative overflow-hidden"

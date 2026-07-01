@@ -1,4 +1,6 @@
-export const StudentAttendanceData = {
+import { DashboardData } from "./types";
+
+export const StudentAttendanceData: DashboardData = {
   title: "Student Attendance",
   isDate: true,
   legendItems: [
@@ -13,7 +15,7 @@ export const StudentAttendanceData = {
   ],
 };
 
-export const FeesSummaryData = {
+export const FeesSummaryData: DashboardData = {
   title: "Fees Summary",
   isDate: false,
   legendItems: [
