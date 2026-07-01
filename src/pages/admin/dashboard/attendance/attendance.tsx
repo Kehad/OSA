@@ -2,15 +2,33 @@ import React, { useState } from "react";
 import { ChevronDown, Check } from "lucide-react";
 import Button from "@/components/ui/button";
 import emptySearch from "@/assets/empty-search.png";
-import { FilterDropdown } from "@/components/ui-template/Dropdown.-input";
+import { MockStudent, FilterDropdownProps } from "./types";
 
-const mockStudents = Array.from({ length: 20 }, (_, i) => ({
+const mockStudents: MockStudent[] = Array.from({ length: 20 }, (_, i) => ({
   id: String(i + 1).padStart(2, "0"),
   admissionNo: "OSA/24S/0001",
   fullName: "Nwachi Victory Onyekachi",
   present: true,
 }));
 
+const FilterDropdown = ({ label, placeholder, value, options, onChange }: FilterDropdownProps) => (
+  <div className="flex items-center gap-4 w-full md:w-[480px] mb-4">
+    <label className="w-20 text-[#333] font-medium text-sm shrink-0">{label}</label>
+    <div className="relative flex-1">
+      <select 
+        className="w-full appearance-none bg-white border border-gray-200 rounded-lg px-4 py-2.5 pr-10 text-gray-600 focus:outline-none focus:ring-1 focus:ring-green-900/20 transition-all cursor-pointer text-sm"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
+        <option value="" disabled>{placeholder}</option>
+        {options.map((opt: string) => (
+          <option key={opt} value={opt}>{opt}</option>
+        ))}
+      </select>
+      <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
+    </div>
+  </div>
+);
 
 const AttendancePage = () => {
   const [session, setSession] = useState("");
@@ -19,7 +37,7 @@ const AttendancePage = () => {
   const [date, setDate] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
   
-  const [students, setStudents] = useState(mockStudents);
+  const [students, setStudents] = useState<MockStudent[]>(mockStudents);
 
   const handleSearch = () => {
     if (session && term && classLevel && date) {

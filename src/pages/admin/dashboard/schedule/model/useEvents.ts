@@ -1,14 +1,6 @@
 import { useState } from "react";
 
-export interface Event {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  recipients: string;
-  sendNotification: string;
-}
+import { Event } from "../types";
 
 const mockEvents: Event[] = [
   {

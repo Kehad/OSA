@@ -5,16 +5,7 @@ import Button from "@/components/ui/button";
 import { NextOfKinForm } from "./NextofKinForm";
 import PersonalInformationForm from "./PersonalInformation";
 import { WorkInformationForm } from "./WorkForm";
-import { Staff } from "./types";
-
-interface StaffFormProps {
-  currentStep: number;
-  formData: Partial<Staff>;
-  onSave: () => void;
-  onBack: () => void;
-  onNext: () => void;
-  onChange: (field: keyof Staff, value: string) => void;
-}
+import { StaffFormProps } from "../types";
 
 // Add/Edit Staff Form Component
 const StaffForm = ({

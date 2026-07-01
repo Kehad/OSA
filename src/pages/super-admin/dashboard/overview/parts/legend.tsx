@@ -1,8 +1,10 @@
-// Legend Component
-const Legend = ({ items }) => {
+//import React from "react";
+import { LegendItemData } from "../types";
+
+const Legend = ({ items }: { items: LegendItemData[] }) => {
   return (
-    <div className="flex flex-col space-y-2 mt-4">
-      {items.map((item, index) => (
+    <div className="flex flex-col gap-2 mt-4 ml-6">
+      {items.map((item: LegendItemData, index: number) => (
         <div key={index} className="flex items-center space-x-2 text-sm">
           <div
             className="w-3 h-3 rounded-full flex-shrink-0"

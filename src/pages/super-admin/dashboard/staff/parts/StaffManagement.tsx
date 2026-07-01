@@ -3,7 +3,7 @@ import { useState } from "react";
 import StaffForm from "./StaffForm";
 import { ViewStaffProfile } from "./ViewStaffProfile";
 import StaffListView from "./StaffListForm";
-import { Staff } from "./types";
+import { Staff } from "../types";
 
 const StaffManagement = () => {
   const [staffList, setStaffList] = useState<Staff[]>([

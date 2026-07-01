@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import EntityManagement from "@/components/entity/EntityManagement";
+import { Parent } from "./types";
 
 export default function Parents() {
-  // const [staffList, setStaffList] = useState([]);
-const [parentsList, setParentsList] = useState([
+  const [parentsList, setParentsList] = useState<Parent[]>([
     {
       id: "OSA-24S-0001",
       parentName: "John Doe",

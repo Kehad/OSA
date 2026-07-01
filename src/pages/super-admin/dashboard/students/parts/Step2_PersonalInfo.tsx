@@ -2,17 +2,7 @@
 import DynamicForm, { FormField } from "@/components/ui/form";
 import React from "react";
 
-interface StepProps {
-  formData: Record<string, any>;
-  onChange: (data: Record<string, any>) => void; // Update logic to handle bulk change if needed, or stick to field
-  onNext: () => void;
-  onBack: () => void;
-  // Added optional props to satisfy EntityForm passing them
-  onSave?: () => void;
-  isEdit?: boolean;
-  entityType?: string;
-  config?: any;
-}
+import { StepProps } from "../types";
 
 const Step2_PersonalInfo = ({ formData, onChange, onNext, onBack }: StepProps) => {
 
@@ -114,7 +104,7 @@ const Step2_PersonalInfo = ({ formData, onChange, onNext, onBack }: StepProps) =
     console.log(data)
     if (onChange) onChange(data);
 
-    onNext();
+    onNext?.();
   };
 
   return (

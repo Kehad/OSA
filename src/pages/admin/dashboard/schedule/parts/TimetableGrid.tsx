@@ -8,12 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-interface TimetableGridProps {
-  timeSlots: string[];
-  timetableData: any[];
-  isEditMode?: boolean;
-  onCellChange?: (day: string, periodIdx: number, value: string) => void;
-}
+import { TimetableGridProps } from "../types";
 
 const TimetableGrid: React.FC<TimetableGridProps> = ({ 
   timeSlots, 

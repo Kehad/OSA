@@ -4,18 +4,7 @@ import { EmptyState } from "./Empystate";
 import { StaffTable } from "./StaffTable";
 import { Pagination } from "@/components/ui/pagination";
 import Button from "@/components/ui/button";
-import { Staff } from "./types";
-
-interface StaffListViewProps {
-  staffList: Staff[];
-  currentPage: number;
-  itemsPerPage: number;
-  onAddStaff: () => void;
-  onView: (staff: Staff) => void;
-  onEdit: (staff: Staff) => void;
-  onDelete: (id: string) => void;
-  onPageChange: (page: number) => void;
-}
+import { StaffListViewProps } from "../types";
 
 // Staff List View Component
 const StaffListView = ({

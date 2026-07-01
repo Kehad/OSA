@@ -1,19 +1,8 @@
-
 import Button from "@/components/ui/button";
 import { FilterDropdown } from "@/components/ui-template/Dropdown.-input";
+import { ResultFiltersProps } from "../types";
 
 
-
-interface ResultFiltersProps {
-  session: string;
-  setSession: (val: string) => void;
-  term: string;
-  setTerm: (val: string) => void;
-  classLevel: string;
-  setClassLevel: (val: string) => void;
-  hasSearched: boolean;
-  onSearch: () => void;
-}
 
 export const ResultFilters = ({
   session, setSession,

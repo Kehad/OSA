@@ -3,12 +3,7 @@ import { useForm, useFieldArray } from "react-hook-form";
 import Input from "@/components/ui/input";
 import emptySession from "@/assets/empty-search.png";
 
-interface CalendarSessionViewProps {
-  mode: "view" | "create" | "edit" | "";
-  setMode: (mode: "view" | "create" | "edit" | "") => void;
-  hasSession: boolean;
-  setHasSession: (has: boolean) => void;
-}
+import { CalendarSessionViewProps } from "../types";
 
 const CalendarSessionView: React.FC<CalendarSessionViewProps> = ({
   mode,

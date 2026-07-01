@@ -2,15 +2,7 @@
 import React from "react";
 import DynamicForm, { FormField } from "@/components/ui/form"; // Adjust path as needed
 
-interface StepProps {
-  formData: Record<string, any>;
-  onChange: (data: Record<string, any>) => void;
-  onSave: () => void;
-  onBack: () => void;
-  isEdit?: boolean;
-  entityType?: string;
-  config?: any;
-}
+import { StepProps } from "../types";
 
 const Step3_HealthInfo = ({ formData, onChange, onSave, onBack }: StepProps) => {
 
@@ -67,7 +59,7 @@ const Step3_HealthInfo = ({ formData, onChange, onSave, onBack }: StepProps) => 
     if (onChange) onChange(data);
 
     // Trigger the final save action
-    onSave();
+    onSave?.();
   };
 
   return (

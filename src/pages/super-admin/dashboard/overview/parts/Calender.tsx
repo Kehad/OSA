@@ -1,9 +1,9 @@
-import { Plus } from "lucide-react";
+import { Plus, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 
-// Calendar Component
-const Calendar = () => {
-  const [currentDate] = useState(new Date(2024, 9, 26)); // October 2024
+export default function CustomCalendar() {
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
@@ -162,5 +162,4 @@ const Calendar = () => {
     </div>
   );
 };
-
-export default Calendar;
+

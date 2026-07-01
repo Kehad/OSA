@@ -175,22 +175,11 @@ import { useState } from "react";
 import DonutChart from "./Doughnut";
 import Legend from "./legend";
 import { ChevronDown } from "lucide-react";
+import { AttendanceCardProps } from "../types";
 
 /**
  * Reusable AttendanceCard component.
- * @param {Object} props
- * @param {boolean} [props.isDate] - If true, shows date instead of term selector.
- * @param {string} [props.date] - Date string to display if isDate is true.
- * @param {Array<{ name: string, value: number }>} [props.attendanceData] - Attendance data for chart.
- * @param {Array<{ color: string, label: string }>} [props.legendItems] - Items for the legend.
- * @param {Array<{ title: string, value: string }>} [props.itemsData] - Items for the legend.
- * @param {string[]} [props.colors] - Chart segment colors.
- * @param {string[]} [props.terms] - Term options for the dropdown.
- * @param {function} [props.onTermChange] - Callback on term change.
- * @param {function} [props.onViewAttendance] - Callback for "View attendance" button.
- * @param {number|string} [props.present] - Present count.
- * @param {number|string} [props.absent] - Absent count.
- * @param {string} [props.title] - Card title.
+ * @param {AttendanceCardProps} props
  */
 const AttendanceCard = ({
   isDate = false,
@@ -205,7 +194,7 @@ const AttendanceCard = ({
   absent,
   itemData,
   title = "Student Attendance",
-}) => {
+}: AttendanceCardProps) => {
   const defaultData = [
     { name: "Present", value: 75 },
     { name: "Absent", value: 25 },

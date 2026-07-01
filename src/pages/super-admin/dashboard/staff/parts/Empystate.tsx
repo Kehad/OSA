@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Plus } from "lucide-react";
 
-interface EmptyStateProps {
-  onAddClick: () => void;
-}
+import { EmptyStateProps } from "../types";
 
 // Empty State Component
 export const EmptyState = ({ onAddClick }: EmptyStateProps) => (

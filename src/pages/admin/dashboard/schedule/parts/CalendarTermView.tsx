@@ -3,12 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import Input from "@/components/ui/input";
 
-interface TermEvent {
-  label: string;
-  name: string;
-  begins: string;
-  ends: string;
-}
+import { TermEvent } from "../types";
 
 const initialEvents = [
   {

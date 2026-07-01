@@ -1,17 +1,6 @@
 import { useState } from "react";
 
-export interface StudentResult {
-  id: string;
-  admissionNo: string;
-  fullName: string;
-  scores: {
-    [subject: string]: {
-      ca1: string;
-      ca2: string;
-      exam: string;
-    };
-  };
-}
+import { StudentResult } from "../types";
 
 const initialStudents: StudentResult[] = Array.from({ length: 8 }, (_, i) => ({
   id: String(i + 1).padStart(2, "0"),

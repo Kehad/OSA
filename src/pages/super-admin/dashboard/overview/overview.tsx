@@ -8,13 +8,14 @@ import Calendar from "./parts/Calender";
 
 import { StudentAttendanceData } from "./data";
 import { FeesSummaryData } from "./data";
+import { StatCardProps } from "./types";
 
 // Main Dashboard Component
 export default function Overview() {
     const [searchQuery, setSearchQuery] = useState('');
     const [hasNotification, setHasNotification] = useState(true);
   
-    const statsData = [
+    const statsData: StatCardProps[] = [
       {
         title: "Total students",
         value: "3000",

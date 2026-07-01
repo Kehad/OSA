@@ -7,9 +7,7 @@ const tabs = [
   { label: "Events", link: "/super-admin/schedule/events" },
 ];
 
-interface ScheduleHeaderProps {
-  title: string;
-}
+import { ScheduleHeaderProps } from "./types";
 
 const ScheduleHeader: React.FC<ScheduleHeaderProps> = ({ title }) => {
   const location = useLocation();

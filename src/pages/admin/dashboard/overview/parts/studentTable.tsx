@@ -1,6 +1,8 @@
+import { StudentFeeData } from "../types";
+
 // Student Table Component
 const StudentTable = () => {
-  const students = [
+  const students: StudentFeeData[] = [
     {
       name: "Nwachi Victory O...",
       class: "SS 1 Blue",

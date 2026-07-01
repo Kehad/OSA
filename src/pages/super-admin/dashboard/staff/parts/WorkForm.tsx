@@ -1,10 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Staff } from "./types";
-
-interface WorkInformationFormProps {
-  formData: Partial<Staff>;
-  onChange: (field: keyof Staff, value: string) => void;
-}
+import { WorkInformationFormProps } from "../types";
 
 // Work Information Form Component
 export const WorkInformationForm = ({ formData, onChange }: WorkInformationFormProps) => (

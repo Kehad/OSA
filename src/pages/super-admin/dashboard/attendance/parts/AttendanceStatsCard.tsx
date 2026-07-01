@@ -1,16 +1,7 @@
 import React from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
-interface AttendanceStatsCardProps {
-  title: string;
-  date: string;
-  present: number;
-  absent: number;
-  total: number;
-  color: string;
-  secondaryColor: string;
-  onViewClick: () => void;
-}
+import { AttendanceStatsCardProps } from "../types";
 
 const AttendanceStatsCard: React.FC<AttendanceStatsCardProps> = ({
   title,

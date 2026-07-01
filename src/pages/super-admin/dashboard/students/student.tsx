@@ -3,9 +3,11 @@
 import { useState } from "react";
 import EntityManagement from "@/components/entity/EntityManagement";
 
+import { Student } from "./types";
+
 export default function Students() {
   // const [staffList, setStaffList] = useState([]);
-const [staffList, setStaffList] = useState([
+const [staffList, setStaffList] = useState<Student[]>([
     {
       id: "OSA-24S-0001",
       fullName: "Nachi Mert John Nachi Mert John Nachi Mert",

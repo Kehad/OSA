@@ -1,9 +1,6 @@
 import React from "react";
 
-interface CalendarViewSelectorProps {
-  view: "Year" | "Session" | "Term";
-  setView: (view: "Year" | "Session" | "Term") => void;
-}
+import { CalendarViewSelectorProps } from "../types";
 
 const CalendarViewSelector: React.FC<CalendarViewSelectorProps> = ({ view, setView }) => {
   const options: ("Year" | "Session" | "Term")[] = ["Year", "Session", "Term"];
