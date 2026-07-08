@@ -14,15 +14,17 @@ import {
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import OSA_LOGO from "@/assets/OSA-LOGO.png"; // Adjust path as needed
+import useAuth from "../../hooks/useAuth";
 
 export default function Sidebar() {
   const location = useLocation();
+  const { user, logout } = useAuth();
   const [collapsed, setCollapsed] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
-  const basePath = location.pathname.startsWith("/super-admin") ? "/super-admin" : "/admin";
-
-  const isAdmin = basePath === "/admin";
+  const role = user?.role || "admin";
+  const basePath = role === "super-admin" ? "/super-admin" : "/admin";
+  const isAdmin = role === "admin" || role === "teacher";
 
   // Menu configuration
   let menuItems = [
@@ -45,18 +47,18 @@ export default function Sidebar() {
 
     // Bottom items
     { label: "Settings", icon: Settings, link: `${basePath}/settings`, isBottom: true },
-    { label: "Log Out", icon: LogOut, link: "/logout", isBottom: true }, // Keep logout absolute if it handles app-wide sign out
+    { label: "Log Out", icon: LogOut, onClick: logout, isBottom: true },
   ];
 
   if (isAdmin) {
-    menuItems = menuItems.filter(item => item.label !== "Staff" && item.label !== "Parents");
+    menuItems = menuItems.filter(item => item.label !== "Staff" && item.label !== "Parents" && item.label !== "Payment & Billings");
   }
 
   // Helper: check if path is active
-  const isActive = (itemLink, childLink) => {
+  const isActive = (itemLink?: string, childLink?: string) => {
     if (!itemLink && !childLink) return false;
     const path = childLink || itemLink;
-    return location.pathname.startsWith(path);
+    return location.pathname.startsWith(path as string);
   };
 
   // Toggle dropdown
@@ -76,18 +78,38 @@ export default function Sidebar() {
     const dropdownOpen = openDropdown === item.label;
 
     // Direct link (no children)
-    if (!hasChildren && item.link) {
-      const active = item.active ?? isActive(item.link);
+    if (!hasChildren && (item.link || item.onClick)) {
+      const active = item.active ?? (item.link ? isActive(item.link) : false);
+      const content = (
+        <>
+          <Icon className="w-5 h-5 flex-shrink-0" />
+          {!collapsed && <span>{item.label}</span>}
+        </>
+      );
+
+      const className = `flex items-center gap-3 w-full px-3 py-2 rounded transition-colors
+        ${active ? "bg-green-900 text-white" : "text-gray-700 hover:bg-gray-100"}`;
+
+      if (item.onClick) {
+        return (
+          <button
+            key={idx}
+            onClick={item.onClick}
+            className={className}
+          >
+            {content}
+          </button>
+        );
+      }
+
       return (
         <Link
           key={idx}
-          to={item.link}
-          className={`flex items-center gap-3 w-full px-3 py-2 rounded transition-colors
-            ${active ? "bg-green-900 text-white" : "text-gray-700 hover:bg-gray-100"}`}
+          to={item.link!}
+          className={className}
           aria-current={active ? "page" : undefined}
         >
-          <Icon className="w-5 h-5 flex-shrink-0" />
-          {!collapsed && <span>{item.label}</span>}
+          {content}
         </Link>
       );
     }

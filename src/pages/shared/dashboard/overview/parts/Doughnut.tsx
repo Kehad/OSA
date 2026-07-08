@@ -1,10 +1,10 @@
 import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 // / Custom Donut Chart Component using Recharts
-const DonutChart = ({ data, colors }) => {
+const DonutChart = ({ data, colors }: { data: any[]; colors: string[] }) => {
   const RADIAN = Math.PI / 180;
   
-  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }: any) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
@@ -41,7 +41,7 @@ const DonutChart = ({ data, colors }) => {
             startAngle={90}
             endAngle={450}
           >
-            {data.map((entry, index) => (
+            {data.map((_entry: any, index: number) => (
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
             ))}
           </Pie>

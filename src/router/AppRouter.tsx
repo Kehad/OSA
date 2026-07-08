@@ -1,6 +1,8 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { DashboardLayout } from "../components/dashboardLayout/dashboard";
+import ProtectedRoute from "../components/shared/ProtectedRoute";
+import Login from "../pages/login/login";
 
 // --- Super Admin Imports ---
 import SuperAdminOverview from "../pages/super-admin/dashboard/overview/overview";
@@ -29,11 +31,21 @@ const AppRouter = () => {
   return (
     <React.Suspense>
       <Routes>
+        {/* Login Page */}
+        <Route path="/login" element={<Login />} />
+
         {/* Redirect Root to Super Admin by default, or you can add a landing page */}
         <Route path="/" element={<Navigate to="/super-admin/dashboard/overview" replace />} />
 
         {/* Super Admin Routes */}
-        <Route path="/super-admin" element={<DashboardLayout />}>
+        <Route
+          path="/super-admin"
+          element={
+            <ProtectedRoute allowedRoles={["super-admin"]}>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Navigate to="dashboard/overview" replace />} />
           <Route path="dashboard">
             <Route index element={<Navigate to="overview" replace />} />
@@ -57,7 +69,14 @@ const AppRouter = () => {
         </Route>
 
         {/* Admin Routes */}
-        <Route path="/admin" element={<DashboardLayout />}>
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute allowedRoles={["admin", "super-admin"]}>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Navigate to="dashboard/overview" replace />} />
           <Route path="dashboard">
             <Route index element={<Navigate to="overview" replace />} />

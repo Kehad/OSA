@@ -20,6 +20,7 @@
     "@fontsource/patrick-hand": "^5.1.0",
     "@fontsource/roboto": "^5.1.0",
     "@hookform/resolvers": "^5.2.2",
+    "axios": "^1.18.1",
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.31",
     "lucide-react": "^0.507.0",

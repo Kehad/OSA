@@ -1,8 +1,8 @@
 // Legend Component
-const Legend = ({ items }) => {
+const Legend = ({ items }: { items: any[] }) => {
   return (
-    <div className="flex flex-col space-y-2 mt-4">
-      {items.map((item, index) => (
+    <div className="flex flex-col gap-3">
+      {items.map((item: any, index: number) => (
         <div key={index} className="flex items-center space-x-2 text-sm">
           <div
             className="w-3 h-3 rounded-full flex-shrink-0"
