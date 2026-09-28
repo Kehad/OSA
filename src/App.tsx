@@ -12,18 +12,8 @@ import { AuthProvider } from "./context/AuthContext";
 function App() {
   return (
     <AuthProvider>
-      <div className="flex flex-col">
-        {/* Landing Page */}
-        {/* <Nav />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/about" element={<AboutUsPage />} />
-        </Routes> */}
+      <div className="min-h-screen">
         <AppRouter />
-        <Layout padding="3rem 4rem" bg="#1C3519">
-          <Footer />
-        </Layout>
       </div>
     </AuthProvider>
   );

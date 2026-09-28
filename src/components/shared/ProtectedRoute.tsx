@@ -46,6 +46,8 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
     const defaultRedirect =
       user.role === "super-admin"
         ? "/super-admin/dashboard/overview"
+        : user.role === "student"
+        ? "/student/dashboard/overview"
         : "/admin/dashboard/overview";
     return <Navigate to={defaultRedirect} replace />;
   }

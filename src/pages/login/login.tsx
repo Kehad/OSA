@@ -24,6 +24,12 @@ import OSA_LOGO from "../../assets/OSA-LOGO.png"; // Adjust path as needed
 
 const MotionBox = motion(Box);
 
+const MOCK_ACCOUNTS: Record<string, { role: any; password: string; firstName: string; lastName: string }> = {
+  "superadmin@osa.com": { role: "super-admin", password: "password123", firstName: "Oluwatosin", lastName: "Owner" },
+  "admin@osa.com": { role: "admin", password: "password123", firstName: "Emeka", lastName: "Obi" },
+  "student@osa.com": { role: "student", password: "password123", firstName: "Nachi", lastName: "John" },
+};
+
 export const Login = () => {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -80,6 +86,8 @@ export const Login = () => {
       let redirectPath = "/admin/dashboard/overview";
       if (role === "super-admin") {
         redirectPath = "/super-admin/dashboard/overview";
+      } else if (role === "student") {
+        redirectPath = "/student/dashboard/overview";
       }
 
       navigate(from || redirectPath, { replace: true });
@@ -145,6 +153,7 @@ export const Login = () => {
                     h="50px"
                     fontSize="sm"
                     fontFamily="lato"
+                    color={"black"}
                   />
                 </InputGroup>
               </FormControl>
@@ -164,6 +173,7 @@ export const Login = () => {
                     h="50px"
                     fontSize="sm"
                     fontFamily="lato"
+                    color={"black"}
                   />
                   <InputRightElement h="50px" pr={2}>
                     <IconButton
@@ -195,6 +205,16 @@ export const Login = () => {
               >
                 Log In
               </Button>
+
+              <div>
+                {Object.keys(MOCK_ACCOUNTS).map((email) => (
+                  <Box key={email} p={4} borderWidth={1} borderRadius="lg" mb={2}>
+                    <Text fontWeight="bold" color="black">{email}</Text>
+                    <Text fontSize="sm" fontFamily="lato" color="black">Password: {MOCK_ACCOUNTS[email].password}</Text>
+                    <Text fontSize="sm" fontFamily="lato" color="black">Role: {MOCK_ACCOUNTS[email].role}</Text>
+                  </Box>
+                ))}
+              </div>
             </Stack>
           </form>
         </VStack>

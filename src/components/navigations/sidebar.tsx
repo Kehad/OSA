@@ -23,8 +23,9 @@ export default function Sidebar() {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const role = user?.role || "admin";
-  const basePath = role === "super-admin" ? "/super-admin" : "/admin";
+  const basePath = role === "super-admin" ? "/super-admin" : role === "student" ? "/student" : "/admin";
   const isAdmin = role === "admin" || role === "teacher";
+  const isStudent = role === "student";
 
   // Menu configuration
   let menuItems = [
@@ -50,7 +51,9 @@ export default function Sidebar() {
     { label: "Log Out", icon: LogOut, onClick: logout, isBottom: true },
   ];
 
-  if (isAdmin) {
+  if (isStudent) {
+    menuItems = menuItems.filter(item => item.label !== "Staff" && item.label !== "Students" && item.label !== "Parents" && item.label !== "Payment & Billings");
+  } else if (isAdmin) {
     menuItems = menuItems.filter(item => item.label !== "Staff" && item.label !== "Parents" && item.label !== "Payment & Billings");
   }
 

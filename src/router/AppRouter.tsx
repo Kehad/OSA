@@ -94,6 +94,30 @@ const AppRouter = () => {
           <Route path="attendance" element={<AdminAttendancePage />} />
         </Route>
 
+        {/* Student Routes */}
+        <Route
+          path="/student"
+          element={
+            <ProtectedRoute allowedRoles={["student", "super-admin"]}>
+              <DashboardLayout />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<Navigate to="dashboard/overview" replace />} />
+          <Route path="dashboard">
+            <Route index element={<Navigate to="overview" replace />} />
+            <Route path="overview" element={<AdminOverview />} />
+          </Route>
+          <Route path="results" element={<AdminResultPage />} />
+          <Route path="schedule">
+            <Route path="timetable" element={<AdminScheduleTimetable />} />
+            <Route path="calendar" element={<AdminCalendarPage />} />
+            <Route path="events" element={<AdminEventsPage />} />
+          </Route>
+          <Route path="attendance" element={<AdminAttendancePage />} />
+          <Route path="settings" element={<AdminSettingsPage />} />
+        </Route>
+
       </Routes>
     </React.Suspense>
   );
